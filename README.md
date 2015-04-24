@@ -16,6 +16,13 @@ South River High School's community video game, anyone can join in or help at an
 * JSON - Various Data that needs to be stored
 * The GNU License for open source software
 
+##The big TO-DO
+* Finish this page.
+* Finish Engine based on libGDX Framework
+* Project infrastructure
+* Work on what we want from the game.
+* More to come as we progress...
+
 ##How to get involved
 ###IDEs
 We will officially use [IntelliJ IDEA](https://www.jetbrains.com/idea/) and [Eclipse](https://eclipse.org/) IDEs for Java development on this game, but you can use what you want if you know how to set it up for yourself.
