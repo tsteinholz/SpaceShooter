@@ -1,4 +1,4 @@
-# Space Shooter ![Build Status](https://travis-ci.org/tsteinholz/SpaceShooter.svg?branch=master)
+# Space Shooter [![Build Status](https://javabilities.com/jenkins/job/Space%20Shooter/badge/icon)](https://javabilities.com/jenkins/job/Space%20Shooter/)
 
 ##About
 South River High School's community video game, anyone can join in or help at any point. All code is open source and written in java using native C / C++ libraries with no proprietary software. This project was created by the students in AP Computer Science A, and is open to the world. The game will be cross platform and free-to-play for 64-bit and 32-bit systems. To get involved with the team check out our [Trello](https://trello.com/b/CObQDpC8/space-shooter)!
@@ -12,8 +12,8 @@ South River High School's community video game, anyone can join in or help at an
 
 ##What are we using?
 * [LibGDX](http://libgdx.badlogicgames.com/) - Java Game Framework for Engines written in as a port from native C / C++
-* [Gradle](https://gradle.org/) - For Build Automation (and dependency upgrading)
-* [JSON](http://json.org/) - Various Data that needs to be stored
+* [Gradle](https://gradle.org/) - Project Automation Tool
+* [Jenkins](https://jenkins-ci.org/) - An extensible open source continuous integration server
 * [The GNU License for open source software](https://www.gnu.org/)
 
 ##How to get involved
