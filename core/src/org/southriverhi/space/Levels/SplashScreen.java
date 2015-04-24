@@ -18,8 +18,20 @@
 package org.southriverhi.space.Levels;
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import org.southriverhi.space.Utils.Universe;
 
 public class SplashScreen implements Screen {
+
+    private SpriteBatch batcher;
+    private Sprite sprite;
+    private Universe universe;
+
+    public SplashScreen(Universe universe) {
+        this.universe = universe;
+    }
+
     @Override
     public void show() {
 
