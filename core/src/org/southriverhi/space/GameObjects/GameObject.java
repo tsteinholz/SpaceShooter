@@ -17,7 +17,72 @@
 
 package org.southriverhi.space.GameObjects;
 
+import com.badlogic.gdx.math.Vector2;
+
 public abstract class GameObject {
-    String name;
-    int cordX, cordY;
+    protected int length, width;        //The length and width of the GameObject.
+    protected Vector2 position;         //A Vector2 of the position.
+    protected float velocity;           //A Float representing the GameObject Velocity.
+
+    /**
+     * 
+     */
+    public GameObject() {
+        this(1, 1, 1, 1, 0);
+    }
+
+    /**
+     *
+     * @param x
+     * @param y
+     * @param length
+     * @param width
+     * @param velocity
+     */
+    public GameObject(float x, float y, int length, int width, float velocity) {
+        this.position = new Vector2(x, y);
+        this.length = length;
+        this.width = width;
+        this.velocity = velocity;
+    }
+
+    /**
+     *
+     * @param delta
+     */
+    public void update(float delta) {
+
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getLength() {
+        return length;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getWidth() {
+        return width;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Vector2 getPosition() {
+        return position;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public float getVelocity() {
+        return velocity;
+    }
 }
