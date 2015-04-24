@@ -1,4 +1,4 @@
-#Git will automaticly ignore all files with the following names or extensions.
+#Git will automaticly ignore all files with the following names or extensions. #
 
 *.class
 *.jar
