@@ -15,18 +15,8 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.southriverhi.space.desktop;
+package org.southriverhi.space.Levels;
 
-import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import org.southriverhi.space.SpaceShooter;
+public class MainMenu {
 
-public class DesktopLauncher {
-	public static void main (String[] arg) {
-		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.title = "South River Space Shooter";
-		config.height = 600;
-		config.width = 800;
-		new LwjglApplication(new SpaceShooter(), config);
-	}
 }
