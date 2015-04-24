@@ -3,11 +3,18 @@
 ##About
 South River High School's community video game, anyone can join in or help at any point. All code is open source and written in java using native C / C++ libraries with no proprietary software. This project was created by the students in AP Computer Science A, and is open to the world. The game will be cross platform and free-to-play for 64-bit and 32-bit systems.
 
-##Goal
+##Positions / Jobs
+* Java Programmers
+* C / C++ Programmers
+* Artists (Digital)
+* Sound Engineers
+* Maintainers
 
-##Libraries
-* LibGDX
-* LWJGL
+##What are we using?
+* LibGDX - Java Game Framework for Engines written in as a port form native C / C++
+* Gradle - For Build Automation (and dependency upgrading)
+* JSON - Various Data that needs to be stored
+* The GNU License for open source software
 
 ##How to get involved
 ###IDEs
