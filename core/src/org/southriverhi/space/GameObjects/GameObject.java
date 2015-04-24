@@ -28,17 +28,17 @@ public abstract class GameObject {
      * Constructor for Empty or Quick GameObjects.
      */
     public GameObject() {
-        this(1, 1, 1, 1, 0);
+        this(1, 1, 0, 0, 0);
     }
 
     /**
      * Constructor for the GameObject Class.
      *
-     * @param x
-     * @param y
-     * @param length
-     * @param width
-     * @param velocity
+     * @param x : The X-Coordinate Value for the GameObject.
+     * @param y : The Y-Coordinate Value for the GameObject
+     * @param length : The Length of the GameObject.
+     * @param width : The Width of the GameObject.
+     * @param velocity : The speed of the GameObject.
      */
     public GameObject(float x, float y, int length, int width, float velocity) {
         this.position = new Vector2(x, y);
