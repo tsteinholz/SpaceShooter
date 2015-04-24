@@ -12,8 +12,8 @@ South River High School's community video game, anyone can join in or help at an
 
 ##What are we using?
 * [LibGDX](http://libgdx.badlogicgames.com/) - Java Game Framework for Engines written in as a port from native C / C++
-* [Gradle](https://gradle.org/) - For Build Automation (and dependency upgrading)
-* [JSON](http://json.org/) - Various Data that needs to be stored
+* [Gradle](https://gradle.org/) - Project Automation Tool
+* [Jenkins](https://jenkins-ci.org/) - An extensible open source continuous integration server
 * [The GNU License for open source software](https://www.gnu.org/)
 
 ##How to get involved
