@@ -17,7 +17,14 @@
 
 package org.southriverhi.space.Utils;
 
-public class World {
+public class Universe {
     GameMode gamemode;
-    
+    ObjectManager objManger;
+
+    public Universe() {
+        this.gamemode = GameMode.INITIALIZATION;
+        //TODO : Universe Set-up code
+        objManger = new ObjectManager();
+        this.gamemode = GameMode.MENU_MAIN;
+    }
 }
