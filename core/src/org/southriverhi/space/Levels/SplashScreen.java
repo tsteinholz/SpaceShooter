@@ -17,29 +17,39 @@
 
 package org.southriverhi.space.Levels;
 
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import org.southriverhi.space.Utils.Universe;
 
 public class SplashScreen implements Screen {
 
-    private SpriteBatch batcher;
+    private AssetManager assetManager;
+    private SpriteBatch batch;
     private Sprite sprite;
-    private Universe universe;
+    private Game game;
 
-    public SplashScreen(Universe universe) {
-        this.universe = universe;
+    public SplashScreen(Game game) {
+        this.game = game;
+        this.assetManager = new AssetManager();
     }
 
     @Override
     public void show() {
-
+        assetManager.load("laststand.png", Texture.class);
     }
 
     @Override
     public void render(float delta) {
-
+        Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        //batch.begin();
+        //batch.draw(assetManager.get("laststand.png", Texture.class), 0, 0);
+        //batch.end();
     }
 
     @Override
@@ -64,6 +74,6 @@ public class SplashScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        assetManager.dispose();
     }
 }
