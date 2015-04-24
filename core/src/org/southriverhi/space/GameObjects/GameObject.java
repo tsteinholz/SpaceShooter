@@ -52,9 +52,7 @@ public abstract class GameObject {
      *
      * @param delta : Time in between frames in milliseconds.
      */
-    public void update(float delta) {
-
-    }
+    public abstract void update(float delta);
 
     /**
      * @return length of the GameObject.
