@@ -1,7 +1,7 @@
 # Space Shooter
 
 ##About
-South River High School's community video game, anyone can join in or help at any point. All code is open source and written in java using native C / C++ libraries with no proprietary software. This project was created by the students in AP Computer Science A, and is open to the world. The game will be cross platform and free-to-play for 64-bit and 32-bit systems.
+South River High School's community video game, anyone can join in or help at any point. All code is open source and written in java using native C / C++ libraries with no proprietary software. This project was created by the students in AP Computer Science A, and is open to the world. The game will be cross platform and free-to-play for 64-bit and 32-bit systems. To get involved with the team check out our [Trello](https://trello.com/b/CObQDpC8/space-shooter)!
 
 ##Positions / Jobs
 * Java Programmers
@@ -11,17 +11,10 @@ South River High School's community video game, anyone can join in or help at an
 * Maintainers
 
 ##What are we using?
-* [LibGDX](http://libgdx.badlogicgames.com/) - Java Game Framework for Engines written in as a port form native C / C++
+* [LibGDX](http://libgdx.badlogicgames.com/) - Java Game Framework for Engines written in as a port from native C / C++
 * [Gradle](https://gradle.org/) - For Build Automation (and dependency upgrading)
 * [JSON](http://json.org/) - Various Data that needs to be stored
 * [The GNU License for open source software](https://www.gnu.org/)
-
-##The big TO-DO
-* Finish this page.
-* Finish Engine based on libGDX Framework
-* Project infrastructure
-* Work on what we want from the game.
-* More to come as we progress...
 
 ##How to get involved
 ###IDEs
