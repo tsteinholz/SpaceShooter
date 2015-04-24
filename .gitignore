@@ -12,7 +12,12 @@
 *.project
 
 # Folders #
+META-INF
 *.idea
+gradle
+.gradle
+classes
+build
 core/build
 desktop/build
 
