@@ -11,10 +11,10 @@ South River High School's community video game, anyone can join in or help at an
 * Maintainers
 
 ##What are we using?
-* LibGDX - Java Game Framework for Engines written in as a port form native C / C++
-* Gradle - For Build Automation (and dependency upgrading)
-* JSON - Various Data that needs to be stored
-* The GNU License for open source software
+* [LibGDX](http://libgdx.badlogicgames.com/) - Java Game Framework for Engines written in as a port form native C / C++
+* [Gradle](https://gradle.org/) - For Build Automation (and dependency upgrading)
+* [JSON](http://json.org/) - Various Data that needs to be stored
+* [The GNU License for open source software](https://www.gnu.org/)
 
 ##The big TO-DO
 * Finish this page.
