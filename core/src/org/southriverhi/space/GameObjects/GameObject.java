@@ -34,11 +34,11 @@ public abstract class GameObject {
     /**
      * Constructor for the GameObject Class.
      *
-     * @param x : The X-Coordinate Value for the GameObject.
-     * @param y : The Y-Coordinate Value for the GameObject
-     * @param length : The Length of the GameObject.
-     * @param width : The Width of the GameObject.
-     * @param velocity : The speed of the GameObject.
+     * @param x         : The X-Coordinate Value for the GameObject.
+     * @param y         : The Y-Coordinate Value for the GameObject
+     * @param length    : The Length of the GameObject.
+     * @param width     : The Width of the GameObject.
+     * @param velocity  : The speed of the GameObject.
      */
     public GameObject(float x, float y, int length, int width, float velocity) {
         this.position = new Vector2(x, y);
@@ -50,35 +50,35 @@ public abstract class GameObject {
     /**
      * Gets called every frame.
      *
-     * @param delta : Time in between frames in milliseconds
+     * @param delta : Time in between frames in milliseconds.
      */
     public void update(float delta) {
 
     }
 
     /**
-     * @return length of the GameObject
+     * @return length of the GameObject.
      */
     public int getLength() {
         return length;
     }
 
     /**
-     * @return width of the GameObject
+     * @return width of the GameObject.
      */
     public int getWidth() {
         return width;
     }
 
     /**
-     * @return position of the GameObject
+     * @return position of the GameObject.
      */
     public Vector2 getPosition() {
         return position;
     }
 
     /**
-     * @return velocity of the GameObject
+     * @return velocity of the GameObject.
      */
     public float getVelocity() {
         return velocity;
