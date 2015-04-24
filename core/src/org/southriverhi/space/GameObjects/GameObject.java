@@ -25,13 +25,14 @@ public abstract class GameObject {
     protected float velocity;           //A Float representing the GameObject Velocity.
 
     /**
-     * 
+     * Constructor for Empty or Quick GameObjects.
      */
     public GameObject() {
         this(1, 1, 1, 1, 0);
     }
 
     /**
+     * Constructor for the GameObject Class.
      *
      * @param x
      * @param y
@@ -47,40 +48,37 @@ public abstract class GameObject {
     }
 
     /**
+     * Gets called every frame.
      *
-     * @param delta
+     * @param delta : Time in between frames in milliseconds
      */
     public void update(float delta) {
 
     }
 
     /**
-     *
-     * @return
+     * @return length of the GameObject
      */
     public int getLength() {
         return length;
     }
 
     /**
-     *
-     * @return
+     * @return width of the GameObject
      */
     public int getWidth() {
         return width;
     }
 
     /**
-     *
-     * @return
+     * @return position of the GameObject
      */
     public Vector2 getPosition() {
         return position;
     }
 
     /**
-     *
-     * @return
+     * @return velocity of the GameObject
      */
     public float getVelocity() {
         return velocity;
