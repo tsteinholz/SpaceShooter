@@ -18,4 +18,6 @@
 package org.southriverhi.space.Utils;
 
 public class World {
+    GameMode gamemode;
+    
 }

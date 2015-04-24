@@ -18,4 +18,5 @@
 package org.southriverhi.space.Networking;
 
 public class Server {
+    //TODO: This is for after the single player is working as we like.
 }

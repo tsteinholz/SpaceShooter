@@ -17,7 +17,7 @@
 
 package org.southriverhi.space.Utils;
 
-public enum GameModes {
+public enum GameMode {
     INITIALIZATION,
     MENU_MAIN,
     MENU_PAUSE,
