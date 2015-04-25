@@ -21,7 +21,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-//import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -46,6 +45,7 @@ public class MainMenu extends Level {
         this.stage = new Stage();
         this.table = new Table();
 
+        //TODO : Translate to JSON and load the skin from menuSkin.json
         //----------Quick menu skin before adding a JSON file for it!-------------//
         //------------------------------------------------------------------------//
         /*Create a font*/
@@ -93,24 +93,16 @@ public class MainMenu extends Level {
     }
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() {}
 
     @Override
-    public void resize(int width, int height) {
-
-    }
+    public void resize(int width, int height) {}
 
     @Override
-    public void resume() {
-
-    }
+    public void resume() {}
 
     @Override
-    public void hide() {
-        dispose();
-    }
+    public void hide() { dispose(); }
 
     @Override
     public void dispose() {
