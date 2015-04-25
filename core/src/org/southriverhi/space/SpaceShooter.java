@@ -18,13 +18,14 @@
 package org.southriverhi.space;
 
 import com.badlogic.gdx.Game;
-import org.southriverhi.space.Levels.SplashScreen;
+import org.southriverhi.space.Levels.MainMenu;
+//import org.southriverhi.space.Levels.SplashScreen;
 
 public class SpaceShooter extends Game {
 
 	@Override
 	public void create() {
-		setScreen(new SplashScreen(this));
+		setScreen(/*new SplashScreen(this)*/new MainMenu(this));
 	}
 
 	@Override

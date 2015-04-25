@@ -19,14 +19,13 @@ package org.southriverhi.space.Levels;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class SplashScreen implements Screen {
+public class SplashScreen extends Level {
 
     private AssetManager assetManager;
     private SpriteBatch batch;
@@ -34,8 +33,7 @@ public class SplashScreen implements Screen {
     private Game game;
 
     public SplashScreen(Game game) {
-        this.game = game;
-        this.assetManager = new AssetManager();
+        super(game);
     }
 
     @Override
