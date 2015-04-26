@@ -92,7 +92,6 @@ public class MainMenu extends Level {
                 Gdx.app.exit();
             }
         });
-
     }
 
     @Override
@@ -116,16 +115,13 @@ public class MainMenu extends Level {
     }
 
     @Override
-    public void pause() {
-    }
+    public void pause() {}
 
     @Override
-    public void resize(int width, int height) {
-    }
+    public void resize(int width, int height) {}
 
     @Override
-    public void resume() {
-    }
+    public void resume() {}
 
     @Override
     public void hide() {
