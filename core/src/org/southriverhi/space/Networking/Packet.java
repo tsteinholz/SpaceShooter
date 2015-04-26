@@ -19,10 +19,9 @@ package org.southriverhi.space.Networking;
 
 import java.io.Serializable;
 
-public interface Packet extends Serializable {
+public abstract class Packet implements Serializable {
 
-    int pId = 0;
     PacketData pd = null;
 
-
+    public abstract short getPacketId();
 }
