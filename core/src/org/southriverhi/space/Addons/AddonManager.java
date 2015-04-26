@@ -35,10 +35,10 @@ public class AddonManager {
     public static final String DIR_STORE = "";
 
 	private static final String PLUGIN_PATH = DIR_STORE + "/plugins";
-	private ArrayList<SpaceShooterPlugin> plugins = new ArrayList<SpaceShooterPlugin>();
-	private HashMap<SpaceShooterPlugin, AddonInfo> pluginInfo = new HashMap<SpaceShooterPlugin, AddonInfo>();
+	private ArrayList<SpaceShooterAddon> plugins = new ArrayList<SpaceShooterAddon>();
+	private HashMap<SpaceShooterAddon, AddonInfo> pluginInfo = new HashMap<SpaceShooterAddon, AddonInfo>();
 
-	public ArrayList<SpaceShooterPlugin> loadPlugins(String... listOPlugin) {
+	public ArrayList<SpaceShooterAddon> loadPlugins(String... listOPlugin) {
 		// if (DEBUG) {
 		// for (Map.Entry<String, String> entry : System.getenv().entrySet()) {
 		// System.out.println(entry.getKey() + " :: " + entry.getValue());
@@ -63,7 +63,7 @@ public class AddonManager {
 						ZipEntry ze = entries.nextElement();
 						System.out.println(ze.getName());
 
-						if (ze.getName().equalsIgnoreCase("plugin.yml")) {
+						if (ze.getName().equalsIgnoreCase("add.on")) {
 
 							DataInputStream in = new DataInputStream(zf.getInputStream(ze));
 							BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -105,7 +105,7 @@ public class AddonManager {
 							@SuppressWarnings("resource")
 							ClassLoader loader = new URLClassLoader(urls);
 							Class<?> cls = loader.loadClass(pi.getClasspath());
-							SpaceShooterPlugin temp = (SpaceShooterPlugin) cls.newInstance();
+							SpaceShooterAddon temp = (SpaceShooterAddon) cls.newInstance();
 							plugins.add(temp);
 							pluginInfo.put(temp, pi);
 							temp = null;
