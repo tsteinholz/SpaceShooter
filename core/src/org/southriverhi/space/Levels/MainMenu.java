@@ -34,7 +34,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
 public class MainMenu extends Level {
 
-    private static final float PADDING = 2;
+    private static final float PADDING = 5;
 
     private BitmapFont font;
     private Pixmap pixmap;
@@ -45,8 +45,11 @@ public class MainMenu extends Level {
     private Label title;
 
     private TextButton.TextButtonStyle textButtonStyle;
-    private TextButton btnPlay;
+    private TextButton btnSinglePlayer;
+    private TextButton btnMultiplayer;
     private TextButton btnOptions;
+    private TextButton btnTexturePacks;
+    private TextButton btnMods;
     private TextButton btnExit;
 
     public MainMenu(Game game) {
@@ -54,14 +57,14 @@ public class MainMenu extends Level {
         this.font = new BitmapFont();
         this.pixmap = new Pixmap(
                 (Gdx.graphics.getWidth() / 2) - (Gdx.graphics.getWidth() / 10),
-                (Gdx.graphics.getHeight() / 5), Pixmap.Format.RGB888);
+                (Gdx.graphics.getHeight() / 12), Pixmap.Format.RGB888);
         this.skin = new Skin();
         this.stage = new Stage();
         this.table = new Table();
         this.textButtonStyle = new TextButton.TextButtonStyle();
 
         skin.add("default", font);
-        pixmap.setColor(Color.WHITE);
+        pixmap.setColor(Color.PINK);
         pixmap.fill();
         skin.add("background", new Texture(pixmap));
 
@@ -73,14 +76,24 @@ public class MainMenu extends Level {
 
         skin.add("default", textButtonStyle);
 
-        this.btnPlay = new TextButton("Play", skin);
+        this.btnSinglePlayer = new TextButton("Single Player", skin);
+        this.btnMultiplayer = new TextButton("Multiplayer", skin);
         this.btnOptions = new TextButton("Options", skin);
+        this.btnTexturePacks = new TextButton("Texture Packs", skin);
+        this.btnMods = new TextButton("Mods", skin);
         this.btnExit = new TextButton("Exit", skin);
 
-        btnPlay.addListener(new ChangeListener() {
+        btnSinglePlayer.addListener(new ChangeListener() {
             public void changed(ChangeEvent event, Actor actor) {
-                btnPlay.setText("Loading Level Select");
+                btnSinglePlayer.setText("Loading Single Player");
                 //TODO : load level select.
+            }
+        });
+        btnMultiplayer.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                btnMultiplayer.setText("Loading Multiplayer");
+                //TODO : load server select.
             }
         });
         btnOptions.addListener(new ChangeListener() {
@@ -88,6 +101,20 @@ public class MainMenu extends Level {
             public void changed(ChangeEvent event, Actor actor) {
                 btnOptions.setText("Loading Options");
                 //TODO : Load options.
+            }
+        });
+        btnTexturePacks.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                btnTexturePacks.setText("Loading Texture Pack Menu");
+                //TODO : load texture map menu.
+            }
+        });
+        btnMods.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                btnMods.setText("Loading Mods Menu");
+                //TODO : load mods menu.
             }
         });
         btnExit.addListener(new ChangeListener() {
@@ -101,12 +128,12 @@ public class MainMenu extends Level {
 
     @Override
     public void show() {
-        table.add(btnPlay).pad(PADDING);
-        table.row();
-        table.add(btnOptions).pad(PADDING);
-        table.row();
-        table.add(btnExit).pad(PADDING);
-        table.row();
+        table.add(btnSinglePlayer).pad(PADDING).row();
+        table.add(btnMultiplayer).pad(PADDING).row();
+        table.add(btnOptions).pad(PADDING).row();
+        table.add(btnTexturePacks).pad(PADDING).row();
+        table.add(btnMods).pad(PADDING).row();
+        table.add(btnExit).pad(PADDING).row();
 
         table.setFillParent(true);
         stage.addActor(table);
