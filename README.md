@@ -18,6 +18,8 @@ Must have [Gradle](https://gradle.org/) & [Git](http://git-scm.com/) installed.
 * Close all open projects (File/Close Project)
 * Click "Import Project" and choose `gradle.build`
 * Let Gradle do it's thing and your good to go!
+* Set-up Build Configuration (Run/Edit Configuration)
+* Do what the Debug Header says and call the Configuration what you would like.
 
 ### For Eclipse
 WIP(Work in Progress)
@@ -25,6 +27,8 @@ WIP(Work in Progress)
 ### For NetBeans
 WIP(Work in Progress)
 
+### To Debug
+Change your IDE Build and Run path to ./core/assets so that all of the assets can load in the way libGDX would like them to.
 ### Commit Code
 Once your Fork is ready to be merged with the master, send a pull request to `tsteinholz/SpaceShooter`. Make sure you keep your fork up-to-date to avoid merges with non-necessary merges or conflicts with the master branch.
 
