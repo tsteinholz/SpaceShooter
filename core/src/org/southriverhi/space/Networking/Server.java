@@ -68,9 +68,9 @@ public class Server {
 
     }
 
-    public static void broadcastPacket(Packet sPacket1) {
-        for(ClientConnection clientConnection : connections){
-            clientConnection.sendPacket(sPacket1);
+    public static void broadcastPacket(Packet packet) {
+        for (ClientConnection clientConnection : connections) {
+            clientConnection.sendPacket(packet);
         }
     }
 
