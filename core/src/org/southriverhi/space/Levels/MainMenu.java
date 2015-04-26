@@ -25,6 +25,7 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -33,11 +34,15 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
 public class MainMenu extends Level {
 
+    private static final float PADDING = 2;
+
     private BitmapFont font;
     private Pixmap pixmap;
     private Skin skin;
     private Stage stage;
     private Table table;
+
+    private Label title;
 
     private TextButton.TextButtonStyle textButtonStyle;
     private TextButton btnPlay;
@@ -96,9 +101,12 @@ public class MainMenu extends Level {
 
     @Override
     public void show() {
-        table.add(btnPlay).row();
-        table.add(btnOptions).row();
-        table.add(btnExit).row();
+        table.add(btnPlay).pad(PADDING);
+        table.row();
+        table.add(btnOptions).pad(PADDING);
+        table.row();
+        table.add(btnExit).pad(PADDING);
+        table.row();
 
         table.setFillParent(true);
         stage.addActor(table);
