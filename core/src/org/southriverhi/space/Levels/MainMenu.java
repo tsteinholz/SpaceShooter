@@ -24,10 +24,12 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
 public class MainMenu extends Level {
 
@@ -69,6 +71,14 @@ public class MainMenu extends Level {
         this.btnPlay = new TextButton("Play", skin);
         this.btnOptions = new TextButton("Options", skin);
         this.btnExit = new TextButton("Exit", skin);
+
+        btnPlay.addListener(new ChangeListener() {
+            public void changed(ChangeEvent event, Actor actor) {
+                btnPlay.setText("Starting new game");
+                //game.setScreen(new Play(game));//to level select
+            }
+        });
+
     }
 
     @Override
