@@ -19,15 +19,14 @@ package org.southriverhi.space.Networking;
 
 import org.southriverhi.space.Levels.Level;
 import org.southriverhi.space.StartupArgs;
-import org.southriverhi.space.Utils.Logger;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.ArrayList;
 
-public class Server {
+import static org.southriverhi.space.SpaceShooter.logger;
 
-    public static Logger logger = new Logger();
+public class Server {
 
     private final String name;
     private final short port;
@@ -69,9 +68,13 @@ public class Server {
 
     }
 
-    public static void broadcastPacket(Packet packet){
+    public static void broadcastPacket(Packet sPacket1) {
         for(ClientConnection clientConnection : connections){
-            clientConnection.sendPacket(packet);
+            clientConnection.sendPacket(sPacket1);
         }
+    }
+
+    public static void removeConnection(ClientConnection clientConnection) {
+        connections.remove(clientConnection);
     }
 }

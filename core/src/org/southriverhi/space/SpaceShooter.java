@@ -18,11 +18,20 @@
 package org.southriverhi.space;
 
 import com.badlogic.gdx.Game;
+<<<<<<< HEAD
 import com.badlogic.gdx.assets.AssetManager;
+=======
+import org.southriverhi.space.Addons.AddonManager;
+import org.southriverhi.space.Addons.SpaceShooterAddon;
+>>>>>>> 40c525229fbc5278ca848aa3b29dd59ac46a20d8
 import org.southriverhi.space.Levels.SplashScreen;
+import org.southriverhi.space.Utils.Logger;
+
+import java.util.List;
 
 public class SpaceShooter extends Game {
 
+<<<<<<< HEAD
 	private AssetManager assetManager;
 
 	@Override
@@ -30,9 +39,19 @@ public class SpaceShooter extends Game {
 		assetManager = new AssetManager();
 		setScreen(new SplashScreen(this, assetManager));
 	}
+=======
+    public static Logger logger = new Logger();
+    public static List<SpaceShooterAddon> addons;
 
-	@Override
-	public void dispose() {
-		super.dispose();
-	}
+    @Override
+    public void create() {
+        setScreen(new SplashScreen(this));
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+    }
+>>>>>>> 40c525229fbc5278ca848aa3b29dd59ac46a20d8
+
 }

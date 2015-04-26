@@ -178,6 +178,7 @@ public class MainMenu extends Level {
 
     @Override
     public void dispose() {
+        assetManager.unload("menus/background.png");
         stage.dispose();
         skin.dispose();
     }

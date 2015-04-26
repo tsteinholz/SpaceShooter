@@ -24,13 +24,28 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.TimeUtils;
+import org.southriverhi.space.Addons.AddonLoadEvent;
+import org.southriverhi.space.Addons.AddonManager;
+import org.southriverhi.space.Addons.SpaceShooterAddon;
+import org.southriverhi.space.SpaceShooter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SplashScreen extends Level {
 
     private AssetManager assetManager;
     private SpriteBatch batch;
     private Game game;
+<<<<<<< HEAD
     private long start = TimeUtils.millis();
+=======
+    private long start;
+    private long end;
+    public static boolean continueToMainMenu = false;
+    AddonManager manager;
+
+>>>>>>> 40c525229fbc5278ca848aa3b29dd59ac46a20d8
 
     public SplashScreen(Game game, AssetManager assetManager) {
         super(game, assetManager);
@@ -44,6 +59,13 @@ public class SplashScreen extends Level {
         assetManager.load("splash/laststand.png", Texture.class);
         assetManager.load("splash/libgdx_logo.png", Texture.class);
         start = TimeUtils.millis();
+
+        new Thread(() -> {
+            registerHandlers();
+            while (TimeUtils.millis() < (start + 5000)) {
+            }
+            continueToMainMenu = true;
+        }).start();
     }
 
     @Override
@@ -59,27 +81,47 @@ public class SplashScreen extends Level {
                 assetManager.get("splash/libgdx_logo.png", Texture.class).getWidth(),
                 assetManager.get("splash/libgdx_logo.png", Texture.class).getHeight());
         batch.end();
+<<<<<<< HEAD
         if (TimeUtils.millis() > (start + 1500)) {
+=======
+        if (continueToMainMenu) {
+>>>>>>> 40c525229fbc5278ca848aa3b29dd59ac46a20d8
             dispose();
             game.setScreen(new MainMenu(game, assetManager));
         }
     }
 
     @Override
-    public void resize(int width, int height) {}
+    public void resize(int width, int height) {
+    }
 
     @Override
-    public void pause() {}
+    public void pause() {
+    }
 
     @Override
-    public void resume() {}
+    public void resume() {
+    }
 
     @Override
-    public void hide() {}
+    public void hide() {
+    }
 
     @Override
     public void dispose() {
         assetManager.unload("splash/laststand.png");
         assetManager.unload("splash/libgdx_logo.png");
+    }
+
+    public void registerHandlers() {
+        manager = new AddonManager();
+        SpaceShooter.addons = manager.loadPlugins();
+        List<SpaceShooterAddon> pluginsLoaded = new ArrayList<>();
+        for (final SpaceShooterAddon plugin : SpaceShooter.addons) {
+            System.out.println("Running load method on: " + plugin.getPluginName());
+
+            plugin.loadP(new AddonLoadEvent("Load - " + plugin.getPluginName(), pluginsLoaded));
+            pluginsLoaded.add(plugin);
+        }
     }
 }
