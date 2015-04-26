@@ -26,7 +26,7 @@ WIP(Work in Progress)
 WIP(Work in Progress)
 
 ### Commit Code
-Once your Fork is ready to be merged with the master, send a pull request to tsteinholz/SpaceShooter. Make sure you keep your fork up-to-date to avoid merges with non-neccisary merges or conficts with the master branch.
+Once your Fork is ready to be merged with the master, send a pull request to `tsteinholz/SpaceShooter`. Make sure you keep your fork up-to-date to avoid merges with non-neccisary merges or conficts with the master branch.
 
 
 
