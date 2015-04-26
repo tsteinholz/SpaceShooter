@@ -76,5 +76,6 @@ We follow the [Google Java Style] (https://google-styleguide.googlecode.com/svn/
 
 
 ##Contributors
-* Thomas Steinholz
-* Joshua Freedman
+* Thomas Steinholz (Programming)
+* Joshua Freedman (Programming)
+* Rehan Ahme [Music](https://www.youtube.com/channel/UCbGxVTjS8-lGVjlSbjHLvvQ)
