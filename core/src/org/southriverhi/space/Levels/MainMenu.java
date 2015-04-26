@@ -31,41 +31,40 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class MainMenu extends Level {
 
+    private BitmapFont font;
+    private Pixmap pixmap;
     private Skin skin;
     private Stage stage;
     private Table table;
 
+    private TextButton.TextButtonStyle textButtonStyle;
     private TextButton btnPlay;
     private TextButton btnOptions;
     private TextButton btnExit;
 
-
     public MainMenu(Game game) {
         super(game);
+        this.font = new BitmapFont();
+        this.pixmap = new Pixmap(
+                (Gdx.graphics.getWidth() / 2) - (Gdx.graphics.getWidth() / 10),
+                (Gdx.graphics.getHeight() / 5), Pixmap.Format.RGB888);
+        this.skin = new Skin();
         this.stage = new Stage();
         this.table = new Table();
+        this.textButtonStyle = new TextButton.TextButtonStyle();
 
-        //TODO : Translate to JSON and load the skin from menuSkin.json
-        //----------Quick menu skin before adding a JSON file for it!-------------//
-        //------------------------------------------------------------------------//
-        /*Create a font*/
-        BitmapFont font = new BitmapFont();
-        this.skin = new Skin(/*Gdx.files.internal("skins/menuSkin.json")/*, new TextureAtlas(Gdx.files.internal("skins/menuSkin.pack"))*/);
         skin.add("default", font);
-        /*Create a texture*/
-        Pixmap pixmap = new Pixmap(Gdx.graphics.getWidth() / 2 ,Gdx.graphics.getHeight() / 5, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
         skin.add("background", new Texture(pixmap));
-        /*Create a button style*/
-        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+
         textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
         textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
         textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
         textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
         textButtonStyle.font = skin.getFont("default");
+
         skin.add("default", textButtonStyle);
-        //------------------------------------------------------------------------//
 
         this.btnPlay = new TextButton("Play", skin);
         this.btnOptions = new TextButton("Options", skin);
@@ -93,16 +92,21 @@ public class MainMenu extends Level {
     }
 
     @Override
-    public void pause() {}
+    public void pause() {
+    }
 
     @Override
-    public void resize(int width, int height) {}
+    public void resize(int width, int height) {
+    }
 
     @Override
-    public void resume() {}
+    public void resume() {
+    }
 
     @Override
-    public void hide() { dispose(); }
+    public void hide() {
+        dispose();
+    }
 
     @Override
     public void dispose() {
