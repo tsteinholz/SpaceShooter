@@ -21,15 +21,15 @@ import java.util.List;
 
 public class AddonLoadEvent extends AddonEvent {
 
-	List<SpaceShooterPlugin> pluginsLoaded = null;
+	List<SpaceShooterAddon> pluginsLoaded = null;
 
-	public AddonLoadEvent(String name, List<SpaceShooterPlugin> pluginsLoaded) {
+	public AddonLoadEvent(String name, List<SpaceShooterAddon> pluginsLoaded) {
 		// TODO Auto-generated constructor stub
 		this.pluginsLoaded = pluginsLoaded;
 		this.name = name;
 	}
 
-	public List<SpaceShooterPlugin> getPluginsLoaded() {
+	public List<SpaceShooterAddon> getPluginsLoaded() {
 		return pluginsLoaded;
 	}
 
