@@ -8,7 +8,7 @@ South River High School's community video game, anyone can join in or help at an
 
 
 ## Set-up
-Must have [Gradle](https://gradle.org/) & Git installed.
+Must have [Gradle](https://gradle.org/) & [Git](http://git-scm.com/) installed.
 ### General
 * Fork this Repo.
 * Open up Terminal/Git Bash.
