@@ -17,6 +17,50 @@
 
 package org.southriverhi.space.Networking;
 
+import org.southriverhi.space.Levels.Level;
+import org.southriverhi.space.StartupArgs;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
 public class Server {
-    //TODO: This is for after the single player is working as we like.
+
+    final String name;
+    final short port;
+    final int maxCon;
+    final String password;
+    Level level;
+
+    ServerSocket serverSocket = null;
+
+    public Server(StartupArgs sa) {
+        name = sa.serverName;
+        port = sa.serverPort;
+        maxCon = sa.serverMaxConnections;
+        password = sa.serverPassword;
+        level = sa.serverLevel;
+
+        try {
+            serverSocket = new ServerSocket(port);
+            System.out.println("Server Socket Created!");
+
+            while(true) {
+                System.out.println("Waiting for new connection!");
+                new ClientConnection(serverSocket.accept());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                serverSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void start() throws Exception {
+
+    }
 }

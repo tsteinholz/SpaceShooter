@@ -53,4 +53,8 @@ public abstract class Level implements Screen {
     /** Called when this screen should release all resources. */
     @Override
     public abstract void dispose();
+
+    public static Level getLevelByName(String s){
+        return null;
+    }
 }
