@@ -11,8 +11,8 @@ allprojects {
     apply plugin: "eclipse"
     apply plugin: "idea"
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    //sourceCompatibility = 1.8
+    //targetCompatibility = 1.8
 
     version = '1.0'
     ext {
