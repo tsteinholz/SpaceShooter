@@ -19,6 +19,7 @@ package org.southriverhi.space.Levels;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -52,8 +53,8 @@ public class MainMenu extends Level {
     private TextButton btnMods;
     private TextButton btnExit;
 
-    public MainMenu(Game game) {
-        super(game);
+    public MainMenu(Game game, AssetManager assetManager) {
+        super(game, assetManager);
         this.font = new BitmapFont();
         this.pixmap = new Pixmap(
                 (Gdx.graphics.getWidth() / 2) - (Gdx.graphics.getWidth() / 10),

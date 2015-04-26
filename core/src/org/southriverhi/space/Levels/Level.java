@@ -19,13 +19,16 @@ package org.southriverhi.space.Levels;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 
 public abstract class Level implements Screen {
 
+    protected AssetManager assetManager;
     protected Game game;
 
-    public Level(Game game) {
+    public Level(Game game, AssetManager assetManager) {
         this.game = game;
+        this.assetManager = assetManager;
     }
 
     /** Called when this screen becomes the current screen for a {@link Game}. */

@@ -32,11 +32,10 @@ public class SplashScreen extends Level {
     private SpriteBatch batch;
     private Game game;
     private long start;
-    private long end;
 
-    public SplashScreen(Game game) {
-        super(game);
-        assetManager = new AssetManager();
+    public SplashScreen(Game game, AssetManager assetManager) {
+        super(game, assetManager);
+        this.assetManager = assetManager;
         this.game = game;
     }
 
@@ -44,7 +43,6 @@ public class SplashScreen extends Level {
     public void show() {
         batch = new SpriteBatch();
         assetManager.load("splash/laststand.png", Texture.class);
-        //game.setScreen(new MainMenu(game));
         start = TimeUtils.millis();
     }
 
@@ -58,7 +56,7 @@ public class SplashScreen extends Level {
         batch.end();
         if (TimeUtils.millis() > (start + 1000)) {
             dispose();
-            game.setScreen(new MainMenu(game));
+            game.setScreen(new MainMenu(game, assetManager));
         }
     }
 

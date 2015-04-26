@@ -18,13 +18,17 @@
 package org.southriverhi.space;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.assets.AssetManager;
 import org.southriverhi.space.Levels.SplashScreen;
 
 public class SpaceShooter extends Game {
 
+	private AssetManager assetManager;
+
 	@Override
 	public void create() {
-		setScreen(new SplashScreen(this));
+		assetManager = new AssetManager();
+		setScreen(new SplashScreen(this, assetManager));
 	}
 
 	@Override
