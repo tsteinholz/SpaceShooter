@@ -63,9 +63,6 @@ public class DesktopLauncher {
 
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         config.title = "South River Space Shooter";
-//        config.height = 200*6;
-//        config.width = 200*9;
-//        config.fullscreen = true;
         config.height = Toolkit.getDefaultToolkit().getScreenSize().height;
         config.width = Toolkit.getDefaultToolkit().getScreenSize().width;
         config.vSyncEnabled = true;
@@ -73,11 +70,6 @@ public class DesktopLauncher {
         config.allowSoftwareMode = true;
         config.resizable = false;
         config.fullscreen = true;
-        // set resolution to HD ready (1280 x 720) and set full-screen to true
-//        Gdx.graphics.setDisplayMode(1280, 720, true);
-
-// set resolution to default and set full-screen to true
-//        Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode().width, Gdx.graphics.getDesktopDisplayMode().height, true);
         new LwjglApplication(new SpaceShooter(), config);
     }
 }

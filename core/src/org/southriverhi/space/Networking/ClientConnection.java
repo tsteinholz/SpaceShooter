@@ -17,15 +17,13 @@
 
 package org.southriverhi.space.Networking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 public class ClientConnection extends Thread {
     Socket socket = null;
-
+    ObjectOutputStream out;
+    ObjectInputStream in;
     ClientConnection(Socket socket) {
         this.socket = socket;
         start();
@@ -35,26 +33,57 @@ public class ClientConnection extends Thread {
         System.out.println("New Client Communication Thread Started");
 
         try {
-            PrintWriter out = new PrintWriter(socket.getOutputStream(),
-                    true);
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream()));
+             out = new ObjectOutputStream(socket.getOutputStream());
+             in = new ObjectInputStream(socket.getInputStream());
 
-            String inputLine;
 
-            while ((inputLine = in.readLine()) != null) {
-                System.out.println("Server: " + inputLine);
-                out.println(inputLine);
+            Object inObj;
+            while((inObj = in.readObject()) != null){
+                Packet packet = (Packet) inObj;
+                System.out.println("Pid: " + packet.getPacketId());
 
-                if (inputLine.equals("Bye."))
-                    break;
+                if(packet.getPacketId() == 1){
+                    SimpleTextPacket simpleTextPacket = (SimpleTextPacket) packet;
+
+                    System.out.println("Server: "+simpleTextPacket.getUserInput());
+
+
+                    Packet sPacket1 = new SimpleTextPacket(simpleTextPacket.getUserInput());
+
+//                    out.writeObject(sPacket1);
+
+                    Server.broadcastPacket(sPacket1);
+
+                    if (simpleTextPacket.getUserInput().equals("Bye."))
+                        break;
+
+                }
             }
+//            String inputLine;
+//
+//            while ((inputLine = in.readLine()) != null) {
+//                System.out.println("Server: " + inputLine);
+//                out.println(inputLine);
+//
+//                if (inputLine.equals("Bye."))
+//                    break;
+//            }
 
             out.close();
             in.close();
             socket.close();
         } catch (IOException e) {
             System.err.println("Problem with Communication Server");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public synchronized void sendPacket(Packet packet){
+        try {
+            out.writeObject(packet);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

@@ -17,7 +17,7 @@
 
 package org.southriverhi.space.Addons;
 
-public abstract class SpaceShooterPlugin {
+public abstract class SpaceShooterAddon {
 	protected String name;
 
 	public void loadP(AddonLoadEvent event) {

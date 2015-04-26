@@ -19,17 +19,23 @@ package org.southriverhi.space.Networking;
 
 import org.southriverhi.space.Levels.Level;
 import org.southriverhi.space.StartupArgs;
+import org.southriverhi.space.Utils.Logger;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.util.ArrayList;
 
 public class Server {
 
-    final String name;
-    final short port;
-    final int maxCon;
-    final String password;
-    Level level;
+    public static Logger logger = new Logger();
+
+    private final String name;
+    private final short port;
+    private final int maxCon;
+    private final String password;
+    private Level level;
+
+    private static ArrayList<ClientConnection> connections = new ArrayList<ClientConnection>();
 
     ServerSocket serverSocket = null;
 
@@ -40,13 +46,16 @@ public class Server {
         password = sa.serverPassword;
         level = sa.serverLevel;
 
+    }
+
+    public void start() throws Exception {
         try {
             serverSocket = new ServerSocket(port);
-            System.out.println("Server Socket Created!");
+            logger.log("Server Socket Created!");
 
-            while(true) {
-                System.out.println("Waiting for new connection!");
-                new ClientConnection(serverSocket.accept());
+            while (true) {
+                logger.log("Waiting for new connection!");
+                connections.add(new ClientConnection(serverSocket.accept()));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -60,7 +69,9 @@ public class Server {
 
     }
 
-    public void start() throws Exception {
-
+    public static void broadcastPacket(Packet packet){
+        for(ClientConnection clientConnection : connections){
+            clientConnection.sendPacket(packet);
+        }
     }
 }
