@@ -48,6 +48,24 @@ Once your Fork is ready to be merged with the master, send a pull request to tst
 
 
 
+## Technicalities
+### Basic Concept
+This game gears to be a robust competitive Player v Player game. In simple terms there will be alot of mods and plugins to play this game with. Anyone can make changes to the legit game (using this GitHub Repo) or can modify the games to their personal need in a plugin or mod. All of the source is open for the world love or hate. Texture packs are also going too be free to modify. In the Wiki of this GitHub page we will have tutorials on how to Mod, Write Plugin, Make a Texture Pack, and use any of the following features.
+
+### Single Player
+This is basicly for when you dont have a friend on your LAN, no internet connection, or you are in need of practice. This is just a basic battle between you and the AIs. Have fun.
+
+### Multiplayer
+Dedicated Servers will be made to play diffrent games and a friend system will also be implemented so playing with your buddy is possible. LAN networks are also supported and encouraged in work or school environments!
+
+### Plugins and Mods
+WIP
+
+### Texture Packs
+WIP
+
+
+
 ## Coding Conventions
 We follow the [Google Java Style] (https://google-styleguide.googlecode.com/svn/trunk/javaguide.html), All of our code is commented as completly as possible as well as Java Documented if possible or appropriate.
 
