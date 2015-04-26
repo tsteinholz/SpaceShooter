@@ -24,6 +24,7 @@ public class ClientConnection extends Thread {
     Socket socket = null;
     ObjectOutputStream out;
     ObjectInputStream in;
+
     ClientConnection(Socket socket) {
         this.socket = socket;
         start();
@@ -33,27 +34,19 @@ public class ClientConnection extends Thread {
         System.out.println("New Client Communication Thread Started");
 
         try {
-             out = new ObjectOutputStream(socket.getOutputStream());
-             in = new ObjectInputStream(socket.getInputStream());
-
+            out = new ObjectOutputStream(socket.getOutputStream());
+            in = new ObjectInputStream(socket.getInputStream());
 
             Object inObj;
-            while((inObj = in.readObject()) != null){
+            while ((inObj = in.readObject()) != null) {
                 Packet packet = (Packet) inObj;
                 System.out.println("Pid: " + packet.getPacketId());
-
-                if(packet.getPacketId() == 1){
+                if (packet.getPacketId() == 1) {
                     SimpleTextPacket simpleTextPacket = (SimpleTextPacket) packet;
-
-                    System.out.println("Server: "+simpleTextPacket.getUserInput());
-
+                    System.out.println("Server: " + simpleTextPacket.getUserInput());
 
                     Packet sPacket1 = new SimpleTextPacket(simpleTextPacket.getUserInput());
-
-//                    out.writeObject(sPacket1);
-
                     Server.broadcastPacket(sPacket1);
-
                     if (simpleTextPacket.getUserInput().equals("Bye."))
                         break;
 
@@ -66,12 +59,12 @@ public class ClientConnection extends Thread {
             System.err.println("Problem with Communication Server");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             Server.removeConnection(this);
         }
     }
 
-    public synchronized void sendPacket(Packet packet){
+    public synchronized void sendPacket(Packet packet) {
         try {
             out.writeObject(packet);
         } catch (IOException e) {
