@@ -10,11 +10,11 @@ Must have [Gradle](https://gradle.org/) & Git installed.
 ### General
 * Fork this Repo.
 * Open up Terminal/Git Bash.
-* Use the command 'git clone https://github.com/GITHUB_USER/SpaceShooter'
+* Use the command `git clone https://github.com/GITHUB_USER/SpaceShooter`
 
 ### For IntelliJ Idea
 * Close all open projects (File/Close Project)
-* Click "Import Project" and choose 'gradle.build'
+* Click "Import Project" and choose `gradle.build`
 * Let Gradle do it's thing and your good to go!
 
 ### For Eclipse
