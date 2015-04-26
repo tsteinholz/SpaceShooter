@@ -32,7 +32,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class AddonManager {
-    public static final String DIR_STORE = "";
+    public static final String DIR_STORE = ".";
 
 	private static final String PLUGIN_PATH = DIR_STORE + "/plugins";
 	private ArrayList<SpaceShooterAddon> plugins = new ArrayList<SpaceShooterAddon>();

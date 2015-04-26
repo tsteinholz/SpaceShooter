@@ -24,6 +24,13 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.TimeUtils;
+import org.southriverhi.space.Addons.AddonLoadEvent;
+import org.southriverhi.space.Addons.AddonManager;
+import org.southriverhi.space.Addons.SpaceShooterAddon;
+import org.southriverhi.space.SpaceShooter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SplashScreen extends Level {
 
@@ -32,6 +39,9 @@ public class SplashScreen extends Level {
     private Game game;
     private long start;
     private long end;
+    public static boolean continueToMainMenu = false;
+    AddonManager manager;
+
 
     public SplashScreen(Game game) {
         super(game);
@@ -45,6 +55,13 @@ public class SplashScreen extends Level {
         assetManager.load("splash/laststand.png", Texture.class);
         //game.setScreen(new MainMenu(game));
         start = TimeUtils.millis();
+
+        new Thread(() -> {
+            registerHandlers();
+            while (TimeUtils.millis() < (start + 5000)) {
+            }
+            continueToMainMenu = true;
+        }).start();
     }
 
     @Override
@@ -55,26 +72,42 @@ public class SplashScreen extends Level {
         assetManager.finishLoading();
         batch.draw(assetManager.get("splash/laststand.png", Texture.class), 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.end();
-        if (TimeUtils.millis() > (start + 1000)) {
+        if (continueToMainMenu) {
             dispose();
             game.setScreen(new MainMenu(game));
         }
     }
 
     @Override
-    public void resize(int width, int height) {}
+    public void resize(int width, int height) {
+    }
 
     @Override
-    public void pause() {}
+    public void pause() {
+    }
 
     @Override
-    public void resume() {}
+    public void resume() {
+    }
 
     @Override
-    public void hide() {}
+    public void hide() {
+    }
 
     @Override
     public void dispose() {
         assetManager.dispose();
+    }
+
+    public void registerHandlers() {
+        manager = new AddonManager();
+        SpaceShooter.addons = manager.loadPlugins();
+        List<SpaceShooterAddon> pluginsLoaded = new ArrayList<>();
+        for (final SpaceShooterAddon plugin : SpaceShooter.addons) {
+            System.out.println("Running load method on: " + plugin.getPluginName());
+
+            plugin.loadP(new AddonLoadEvent("Load - " + plugin.getPluginName(), pluginsLoaded));
+            pluginsLoaded.add(plugin);
+        }
     }
 }
