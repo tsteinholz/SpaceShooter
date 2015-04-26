@@ -22,7 +22,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.TimeUtils;
 
@@ -31,7 +30,7 @@ public class SplashScreen extends Level {
     private AssetManager assetManager;
     private SpriteBatch batch;
     private Game game;
-    private long start;
+    private long start = TimeUtils.millis();
 
     public SplashScreen(Game game, AssetManager assetManager) {
         super(game, assetManager);
@@ -43,6 +42,7 @@ public class SplashScreen extends Level {
     public void show() {
         batch = new SpriteBatch();
         assetManager.load("splash/laststand.png", Texture.class);
+        assetManager.load("splash/libgdx_logo.png", Texture.class);
         start = TimeUtils.millis();
     }
 
@@ -52,9 +52,14 @@ public class SplashScreen extends Level {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         assetManager.finishLoading();
-        batch.draw(assetManager.get("splash/laststand.png", Texture.class), 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(assetManager.get("splash/laststand.png", Texture.class), 0, 0,
+                Gdx.graphics.getWidth(),
+                Gdx.graphics.getHeight());
+        batch.draw(assetManager.get("splash/libgdx_logo.png", Texture.class), 0, 0,
+                assetManager.get("splash/libgdx_logo.png", Texture.class).getWidth(),
+                assetManager.get("splash/libgdx_logo.png", Texture.class).getHeight());
         batch.end();
-        if (TimeUtils.millis() > (start + 1000)) {
+        if (TimeUtils.millis() > (start + 1500)) {
             dispose();
             game.setScreen(new MainMenu(game, assetManager));
         }
@@ -74,6 +79,7 @@ public class SplashScreen extends Level {
 
     @Override
     public void dispose() {
-        assetManager.dispose();
+        assetManager.unload("splash/laststand.png");
+        assetManager.unload("splash/libgdx_logo.png");
     }
 }
