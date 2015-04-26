@@ -25,6 +25,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -36,6 +37,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 public class MainMenu extends Level {
 
     private static final float PADDING = 5;
+
+    private SpriteBatch batch;
 
     private BitmapFont font;
     private Pixmap pixmap;
@@ -55,6 +58,7 @@ public class MainMenu extends Level {
 
     public MainMenu(Game game, AssetManager assetManager) {
         super(game, assetManager);
+        this.batch = new SpriteBatch();
         this.font = new BitmapFont();
         this.pixmap = new Pixmap(
                 (Gdx.graphics.getWidth() / 2) - (Gdx.graphics.getWidth() / 10),
@@ -65,7 +69,7 @@ public class MainMenu extends Level {
         this.textButtonStyle = new TextButton.TextButtonStyle();
 
         skin.add("default", font);
-        pixmap.setColor(Color.PINK);
+        pixmap.setColor(Color.MAROON);
         pixmap.fill();
         skin.add("background", new Texture(pixmap));
 
@@ -129,6 +133,8 @@ public class MainMenu extends Level {
 
     @Override
     public void show() {
+        assetManager.load("menus/background.png", Texture.class);
+
         table.add(btnSinglePlayer).pad(PADDING).row();
         table.add(btnMultiplayer).pad(PADDING).row();
         table.add(btnOptions).pad(PADDING).row();
@@ -146,6 +152,12 @@ public class MainMenu extends Level {
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        batch.begin();
+        assetManager.finishLoading();
+        batch.draw(assetManager.get("menus/background.png", Texture.class), 0, 0,
+                Gdx.graphics.getWidth(),
+                Gdx.graphics.getHeight());
+        batch.end();
         stage.act();
         stage.draw();
     }
