@@ -37,15 +37,10 @@ public class SplashScreen extends Level {
     private AssetManager assetManager;
     private SpriteBatch batch;
     private Game game;
-<<<<<<< HEAD
-    private long start = TimeUtils.millis();
-=======
     private long start;
     private long end;
     public static boolean continueToMainMenu = false;
     AddonManager manager;
-
->>>>>>> 40c525229fbc5278ca848aa3b29dd59ac46a20d8
 
     public SplashScreen(Game game, AssetManager assetManager) {
         super(game, assetManager);
@@ -81,31 +76,23 @@ public class SplashScreen extends Level {
                 assetManager.get("splash/libgdx_logo.png", Texture.class).getWidth(),
                 assetManager.get("splash/libgdx_logo.png", Texture.class).getHeight());
         batch.end();
-<<<<<<< HEAD
-        if (TimeUtils.millis() > (start + 1500)) {
-=======
         if (continueToMainMenu) {
->>>>>>> 40c525229fbc5278ca848aa3b29dd59ac46a20d8
             dispose();
             game.setScreen(new MainMenu(game, assetManager));
         }
     }
 
     @Override
-    public void resize(int width, int height) {
-    }
+    public void resize(int width, int height) {}
 
     @Override
-    public void pause() {
-    }
+    public void pause() {}
 
     @Override
-    public void resume() {
-    }
+    public void resume() {}
 
     @Override
-    public void hide() {
-    }
+    public void hide() {}
 
     @Override
     public void dispose() {

@@ -18,14 +18,19 @@
 package org.southriverhi.space;
 
 import com.badlogic.gdx.Game;
+import org.southriverhi.space.Addons.AddonManager;
+import org.southriverhi.space.Addons.SpaceShooterAddon;
 import com.badlogic.gdx.assets.AssetManager;
 import org.southriverhi.space.Levels.SplashScreen;
 import org.southriverhi.space.Utils.Logger;
+
+import java.util.List;
 
 public class SpaceShooter extends Game {
 
 	private AssetManager assetManager;
     public static Logger logger = new Logger();
+    public static List<SpaceShooterAddon> addons;
 
     @Override
 	public void create() {
