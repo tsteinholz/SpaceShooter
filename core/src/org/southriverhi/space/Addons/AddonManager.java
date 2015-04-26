@@ -1,6 +1,5 @@
 package org.southriverhi.space.Addons;
 
-import static net.elektrofuchse.im1.src.MainClass.DIR_STORE;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -16,6 +15,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class AddonManager {
+    public static final String DIR_STORE = "";
 
 	private static final String PLUGIN_PATH = DIR_STORE + "/plugins";
 	private ArrayList<SpaceShooterPlugin> plugins = new ArrayList<SpaceShooterPlugin>();
