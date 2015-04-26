@@ -74,8 +74,22 @@ public class MainMenu extends Level {
 
         btnPlay.addListener(new ChangeListener() {
             public void changed(ChangeEvent event, Actor actor) {
-                btnPlay.setText("Starting new game");
-                //game.setScreen(new Play(game));//to level select
+                btnPlay.setText("Loading Level Select");
+                //TODO : load level select.
+            }
+        });
+        btnOptions.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                btnOptions.setText("Loading Options");
+                //TODO : Load options.
+            }
+        });
+        btnExit.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                btnExit.setText("Exiting Game");
+                Gdx.app.exit();
             }
         });
 
