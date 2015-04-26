@@ -68,13 +68,7 @@ public class Server {
 
     }
 
-    public static void broadcastPacket(Packet packet) {
-        for (ClientConnection clientConnection : connections) {
-            clientConnection.sendPacket(packet);
-        }
-    }
+    public void start() throws Exception {
 
-    public static void removeConnection(ClientConnection clientConnection) {
-        connections.remove(clientConnection);
     }
 }
