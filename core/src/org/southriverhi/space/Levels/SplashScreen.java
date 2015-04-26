@@ -34,12 +34,16 @@ public class SplashScreen extends Level {
 
     public SplashScreen(Game game) {
         super(game);
+        assetManager = new AssetManager();
+        this.game = game;
     }
 
     @Override
     public void show() {
         batch = new SpriteBatch();
         assetManager.load("splash/laststand.png", Texture.class);
+        game.setScreen(new MainMenu(game));
+
     }
 
     @Override
@@ -48,7 +52,7 @@ public class SplashScreen extends Level {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         assetManager.finishLoading();
-        batch.draw(assetManager.get("splash/laststand.png", Texture.class), 0, 0);
+        batch.draw(assetManager.get("splash/laststand.png", Texture.class), 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.end();
     }
 

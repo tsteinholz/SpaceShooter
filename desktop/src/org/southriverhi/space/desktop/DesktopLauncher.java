@@ -19,14 +19,65 @@ package org.southriverhi.space.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import org.southriverhi.space.Levels.Level;
+import org.southriverhi.space.Networking.Server;
 import org.southriverhi.space.SpaceShooter;
+import org.southriverhi.space.StartupArgs;
+
+import java.awt.*;
 
 public class DesktopLauncher {
-	public static void main (String[] arg) {
-		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.title = "South River Space Shooter";
-		config.height = 600;
-		config.width = 800;
-		new LwjglApplication(new SpaceShooter(), config);
-	}
+
+    public static void main(String[] arg) {
+        StartupArgs startupArgs = new StartupArgs();
+
+        for (String s : arg) {
+            if (s.equalsIgnoreCase("--dedicated")) {
+                startupArgs.dedicatedServer = true;
+            }
+            if (s.toLowerCase().startsWith("--port:")) {
+                startupArgs.serverPort = Short.parseShort(s.substring(7));
+            }
+            if (s.toLowerCase().startsWith("--maxconnections:")) {
+                startupArgs.serverMaxConnections = Integer.parseInt(s.substring(17));
+            }
+            if (s.toLowerCase().startsWith("--password:")) {
+                startupArgs.serverPassword = s.substring(11);
+            }
+            if (s.toLowerCase().startsWith("--level:")) {
+                startupArgs.serverLevel = Level.getLevelByName(s.substring(8));
+            }
+            if (s.toLowerCase().startsWith("--name:")) {
+                startupArgs.serverName = s.substring(7);
+            }
+        }
+
+        if(startupArgs.dedicatedServer){
+            try {
+                new Server(startupArgs).start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return;
+        }
+
+        LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+        config.title = "South River Space Shooter";
+//        config.height = 200*6;
+//        config.width = 200*9;
+//        config.fullscreen = true;
+        config.height = Toolkit.getDefaultToolkit().getScreenSize().height;
+        config.width = Toolkit.getDefaultToolkit().getScreenSize().width;
+        config.vSyncEnabled = true;
+        config.useHDPI = true;
+        config.allowSoftwareMode = true;
+        config.resizable = false;
+        config.fullscreen = true;
+        // set resolution to HD ready (1280 x 720) and set full-screen to true
+//        Gdx.graphics.setDisplayMode(1280, 720, true);
+
+// set resolution to default and set full-screen to true
+//        Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode().width, Gdx.graphics.getDesktopDisplayMode().height, true);
+        new LwjglApplication(new SpaceShooter(), config);
+    }
 }
