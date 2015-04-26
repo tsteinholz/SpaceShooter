@@ -24,13 +24,15 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.TimeUtils;
 
 public class SplashScreen extends Level {
 
     private AssetManager assetManager;
     private SpriteBatch batch;
-    private Sprite sprite;
     private Game game;
+    private long start;
+    private long end;
 
     public SplashScreen(Game game) {
         super(game);
@@ -42,8 +44,8 @@ public class SplashScreen extends Level {
     public void show() {
         batch = new SpriteBatch();
         assetManager.load("splash/laststand.png", Texture.class);
-        game.setScreen(new MainMenu(game));
-
+        //game.setScreen(new MainMenu(game));
+        start = TimeUtils.millis();
     }
 
     @Override
@@ -54,27 +56,23 @@ public class SplashScreen extends Level {
         assetManager.finishLoading();
         batch.draw(assetManager.get("splash/laststand.png", Texture.class), 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.end();
+        if (TimeUtils.millis() > (start + 1000)) {
+            dispose();
+            game.setScreen(new MainMenu(game));
+        }
     }
 
     @Override
-    public void resize(int width, int height) {
-
-    }
+    public void resize(int width, int height) {}
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() {}
 
     @Override
-    public void resume() {
-
-    }
+    public void resume() {}
 
     @Override
-    public void hide() {
-
-    }
+    public void hide() {}
 
     @Override
     public void dispose() {
