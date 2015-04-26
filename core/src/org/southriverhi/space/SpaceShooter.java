@@ -19,16 +19,19 @@ package org.southriverhi.space;
 
 import com.badlogic.gdx.Game;
 import org.southriverhi.space.Levels.SplashScreen;
+import org.southriverhi.space.Utils.Logger;
 
 public class SpaceShooter extends Game {
 
-	@Override
-	public void create() {
-		setScreen(new SplashScreen(this));
-	}
+    public static Logger logger = new Logger();
 
-	@Override
-	public void dispose() {
-		super.dispose();
-	}
+    @Override
+    public void create() {
+        setScreen(new SplashScreen(this));
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+    }
 }

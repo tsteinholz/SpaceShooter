@@ -59,16 +59,6 @@ public class ClientConnection extends Thread {
 
                 }
             }
-//            String inputLine;
-//
-//            while ((inputLine = in.readLine()) != null) {
-//                System.out.println("Server: " + inputLine);
-//                out.println(inputLine);
-//
-//                if (inputLine.equals("Bye."))
-//                    break;
-//            }
-
             out.close();
             in.close();
             socket.close();
@@ -76,6 +66,8 @@ public class ClientConnection extends Thread {
             System.err.println("Problem with Communication Server");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        }finally {
+            Server.removeConnection(this);
         }
     }
 
