@@ -29,30 +29,27 @@ import java.awt.*;
 public class DesktopLauncher {
 
     public static void main(String[] arg) {
+
+        LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         StartupArgs startupArgs = new StartupArgs();
 
         for (String s : arg) {
             if (s.equalsIgnoreCase("--dedicated")) {
                 startupArgs.dedicatedServer = true;
-            }
-            if (s.toLowerCase().startsWith("--port:")) {
+            } else if (s.toLowerCase().startsWith("--port:")) {
                 startupArgs.serverPort = Short.parseShort(s.substring(7));
-            }
-            if (s.toLowerCase().startsWith("--maxconnections:")) {
+            } else if (s.toLowerCase().startsWith("--maxconnections:")) {
                 startupArgs.serverMaxConnections = Integer.parseInt(s.substring(17));
-            }
-            if (s.toLowerCase().startsWith("--password:")) {
+            } else if (s.toLowerCase().startsWith("--password:")) {
                 startupArgs.serverPassword = s.substring(11);
-            }
-            if (s.toLowerCase().startsWith("--level:")) {
+            } else if (s.toLowerCase().startsWith("--level:")) {
                 startupArgs.serverLevel = Level.getLevelByName(s.substring(8));
-            }
-            if (s.toLowerCase().startsWith("--name:")) {
+            } else if (s.toLowerCase().startsWith("--name:")) {
                 startupArgs.serverName = s.substring(7);
             }
         }
 
-        if(startupArgs.dedicatedServer){
+        if (startupArgs.dedicatedServer) {
             try {
                 new Server(startupArgs).start();
             } catch (Exception e) {
@@ -61,7 +58,6 @@ public class DesktopLauncher {
             return;
         }
 
-        LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         config.title = "South River Space Shooter";
         config.height = Toolkit.getDefaultToolkit().getScreenSize().height;
         config.width = Toolkit.getDefaultToolkit().getScreenSize().width;
@@ -70,6 +66,7 @@ public class DesktopLauncher {
         config.allowSoftwareMode = true;
         config.resizable = false;
         config.fullscreen = true;
+
         new LwjglApplication(new SpaceShooter(), config);
     }
 }

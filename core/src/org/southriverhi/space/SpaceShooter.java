@@ -22,19 +22,32 @@ import com.badlogic.gdx.assets.AssetManager;
 import org.southriverhi.space.Addons.SpaceShooterAddon;
 import org.southriverhi.space.Levels.SplashScreen;
 import org.southriverhi.space.Utils.Logger;
+import org.southriverhi.space.Utils.MusicManager;
 
 import java.util.List;
 
 public class SpaceShooter extends Game {
 
-	private AssetManager assetManager;
+	public static AssetManager assetManager;
+    public static MusicManager musicManager;
     public static Logger logger = new Logger();
     public static List<SpaceShooterAddon> addons;
+    private String[] mix = {
+            "music/TSLASH_Mixtape/dawn.wav",
+            "music/TSLASH_Mixtape/rain.wav",
+            "music/TSLASH_Mixtape/wanted.wav",
+    };
 
     @Override
 	public void create() {
 		assetManager = new AssetManager();
+		musicManager = new MusicManager(mix);
 		setScreen(new SplashScreen(this, assetManager));
+	}
+
+	@Override
+	public void render() {
+		musicManager.update();
 	}
 
 	@Override

@@ -38,7 +38,6 @@ public class SplashScreen extends Level {
     private SpriteBatch batch;
     private Game game;
     private long start;
-    private long end;
     public static boolean continueToMainMenu = false;
     AddonManager manager;
 
@@ -57,8 +56,7 @@ public class SplashScreen extends Level {
 
         new Thread(() -> {
             registerHandlers();
-            while (TimeUtils.millis() < (start + 5000)) {
-            }
+            while (TimeUtils.millis() < (start + 5000)) {}
             continueToMainMenu = true;
         }).start();
     }
