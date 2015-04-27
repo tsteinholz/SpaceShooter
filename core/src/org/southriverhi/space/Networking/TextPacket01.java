@@ -17,11 +17,11 @@
 
 package org.southriverhi.space.Networking;
 
-public class SimpleTextPacket extends Packet {
+public class TextPacket01 extends Packet {
 
     private String uInput;
 
-    public SimpleTextPacket(String userInput) {
+    public TextPacket01(String userInput) {
         uInput = userInput;
     }
 

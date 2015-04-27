@@ -42,12 +42,12 @@ public class ClientConnection extends Thread {
                 Packet packet = (Packet) inObj;
                 System.out.println("Pid: " + packet.getPacketId());
                 if (packet.getPacketId() == 1) {
-                    SimpleTextPacket simpleTextPacket = (SimpleTextPacket) packet;
-                    System.out.println("Server: " + simpleTextPacket.getUserInput());
+                    TextPacket01 textPacket01 = (TextPacket01) packet;
+                    System.out.println("Server: " + textPacket01.getUserInput());
 
-                    Packet sPacket1 = new SimpleTextPacket(simpleTextPacket.getUserInput());
+                    Packet sPacket1 = new TextPacket01(textPacket01.getUserInput());
                     Server.broadcastPacket(sPacket1);
-                    if (simpleTextPacket.getUserInput().equals("Bye."))
+                    if (textPacket01.getUserInput().equals("Bye."))
                         break;
 
                 }
