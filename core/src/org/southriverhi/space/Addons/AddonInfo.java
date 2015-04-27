@@ -33,6 +33,17 @@ public class AddonInfo {
 	private Date revisedDate;
 	private String[] authors;
 
+	/**
+	 *
+	 * @param name
+	 * @param version
+	 * @param type
+	 * @param classpath
+	 * @param description
+	 * @param reqversion
+	 * @param reviseddate
+	 * @param authors
+	 */
 	public AddonInfo(String name, String version, String type, String classpath, String description, String reqversion, String reviseddate, String authors) {
 		this.name = name;
 		this.version = version;
@@ -47,34 +58,58 @@ public class AddonInfo {
 		this.authors = authors.split(",");
 	}
 
+    /**
+     * @return name
+     */
 	public String getName() {
 		return name;
 	}
 
+    /**
+     * @return type
+     */
 	public String getType() {
 		return type;
 	}
 
+    /**
+     * @return version
+     */
 	public String getVersion() {
 		return version;
 	}
 
+    /**
+     * @return classpath
+     */
 	public String getClasspath() {
 		return classpath;
 	}
 
+    /**
+     * @return description
+     */
 	public String[] getDescription() {
 		return description;
 	}
 
+    /**
+     * @return required verison
+     */
 	public String getReqVersion() {
 		return reqVersion;
 	}
 
+    /**
+     * @return reviesed date
+     */
 	public Date getRevisedDate() {
 		return revisedDate;
 	}
 
+    /**
+     * @return authors
+     */
 	public String[] getAuthors() {
 		return authors;
 	}

@@ -18,6 +18,11 @@
 package org.southriverhi.space.Addons;
 
 public class AddonRunEvent extends AddonEvent {
+
+	/**
+	 *
+	 * @param name
+	 */
 	public AddonRunEvent(String name) {
 		this.name = name;
 	}

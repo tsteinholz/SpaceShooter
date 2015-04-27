@@ -22,14 +22,23 @@ public abstract class AddonEvent {
     String name = "event";
     private boolean cancelled = false;
 
+    /**
+     * @return name.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return if the event is cancelled.
+     */
     public boolean isCancelled() {
         return cancelled;
     }
 
+    /**
+     * @param cancelled if the event is cancelled or not.
+     */
     public void setCancelled(boolean cancelled) {
         this.cancelled = cancelled;
     }

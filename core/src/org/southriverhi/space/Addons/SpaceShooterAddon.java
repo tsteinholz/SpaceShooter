@@ -18,37 +18,85 @@
 package org.southriverhi.space.Addons;
 
 public abstract class SpaceShooterAddon {
+
+	/**
+	 *
+	 */
 	protected String name;
 
+    /**
+     *
+     * @param event
+     */
 	public void loadP(AddonLoadEvent event) {
 		load(event);
 	}
 
+    /**
+     *
+     * @param event
+     */
 	public void unloadP(AddonUnloadEvent event) {
 		unload(event);
 	}
 
+    /**
+     *
+     * @param event
+     */
 	public void startP(AddonStartEvent event) {
 		start(event);
 	}
 
+    /**
+     *
+     * @param event
+     */
 	public void stopP(AddonStopEvent event) {
 		stop(event);
 	}
 
+    /**
+     *
+     * @param event
+     */
 	public void runP(AddonRunEvent event) {
 		run(event);
 	}
 
+    /**
+     *
+     * @param event
+     */
 	protected abstract void load(AddonLoadEvent event);
 
+    /**
+     *
+     * @param event
+     */
 	protected abstract void unload(AddonUnloadEvent event);
 
+    /**
+     *
+     * @param event
+     */
 	protected abstract void start(AddonStartEvent event);
 
+    /**
+     *
+     * @param event
+     */
 	protected abstract void stop(AddonStopEvent event);
 
+    /**
+     *
+     * @param event
+     */
 	protected abstract void run(AddonRunEvent event);
 
+    /**
+     *
+     * @return
+     */
 	public abstract String getPluginName();
 }

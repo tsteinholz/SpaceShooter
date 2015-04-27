@@ -33,6 +33,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 public class AddonUtil {
+
 	/**
 	 * Scans a JAR file for .class-files and returns a {@link java.util.List} containing the full name of found classes (in the following form: packageName.className)
 	 * 

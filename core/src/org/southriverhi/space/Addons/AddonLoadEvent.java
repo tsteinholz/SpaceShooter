@@ -23,12 +23,20 @@ public class AddonLoadEvent extends AddonEvent {
 
 	List<SpaceShooterAddon> pluginsLoaded = null;
 
+	/**
+	 *
+	 * @param name
+	 * @param pluginsLoaded
+	 */
 	public AddonLoadEvent(String name, List<SpaceShooterAddon> pluginsLoaded) {
-		// TODO Auto-generated constructor stub
 		this.pluginsLoaded = pluginsLoaded;
 		this.name = name;
 	}
 
+    /**
+     *
+     * @return
+     */
 	public List<SpaceShooterAddon> getPluginsLoaded() {
 		return pluginsLoaded;
 	}

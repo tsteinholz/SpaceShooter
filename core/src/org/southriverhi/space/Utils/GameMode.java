@@ -17,6 +17,7 @@
 
 package org.southriverhi.space.Utils;
 
+@SuppressWarnings("unused")
 public enum GameMode {
     INITIALIZATION,
     MENU_MAIN,
@@ -24,5 +25,5 @@ public enum GameMode {
     RUNNING_SINGLEPLAYER,
     RUNNING_MULTIPLAYER,
     CLOSING,
-    HALTTED,
+    HALTED,
 }
