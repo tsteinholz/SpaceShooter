@@ -42,7 +42,7 @@ public class SpaceShooter extends Game {
 	public void create() {
 		assetManager = new AssetManager();
 		musicManager = new MusicManager(mix);
-		setScreen(new SplashScreen(this, assetManager));
+		setScreen(new SplashScreen(this));
 	}
 
 	@Override

@@ -19,7 +19,6 @@ package org.southriverhi.space.Levels;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -57,8 +56,8 @@ public class MainMenu extends Level {
     private TextButton btnMods;
     private TextButton btnExit;
 
-    public MainMenu(Game game, AssetManager assetManager) {
-        super(game, assetManager);
+    public MainMenu(Game game) {
+        super(game);
         this.batch = new SpriteBatch();
         this.font = new BitmapFont();
         this.pixmap = new Pixmap(
@@ -155,8 +154,8 @@ public class MainMenu extends Level {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        assetManager.finishLoading();
-        batch.draw(assetManager.get("menus/background.png", Texture.class), 0, 0,
+        SpaceShooter.assetManager.finishLoading();
+        batch.draw(SpaceShooter.assetManager.get("menus/background.png", Texture.class), 0, 0,
                 Gdx.graphics.getWidth(),
                 Gdx.graphics.getHeight());
         batch.end();
@@ -180,7 +179,7 @@ public class MainMenu extends Level {
 
     @Override
     public void dispose() {
-        assetManager.unload("menus/background.png");
+        SpaceShooter.assetManager.unload("menus/background.png");
         stage.dispose();
         skin.dispose();
     }

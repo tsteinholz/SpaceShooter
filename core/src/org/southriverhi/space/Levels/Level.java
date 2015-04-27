@@ -20,15 +20,16 @@ package org.southriverhi.space.Levels;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import org.southriverhi.space.SpaceShooter;
 
 public abstract class Level implements Screen {
 
     protected AssetManager assetManager;
     protected Game game;
 
-    public Level(Game game, AssetManager assetManager) {
+    public Level(Game game) {
         this.game = game;
-        this.assetManager = assetManager;
+        this.assetManager = SpaceShooter.assetManager;
     }
 
     /** Called when this screen becomes the current screen for a {@link Game}. */
@@ -40,12 +41,23 @@ public abstract class Level implements Screen {
     @Override
     public abstract void render(float delta);
 
+    /**
+     * Called on resize.
+     * @param width : pixels.
+     * @param height : pixels.
+     */
     @Override
     public abstract void resize(int width, int height);
 
+    /**
+     * Called on pause.
+     */
     @Override
     public abstract void pause();
 
+    /**
+     * Called on resume.
+     */
     @Override
     public abstract void resume();
 
