@@ -69,7 +69,7 @@ public class DesktopLauncher {
         config.useHDPI = true;
         config.allowSoftwareMode = true;
         config.resizable = false;
-        config.fullscreen = true;
+        config.fullscreen = false;
         new LwjglApplication(new SpaceShooter(), config);
     }
 }
