@@ -26,6 +26,7 @@ public class MusicManager {
     private String[] mix;
     private Music currentSong;
     private int currentIndex;
+    private boolean paused;
 
     /**
      * Constructor For the Music Manager
@@ -39,14 +40,14 @@ public class MusicManager {
             assetManager.load(x, Music.class);
             assetManager.finishLoading();
         }
-        currentIndex = 0;
-        currentSong = assetManager.get(mix[currentIndex], Music.class);
+        next();
     }
 
     /**
      * Play the current song.
      */
     public void play() {
+        this.paused = false;
         currentSong.play();
     }
 
@@ -54,8 +55,8 @@ public class MusicManager {
      * Play the next song.
      */
     public void next() {
-        currentSong.stop();
-        currentIndex = currentIndex >= mix.length ? currentIndex++ : 0;
+        if (playing()) currentSong.stop();
+        currentIndex = (int)(Math.random() * mix.length);
         currentSong = assetManager.get(mix[currentIndex], Music.class);
         currentSong.play();
     }
@@ -64,6 +65,7 @@ public class MusicManager {
      * Pauses the current song.
      */
     public void pause() {
+        this.paused = true;
         currentSong.pause();
     }
 
@@ -71,6 +73,7 @@ public class MusicManager {
      * Stops the song
      */
     public void stop() {
+        this.paused = true;
         currentSong.stop();
     }
 
@@ -78,6 +81,7 @@ public class MusicManager {
      * @return if a song is playing.
      */
     public boolean playing() {
+        if (currentSong == null) return false;
         return currentSong.isPlaying();
     }
 
@@ -85,6 +89,6 @@ public class MusicManager {
      * Called once per frame
      */
     public void update() {
-        if (!playing()) next();
+        if (!playing() && !paused) next();
     }
 }
