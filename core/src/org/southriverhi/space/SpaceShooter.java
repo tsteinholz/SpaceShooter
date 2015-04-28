@@ -47,7 +47,8 @@ public class SpaceShooter extends Game {
 
 	@Override
 	public void render() {
-		musicManager.update();
+		super.render();
+        musicManager.update();
 	}
 
 	@Override
