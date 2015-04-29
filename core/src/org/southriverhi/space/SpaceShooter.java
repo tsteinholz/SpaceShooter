@@ -42,6 +42,7 @@ public class SpaceShooter extends Game {
 	public void create() {
 		assetManager = new AssetManager();
 		musicManager = new MusicManager(mix);
+		musicManager.pause();
 		setScreen(new SplashScreen(this));
 	}
 
