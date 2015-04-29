@@ -30,6 +30,8 @@ public class DesktopLauncher {
 
     public static void main(String[] arg) {
 
+        boolean debug = false;
+
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         StartupArgs startupArgs = new StartupArgs();
 
@@ -46,6 +48,8 @@ public class DesktopLauncher {
                 startupArgs.serverLevel = Level.getLevelByName(s.substring(8));
             } else if (s.toLowerCase().startsWith("--name:")) {
                 startupArgs.serverName = s.substring(7);
+            } else if (s.equalsIgnoreCase("--debug")) {
+                debug = true;
             }
         }
 
@@ -59,13 +63,13 @@ public class DesktopLauncher {
         }
 
         config.title = "South River Space Shooter";
-        config.height = Toolkit.getDefaultToolkit().getScreenSize().height;
-        config.width = Toolkit.getDefaultToolkit().getScreenSize().width;
+        config.height = debug ? 600 : Toolkit.getDefaultToolkit().getScreenSize().height;
+        config.width = debug ? 800 : Toolkit.getDefaultToolkit().getScreenSize().width;
         config.vSyncEnabled = true;
         config.useHDPI = true;
         config.allowSoftwareMode = true;
-        config.resizable = false;
-        config.fullscreen = true;
+        config.resizable = debug;
+        config.fullscreen = !debug;
 
         new LwjglApplication(new SpaceShooter(), config);
     }
