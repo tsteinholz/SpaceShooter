@@ -81,8 +81,7 @@ public class MusicManager {
      * @return if a song is playing.
      */
     public boolean playing() {
-        if (currentSong == null) return false;
-        return currentSong.isPlaying();
+        return currentSong != null && currentSong.isPlaying();
     }
 
     /**
