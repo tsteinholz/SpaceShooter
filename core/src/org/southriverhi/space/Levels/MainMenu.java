@@ -36,7 +36,7 @@ import org.southriverhi.space.SpaceShooter;
 
 public class MainMenu extends Level {
 
-    private static final float PADDING = 5;
+    private static final float PADDING = (Gdx.graphics.getWidth() / 120);
 
     private SpriteBatch batch;
 
@@ -62,7 +62,7 @@ public class MainMenu extends Level {
     public MainMenu(Game game) {
         super(game);
         this.batch = new SpriteBatch();
-        this.titleFont = super.loadFont("fonts/Gtek_Technology_free.ttf", 42);
+        this.titleFont = super.loadFont("fonts/Gtek_Technology_free.ttf", (Gdx.graphics.getHeight() / 12));
         this.menuFont = new BitmapFont();
         this.pixmap = new Pixmap(
                 (Gdx.graphics.getWidth() / 2) - (Gdx.graphics.getWidth() / 10),
@@ -101,7 +101,7 @@ public class MainMenu extends Level {
         assetManager.load("menus/background.png", Texture.class);
         assetManager.finishLoading();
 
-        table.add(title).pad(PADDING).row();
+        table.add(title).pad(PADDING * 4).row();
         table.add(btnSinglePlayer).pad(PADDING).row();
         table.add(btnMultiplayer).pad(PADDING).row();
         table.add(btnOptions).pad(PADDING).row();
