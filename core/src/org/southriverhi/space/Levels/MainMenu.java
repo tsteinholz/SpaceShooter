@@ -40,7 +40,8 @@ public class MainMenu extends Level {
 
     private SpriteBatch batch;
 
-    private BitmapFont font;
+    private BitmapFont titleFont;
+    private BitmapFont menuFont;
     private Pixmap pixmap;
     private Skin skin;
     private Stage stage;
@@ -48,7 +49,9 @@ public class MainMenu extends Level {
 
     private Label title;
 
+    private Label.LabelStyle labelStyle;
     private TextButton.TextButtonStyle textButtonStyle;
+
     private TextButton btnSinglePlayer;
     private TextButton btnMultiplayer;
     private TextButton btnOptions;
@@ -59,16 +62,18 @@ public class MainMenu extends Level {
     public MainMenu(Game game) {
         super(game);
         this.batch = new SpriteBatch();
-        this.font = new BitmapFont();
+        this.titleFont = super.loadFont("fonts/Gtek_Technology_free.ttf", 42);
+        this.menuFont = new BitmapFont();
         this.pixmap = new Pixmap(
                 (Gdx.graphics.getWidth() / 2) - (Gdx.graphics.getWidth() / 10),
                 (Gdx.graphics.getHeight() / 12), Pixmap.Format.RGB888);
         this.skin = new Skin();
         this.stage = new Stage();
         this.table = new Table();
+        this.labelStyle = new Label.LabelStyle(titleFont, Color.BLACK);
         this.textButtonStyle = new TextButton.TextButtonStyle();
 
-        skin.add("default", font);
+        skin.add("default", menuFont);
         pixmap.setColor(Color.MAROON);
         pixmap.fill();
         skin.add("background", new Texture(pixmap));
@@ -81,12 +86,31 @@ public class MainMenu extends Level {
 
         skin.add("default", textButtonStyle);
 
+        this.title = new Label("space shooter", labelStyle);
         this.btnSinglePlayer = new TextButton("Single Player", skin);
         this.btnMultiplayer = new TextButton("Multiplayer", skin);
         this.btnOptions = new TextButton("Options", skin);
         this.btnTexturePacks = new TextButton("Texture Packs", skin);
         this.btnMods = new TextButton("Mods", skin);
         this.btnExit = new TextButton("Exit", skin);
+    }
+
+    @Override
+    public void show() {
+        musicManager.play();
+        assetManager.load("menus/background.png", Texture.class);
+        assetManager.finishLoading();
+
+        table.add(title).pad(PADDING).row();
+        table.add(btnSinglePlayer).pad(PADDING).row();
+        table.add(btnMultiplayer).pad(PADDING).row();
+        table.add(btnOptions).pad(PADDING).row();
+        table.add(btnTexturePacks).pad(PADDING).row();
+        table.add(btnMods).pad(PADDING).row();
+        table.add(btnExit).pad(PADDING).row();
+        table.setFillParent(true);
+
+        stage.addActor(table);
 
         btnSinglePlayer.addListener(new ChangeListener() {
             public void changed(ChangeEvent event, Actor actor) {
@@ -129,22 +153,6 @@ public class MainMenu extends Level {
                 Gdx.app.exit();
             }
         });
-    }
-
-    @Override
-    public void show() {
-        SpaceShooter.musicManager.play();
-        assetManager.load("menus/background.png", Texture.class);
-
-        table.add(btnSinglePlayer).pad(PADDING).row();
-        table.add(btnMultiplayer).pad(PADDING).row();
-        table.add(btnOptions).pad(PADDING).row();
-        table.add(btnTexturePacks).pad(PADDING).row();
-        table.add(btnMods).pad(PADDING).row();
-        table.add(btnExit).pad(PADDING).row();
-
-        table.setFillParent(true);
-        stage.addActor(table);
 
         Gdx.input.setInputProcessor(stage);
     }
@@ -154,8 +162,7 @@ public class MainMenu extends Level {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        SpaceShooter.assetManager.finishLoading();
-        batch.draw(SpaceShooter.assetManager.get("menus/background.png", Texture.class), 0, 0,
+        batch.draw(assetManager.get("menus/background.png", Texture.class), 0, 0,
                 Gdx.graphics.getWidth(),
                 Gdx.graphics.getHeight());
         batch.end();

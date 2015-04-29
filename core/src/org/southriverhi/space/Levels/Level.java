@@ -18,18 +18,25 @@
 package org.southriverhi.space.Levels;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import org.southriverhi.space.SpaceShooter;
+import org.southriverhi.space.Utils.MusicManager;
 
 public abstract class Level implements Screen {
 
     protected AssetManager assetManager;
+    protected MusicManager musicManager;
     protected Game game;
 
     public Level(Game game) {
         this.game = game;
         this.assetManager = SpaceShooter.assetManager;
+        this.musicManager = SpaceShooter.musicManager;
     }
 
     /** Called when this screen becomes the current screen for a {@link Game}. */
@@ -71,5 +78,16 @@ public abstract class Level implements Screen {
 
     public static Level getLevelByName(String s){
         return null;
+    }
+
+    public BitmapFont loadFont(String fileLoc, int fontSize) {
+        BitmapFont font;
+        FileHandle fontFile = Gdx.files.internal(fileLoc);
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = fontSize;
+        font = generator.generateFont(parameter);
+        generator.dispose();
+        return font;
     }
 }
