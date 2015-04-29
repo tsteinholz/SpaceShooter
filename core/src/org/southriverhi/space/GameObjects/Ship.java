@@ -19,16 +19,13 @@ package org.southriverhi.space.GameObjects;
 
 import com.badlogic.gdx.math.Vector2;
 
-public abstract class GameObject {
-    protected int length, width;        //The length and width of the GameObject.
-    protected Vector2 position;         //A Vector2 of the position.
-    protected float velocity;           //A Float representing the GameObject Velocity.
+public class Ship extends GameObject {
 
     /**
      * Constructor for Empty or Quick GameObjects.
      */
-    public GameObject() {
-        this(1, 1, 0, 0, 0);
+    public Ship() {
+        super();
     }
 
     /**
@@ -40,11 +37,16 @@ public abstract class GameObject {
      * @param width    : The Width of the GameObject.
      * @param velocity : The speed of the GameObject.
      */
-    public GameObject(float x, float y, int length, int width, float velocity) {
-        this.position = new Vector2(x, y);
-        this.length = length;
-        this.width = width;
-        this.velocity = velocity;
+    public Ship(float x, float y, int length, int width, float velocity) {
+        super(x, y, length, width, velocity);
+    }
+
+    /**
+     * @return length of the GameObject.
+     */
+    @Override
+    public int getLength() {
+        return super.getLength();
     }
 
     /**
@@ -52,38 +54,32 @@ public abstract class GameObject {
      *
      * @param delta : Time in between frames in milliseconds.
      */
-    public abstract void update(float delta);
+    @Override
+    public void update(float delta) {
 
-    /**
-     * @return length of the GameObject.
-     */
-    public int getLength() {
-        return length;
     }
 
     /**
      * @return width of the GameObject.
      */
+    @Override
     public int getWidth() {
-        return width;
+        return super.getWidth();
     }
 
     /**
      * @return position of the GameObject.
      */
+    @Override
     public Vector2 getPosition() {
-        return position;
+        return super.getPosition();
     }
 
     /**
      * @return velocity of the GameObject.
      */
+    @Override
     public float getVelocity() {
-        return velocity;
+        return super.getVelocity();
     }
-
-    /**
-     * @return the integer Object ID
-     */
-    public abstract int getObjectid();
 }
