@@ -9,7 +9,6 @@
 *.project
 META-INF
 *.idea
-gradle
 .gradle
 classes
 build
