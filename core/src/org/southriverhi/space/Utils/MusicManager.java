@@ -36,6 +36,7 @@ public class MusicManager {
     public MusicManager(String[] mix) {
         this.assetManager = SpaceShooter.assetManager;
         this.mix = mix;
+        this.paused = false;
         for (String x : mix) {
             assetManager.load(x, Music.class);
             assetManager.finishLoading();
@@ -55,7 +56,7 @@ public class MusicManager {
      * Play the next song.
      */
     public void next() {
-        if (playing()) currentSong.stop();
+        if (playing()) stop();
         currentIndex = (int)(Math.random() * mix.length);
         currentSong = assetManager.get(mix[currentIndex], Music.class);
         currentSong.play();
@@ -66,15 +67,15 @@ public class MusicManager {
      */
     public void pause() {
         this.paused = true;
-        currentSong.pause();
+        if (playing()) currentSong.pause();
     }
 
     /**
      * Stops the song
      */
     public void stop() {
-        this.paused = true;
-        currentSong.stop();
+        pause();
+        if (playing()) currentSong.stop();
     }
 
     /**

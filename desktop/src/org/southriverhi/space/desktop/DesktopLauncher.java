@@ -54,22 +54,19 @@ public class DesktopLauncher {
         }
 
         if (startupArgs.dedicatedServer) {
-            try {
-                new Server(startupArgs).start();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            try { new Server(startupArgs).start(); }
+            catch (Exception e) { e.printStackTrace(); }
             return;
         }
 
-        config.title = "South River Space Shooter";
-        config.height = debug ? 600 : Toolkit.getDefaultToolkit().getScreenSize().height;
-        config.width = debug ? 800 : Toolkit.getDefaultToolkit().getScreenSize().width;
-        config.vSyncEnabled = true;
-        config.useHDPI = true;
-        config.allowSoftwareMode = true;
-        config.resizable = debug;
-        config.fullscreen = !debug;
+        config.title                = "South River Space Shooter";
+        config.height               = debug ? 6 * 100 : Toolkit.getDefaultToolkit().getScreenSize().height;
+        config.width                = debug ? 11 * 100 : Toolkit.getDefaultToolkit().getScreenSize().width;
+        config.resizable            = debug;
+        config.fullscreen           = !debug;
+        config.vSyncEnabled         = true;
+        config.useHDPI              = true;
+        config.allowSoftwareMode    = true;
 
         new LwjglApplication(new SpaceShooter(), config);
     }
