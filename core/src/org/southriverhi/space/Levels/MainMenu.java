@@ -90,21 +90,21 @@ public class MainMenu extends Level {
 
         btnSinglePlayer.addListener(new ChangeListener() {
             public void changed(ChangeEvent event, Actor actor) {
-                btnSinglePlayer.setText("Loading Single Player");
+                btnSinglePlayer.setText("Loading Single Player Menu");
                 //TODO : load level select.
             }
         });
         btnMultiplayer.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                btnMultiplayer.setText("Loading Multiplayer");
+                btnMultiplayer.setText("Loading Multiplayer Menu");
                 //TODO : load server select.
             }
         });
         btnOptions.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                btnOptions.setText("Loading Options");
+                btnOptions.setText("Loading Options Menu");
                 //TODO : Load options.
             }
         });

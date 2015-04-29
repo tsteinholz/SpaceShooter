@@ -54,6 +54,7 @@ public class SpaceShooter extends Game {
 
 	@Override
 	public void dispose() {
-		super.dispose();
+		musicManager.dispose();
+        super.dispose();
 	}
 }

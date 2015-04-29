@@ -90,4 +90,10 @@ public class MusicManager {
     public void update() {
         if (!playing() && !paused) next();
     }
+
+    public void dispose() {
+        for (String x : mix) {
+            SpaceShooter.assetManager.unload(x);
+        }
+    }
 }
