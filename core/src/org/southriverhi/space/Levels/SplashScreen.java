@@ -48,7 +48,6 @@ public class SplashScreen extends Level {
     public void show() {
         batch = new SpriteBatch();
         SpaceShooter.assetManager.load("splash/laststand.png", Texture.class);
-        SpaceShooter.assetManager.load("splash/libgdx_logo.png", Texture.class);
         start = TimeUtils.millis();
 
         new Thread(() -> {
@@ -67,9 +66,6 @@ public class SplashScreen extends Level {
         batch.draw(SpaceShooter.assetManager.get("splash/laststand.png", Texture.class), 0, 0,
                 Gdx.graphics.getWidth(),
                 Gdx.graphics.getHeight());
-        batch.draw(SpaceShooter.assetManager.get("splash/libgdx_logo.png", Texture.class), 0, 0,
-                SpaceShooter.assetManager.get("splash/libgdx_logo.png", Texture.class).getWidth(),
-                SpaceShooter.assetManager.get("splash/libgdx_logo.png", Texture.class).getHeight());
         batch.end();
         if (continueToMainMenu) {
             dispose();
@@ -92,7 +88,6 @@ public class SplashScreen extends Level {
     @Override
     public void dispose() {
         SpaceShooter.assetManager.unload("splash/laststand.png");
-        SpaceShooter.assetManager.unload("splash/libgdx_logo.png");
     }
 
     public void registerHandlers() {
