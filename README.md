@@ -25,6 +25,10 @@ Community video game, anyone can join in or help at any point. All code is open 
 | Positions / Jobs       | [wiki/Positions-and-Jobs](https://github.com/tsteinholz/SpaceShooter/wiki/Positions-and-Jobs) |
 | Developer Set-Up       |  [wiki/Developer-Set-Up](https://github.com/tsteinholz/SpaceShooter/wiki/Developer-Set-Up) |
 
+##Pre Alpha Snapshots!
+Main Menu: 
+![alt tag](https://raw.githubusercontent.com/tsteinholz/SpaceShooter/master/etc/MainMenuPreAlpha.png)
+
 ##Contributors
 * Thomas Steinholz (Programming)
 * Joshua Freedman (Programming)
