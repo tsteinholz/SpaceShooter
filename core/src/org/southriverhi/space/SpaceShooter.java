@@ -18,7 +18,9 @@
 package org.southriverhi.space;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Pixmap;
 import org.southriverhi.space.Addons.SpaceShooterAddon;
 import org.southriverhi.space.Levels.SplashScreen;
 import org.southriverhi.space.Utils.Logger;
@@ -41,7 +43,8 @@ public class SpaceShooter extends Game {
     @Override
 	public void create() {
 		assetManager = new AssetManager();
-		musicManager = new MusicManager(mix);
+		setCursor("menus/slick_arrow-delta.png");
+        musicManager = new MusicManager(mix);
 		musicManager.pause();
 		setScreen(new SplashScreen(this));
 	}
@@ -56,5 +59,11 @@ public class SpaceShooter extends Game {
 	public void dispose() {
 		musicManager.dispose();
         super.dispose();
+	}
+
+	private void setCursor(String fileLoc) {
+		Pixmap cursor = new Pixmap(Gdx.files.internal(fileLoc));
+		Gdx.input.setCursorImage(cursor, 0, 0);
+		cursor.dispose();
 	}
 }
