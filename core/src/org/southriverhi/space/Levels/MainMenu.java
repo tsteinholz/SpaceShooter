@@ -19,6 +19,7 @@ package org.southriverhi.space.Levels;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -44,6 +45,7 @@ public class MainMenu extends Level {
     private BitmapFont menuFont;
     private Pixmap pixmap;
     private Skin skin;
+    private Sound menuClick;
     private Stage stage;
     private Table table;
 
@@ -98,8 +100,10 @@ public class MainMenu extends Level {
     @Override
     public void show() {
         musicManager.play();
+        assetManager.load("menus/MenuSelectionClick.wav", Sound.class);
         assetManager.load("menus/background.png", Texture.class);
         assetManager.finishLoading();
+        this.menuClick = assetManager.get("menus/MenuSelectionClick.wav");
 
         table.add(title).pad(PADDING * 4).row();
         table.add(btnSinglePlayer).pad(PADDING).row();
@@ -114,6 +118,7 @@ public class MainMenu extends Level {
 
         btnSinglePlayer.addListener(new ChangeListener() {
             public void changed(ChangeEvent event, Actor actor) {
+                menuClick.play();
                 btnSinglePlayer.setText("Loading Single Player Menu");
                 //TODO : load level select.
             }
@@ -121,6 +126,7 @@ public class MainMenu extends Level {
         btnMultiplayer.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
+                menuClick.play();
                 btnMultiplayer.setText("Loading Multiplayer Menu");
                 //TODO : load server select.
             }
@@ -128,6 +134,7 @@ public class MainMenu extends Level {
         btnOptions.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
+                menuClick.play();
                 btnOptions.setText("Loading Options Menu");
                 //TODO : Load options.
             }
@@ -135,6 +142,7 @@ public class MainMenu extends Level {
         btnTexturePacks.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
+                menuClick.play();
                 btnTexturePacks.setText("Loading Texture Pack Menu");
                 //TODO : load texture map menu.
             }
@@ -142,6 +150,7 @@ public class MainMenu extends Level {
         btnMods.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
+                menuClick.play();
                 btnMods.setText("Loading Mods Menu");
                 //TODO : load mods menu.
             }
@@ -149,6 +158,7 @@ public class MainMenu extends Level {
         btnExit.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
+                menuClick.play();
                 btnExit.setText("Exiting Game");
                 Gdx.app.exit();
             }
