@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "Building Project."
 ./gradlew desktop:dist
+mkdir ./releases -p
 cp ./desktop/build/libs/*.jar ./releases/SpaceShooter.jar
 echo "The Project has been built and saved Successfully"
 echo "Do you wish to debug Space Shooter??"
