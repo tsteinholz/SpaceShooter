@@ -30,7 +30,9 @@ import java.util.List;
 
 public class SpaceShooter extends Game {
 
-	public static AssetManager assetManager;
+	public static final String BUILD_VERSION = "v0.0.2-alpha";
+
+    public static AssetManager assetManager;
     public static boolean debug;
     public static MusicManager musicManager;
     public static Logger logger;
