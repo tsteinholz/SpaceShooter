@@ -33,7 +33,7 @@ public class SpaceShooter extends Game {
 	public static AssetManager assetManager;
     public static boolean debug;
     public static MusicManager musicManager;
-    public static Logger logger = new Logger();
+    public static Logger logger;
     public static List<SpaceShooterAddon> addons;
     private String[] mix = {
             "music/TSLASH_Mixtape/rain.ogg",
@@ -43,10 +43,12 @@ public class SpaceShooter extends Game {
 
     @Override
 	public void create() {
-		assetManager = new AssetManager();
+        logger = new Logger();
+        logger.logDebug("Building Game Instance");
+        assetManager = new AssetManager();
 		setCursor("menus/slick_arrow-delta.png");
         musicManager = new MusicManager(mix);
-		musicManager.pause();
+        logger.logDebug("Setting Screen to 'Splash Screen'");
 		setScreen(new SplashScreen(this));
 	}
 
@@ -58,7 +60,8 @@ public class SpaceShooter extends Game {
 
 	@Override
 	public void dispose() {
-		musicManager.dispose();
+		logger.logDebug("Destroying Space Game Instance");
+        musicManager.dispose();
         super.dispose();
 	}
 

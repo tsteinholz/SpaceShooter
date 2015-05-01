@@ -40,7 +40,7 @@ public class Logger {
     private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     private String prefix, suffix, cleanupCode = ANSI_RESET;
 
-    private final String DEBUG = ANSI_PURPLE + "SpaceShooter Debug: " + ANSI_RESET;
+    private final String DEBUG = ANSI_YELLOW + "SpaceShooter Debug: " + ANSI_RESET;
     private final String ERROR = ANSI_RED + "SpaceShooter ERROR: " + ANSI_RESET;
     private final String ERROR_SUFFIX = "!!";
     private final String CLEAR_LOG = ANSI_CYAN + "Log has been cleared!" + ANSI_RESET;
@@ -101,7 +101,7 @@ public class Logger {
         if (message != null && SpaceShooter.debug) {
             String msg = "[" + sdf.format(this.time.getTime()) + "] " + DEBUG + message + suffix + cleanupCode;
             log.add(msg);
-            System.out.println(ANSI_RED + msg);
+            System.out.println(ANSI_BLUE + msg);
         }
     }
 

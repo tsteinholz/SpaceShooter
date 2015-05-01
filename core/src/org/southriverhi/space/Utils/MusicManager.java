@@ -42,6 +42,7 @@ public class MusicManager {
             assetManager.finishLoading();
         }
         next();
+        stop();
     }
 
     /**
@@ -66,8 +67,8 @@ public class MusicManager {
      * Pauses the current song.
      */
     public void pause() {
-        this.paused = true;
         if (playing()) currentSong.pause();
+        this.paused = true;
     }
 
     /**
