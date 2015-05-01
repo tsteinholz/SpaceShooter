@@ -2,6 +2,7 @@
 
 | Branch        | Build Status  | Version |
 |:------------- |:-------------:| :-----: |
+| Stable        | [Released](https://github.com/tsteinholz/SpaceShooter/releases)  | v0.0.1-alpha |
 | Master        | [![Build Status](https://javabilities.com/jenkins/job/Space%20Shooter/badge/icon)](https://javabilities.com/jenkins/job/Space%20Shooter/) | v0.0.2-alpha |
 | Beta          | n/a | n/a |
 | Development   | n/a | n/a |
