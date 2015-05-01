@@ -31,6 +31,7 @@ import java.util.List;
 public class SpaceShooter extends Game {
 
 	public static AssetManager assetManager;
+    public static boolean debug;
     public static MusicManager musicManager;
     public static Logger logger = new Logger();
     public static List<SpaceShooterAddon> addons;

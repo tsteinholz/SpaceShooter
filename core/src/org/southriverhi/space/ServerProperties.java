@@ -19,11 +19,11 @@ package org.southriverhi.space;
 
 import org.southriverhi.space.Levels.Level;
 
-public class StartupArgs {
+public class ServerProperties {
     public boolean dedicatedServer = false;
     public short serverPort = 7683;
     public int serverMaxConnections = 8;
     public String serverPassword = "";
     public Level serverLevel = Level.getLevelByName("default");
-    public String serverName = "Good Ol' Server";
+    public String serverName = "Space Shooter Server";
 }

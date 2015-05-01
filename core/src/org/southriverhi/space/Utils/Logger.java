@@ -17,6 +17,8 @@
 
 package org.southriverhi.space.Utils;
 
+import org.southriverhi.space.SpaceShooter;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -38,6 +40,7 @@ public class Logger {
     private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     private String prefix, suffix, cleanupCode = ANSI_RESET;
 
+    private final String DEBUG = ANSI_PURPLE + "SpaceShooter Debug: " + ANSI_RESET;
     private final String ERROR = ANSI_RED + "SpaceShooter ERROR: " + ANSI_RESET;
     private final String ERROR_SUFFIX = "!!";
     private final String CLEAR_LOG = ANSI_CYAN + "Log has been cleared!" + ANSI_RESET;
@@ -91,6 +94,14 @@ public class Logger {
             String msg = message + cleanupCode;
             log.add(msg);
             System.out.println(msg);
+        }
+    }
+
+    public void logDebug(String message) {
+        if (message != null && SpaceShooter.debug) {
+            String msg = "[" + sdf.format(this.time.getTime()) + "] " + DEBUG + message + suffix + cleanupCode;
+            log.add(msg);
+            System.out.println(ANSI_RED + msg);
         }
     }
 

@@ -18,7 +18,7 @@
 package org.southriverhi.space.Networking;
 
 import org.southriverhi.space.Levels.Level;
-import org.southriverhi.space.StartupArgs;
+import org.southriverhi.space.ServerProperties;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -38,7 +38,7 @@ public class Server {
 
     ServerSocket serverSocket = null;
 
-    public Server(StartupArgs sa) {
+    public Server(ServerProperties sa) {
         name = sa.serverName;
         port = sa.serverPort;
         maxCon = sa.serverMaxConnections;
