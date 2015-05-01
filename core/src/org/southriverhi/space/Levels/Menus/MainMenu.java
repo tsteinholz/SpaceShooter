@@ -15,7 +15,7 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.southriverhi.space.Levels;
+package org.southriverhi.space.Levels.Menus;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -33,6 +33,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import org.southriverhi.space.Levels.Level;
 import org.southriverhi.space.SpaceShooter;
 
 public class MainMenu extends Level {
