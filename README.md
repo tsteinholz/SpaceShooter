@@ -1,7 +1,7 @@
 ![alt tag](https://raw.githubusercontent.com/tsteinholz/SpaceShooter/master/etc/space.png)
 
 | Branch        | Build Status  | Version |
-|:------------- |:-------------:|
+|:------------- |:-------------:| :-----: |
 | Master        | [![Build Status](https://javabilities.com/jenkins/job/Space%20Shooter/badge/icon)](https://javabilities.com/jenkins/job/Space%20Shooter/) | v0.0.2-alpha |
 | Beta          | n/a | n/a |
 | Development   | n/a | n/a |
