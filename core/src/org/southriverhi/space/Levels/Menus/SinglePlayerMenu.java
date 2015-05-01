@@ -18,7 +18,6 @@
 package org.southriverhi.space.Levels.Menus;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import org.southriverhi.space.Levels.Level;
 
 public class SinglePlayerMenu extends Level {
@@ -27,69 +26,24 @@ public class SinglePlayerMenu extends Level {
         super(game);
     }
 
-    /**
-     * Called when this screen becomes the current screen for a {@link Game}.
-     */
     @Override
-    public void show() {
-
-    }
-
-    /**
-     * Called when the screen should render itself.
-     *
-     * @param delta The time in seconds since the last render.
-     */
-    @Override
-    public void render(float delta) {
-
-    }
-
-    /**
-     * Called on resize.
-     *
-     * @param width  : pixels.
-     * @param height : pixels.
-     */
-    @Override
-    public void resize(int width, int height) {
-
-    }
-
-    /**
-     * Called on pause.
-     */
-    @Override
-    public void pause() {
-
-    }
-
-    /**
-     * Called on resume.
-     */
-    @Override
-    public void resume() {
-
-    }
-
-    /**
-     * Called when this screen is no longer the current screen for a {@link Game}.
-     */
-    @Override
-    public void hide() {
-
-    }
-
-    /**
-     * Called when this screen should release all resources.
-     */
-    @Override
-    public void dispose() {
-
-    }
+    public void show() {}
 
     @Override
-    public BitmapFont loadFont(String fileLoc, int fontSize) {
-        return super.loadFont(fileLoc, fontSize);
-    }
+    public void render(float delta) {}
+
+    @Override
+    public void resize(int width, int height) {}
+
+    @Override
+    public void pause() {}
+
+    @Override
+    public void resume() {}
+
+    @Override
+    public void hide() {}
+
+    @Override
+    public void dispose() {}
 }
