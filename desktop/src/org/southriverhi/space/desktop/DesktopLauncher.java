@@ -17,6 +17,7 @@
 
 package org.southriverhi.space.desktop;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import org.southriverhi.space.Levels.Level;
@@ -67,6 +68,8 @@ public class DesktopLauncher {
         config.vSyncEnabled         = true;
         config.useHDPI              = true;
         config.allowSoftwareMode    = true;
+
+        config.addIcon("splash/favicon-blue.png", Files.FileType.Internal);
 
         new LwjglApplication(new SpaceShooter(), config);
     }
