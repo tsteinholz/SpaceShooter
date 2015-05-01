@@ -35,9 +35,9 @@ public class SpaceShooter extends Game {
     public static Logger logger = new Logger();
     public static List<SpaceShooterAddon> addons;
     private String[] mix = {
-            "music/TSLASH_Mixtape/rain.wav",
-            "music/TSLASH_Mixtape/dawn.wav",
-            "music/TSLASH_Mixtape/wanted.wav",
+            "music/TSLASH_Mixtape/rain.ogg",
+            "music/TSLASH_Mixtape/dawn.ogg",
+            "music/TSLASH_Mixtape/wanted.ogg",
     };
 
     @Override
