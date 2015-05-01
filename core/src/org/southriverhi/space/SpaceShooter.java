@@ -47,6 +47,7 @@ public class SpaceShooter extends Game {
 	public void create() {
         logger = new Logger();
         SpaceShooter.logger.logDebug("DEBUGGING MODE ACTIVATED");
+        SpaceShooter.logger.logDebug("Current Version = " + BUILD_VERSION);
         logger.logDebug("Building Game Instance");
         assetManager = new AssetManager();
 		setCursor("menus/slick_arrow-delta.png");
