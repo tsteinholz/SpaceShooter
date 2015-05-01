@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=0.0.1-alpha
+Name=Space Shooter
+Comment=Best Game Ever written in Java.
+Exec=java -jar /home/#Location of the jar file
+Icon=/home/#Location of the icon of your choice
+Terminal=false
+Type=Application
+Categories=Game;Application;
