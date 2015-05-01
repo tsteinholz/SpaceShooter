@@ -46,13 +46,16 @@ public class SplashScreen extends Level {
 
     @Override
     public void show() {
+        SpaceShooter.logger.logDebug("Loading Splash Screen");
         batch = new SpriteBatch();
         SpaceShooter.assetManager.load("splash/laststand.png", Texture.class);
         start = TimeUtils.millis();
 
         new Thread(() -> {
             registerHandlers();
+            SpaceShooter.logger.logDebug("Enjoying the Splash Screen");
             while (TimeUtils.millis() < (start + 5000)) {}
+            SpaceShooter.logger.logDebug("Done Enjoying the Splash Screen");
             continueToMainMenu = true;
         }).start();
     }
@@ -69,6 +72,7 @@ public class SplashScreen extends Level {
         batch.end();
         if (continueToMainMenu) {
             dispose();
+            SpaceShooter.logger.logDebug("Setting Screen to 'MainMenu'");
             game.setScreen(new MainMenu(game));
         }
     }
@@ -87,15 +91,18 @@ public class SplashScreen extends Level {
 
     @Override
     public void dispose() {
+        SpaceShooter.logger.logDebug("Destroying Splash Screen");
+        SpaceShooter.logger.logDebug("Unloading Assets for Splash Screen");
         SpaceShooter.assetManager.unload("splash/laststand.png");
     }
 
     public void registerHandlers() {
+        SpaceShooter.logger.logDebug("Registering Handlers for Add-ons");
         manager = new AddonManager();
         SpaceShooter.addons = manager.loadPlugins();
         List<SpaceShooterAddon> pluginsLoaded = new ArrayList<>();
         for (final SpaceShooterAddon plugin : SpaceShooter.addons) {
-            System.out.println("Running load method on: " + plugin.getPluginName());
+            SpaceShooter.logger.log("Running load method on: " + plugin.getPluginName());
 
             plugin.loadP(new AddonLoadEvent("Load - " + plugin.getPluginName(), pluginsLoaded));
             pluginsLoaded.add(plugin);

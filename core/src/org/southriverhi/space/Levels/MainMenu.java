@@ -63,8 +63,10 @@ public class MainMenu extends Level {
 
     public MainMenu(Game game) {
         super(game);
+        SpaceShooter.logger.logDebug("Creating Main Menu Screen");
         this.batch = new SpriteBatch();
         this.titleFont = super.loadFont("fonts/Gtek_Technology_free.ttf", (Gdx.graphics.getHeight() / 12));
+        SpaceShooter.logger.logDebug("Creating Button Tables & Fonts");
         this.menuFont = new BitmapFont();
         this.pixmap = new Pixmap(
                 (Gdx.graphics.getWidth() / 2) - (Gdx.graphics.getWidth() / 10),
@@ -80,6 +82,7 @@ public class MainMenu extends Level {
         pixmap.fill();
         skin.add("background", new Texture(pixmap));
 
+        SpaceShooter.logger.logDebug("Building Button Style");
         textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
         textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
         textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
@@ -88,6 +91,7 @@ public class MainMenu extends Level {
 
         skin.add("default", textButtonStyle);
 
+        SpaceShooter.logger.logDebug("Building Buttons");
         this.title = new Label("space shooter", labelStyle);
         this.btnSinglePlayer = new TextButton("Single Player", skin);
         this.btnMultiplayer = new TextButton("Multiplayer", skin);
@@ -99,12 +103,14 @@ public class MainMenu extends Level {
 
     @Override
     public void show() {
-        musicManager.play();
-        assetManager.load("menus/MenuSelectionClick.wav", Sound.class);
-        assetManager.load("menus/background.png", Texture.class);
-        assetManager.finishLoading();
-        this.menuClick = assetManager.get("menus/MenuSelectionClick.wav");
+        SpaceShooter.musicManager.play();
+        SpaceShooter.logger.logDebug("Loading Assets");
+        SpaceShooter.assetManager.load("menus/MenuSelectionClick.wav", Sound.class);
+        SpaceShooter.assetManager.load("menus/background.png", Texture.class);
+        SpaceShooter.assetManager.finishLoading();
+        this.menuClick = SpaceShooter.assetManager.get("menus/MenuSelectionClick.wav");
 
+        SpaceShooter.logger.logDebug("Building the Table of Buttons w/ the Title");
         table.add(title).pad(PADDING * 4).row();
         table.add(btnSinglePlayer).pad(PADDING).row();
         table.add(btnMultiplayer).pad(PADDING).row();
@@ -116,10 +122,12 @@ public class MainMenu extends Level {
 
         stage.addActor(table);
 
+        SpaceShooter.logger.logDebug("Set Button Listeners");
         btnSinglePlayer.addListener(new ChangeListener() {
             public void changed(ChangeEvent event, Actor actor) {
                 menuClick.play();
                 btnSinglePlayer.setText("Loading Single Player Menu");
+                SpaceShooter.logger.logDebug("Loading Single Player Menu");
                 //TODO : load level select.
             }
         });
@@ -128,6 +136,7 @@ public class MainMenu extends Level {
             public void changed(ChangeEvent event, Actor actor) {
                 menuClick.play();
                 btnMultiplayer.setText("Loading Multiplayer Menu");
+                SpaceShooter.logger.logDebug("Loading Multiplayer Menu");
                 //TODO : load server select.
             }
         });
@@ -136,6 +145,7 @@ public class MainMenu extends Level {
             public void changed(ChangeEvent event, Actor actor) {
                 menuClick.play();
                 btnOptions.setText("Loading Options Menu");
+                SpaceShooter.logger.logDebug("Loading Options Menu");
                 //TODO : Load options.
             }
         });
@@ -144,6 +154,7 @@ public class MainMenu extends Level {
             public void changed(ChangeEvent event, Actor actor) {
                 menuClick.play();
                 btnTexturePacks.setText("Loading Texture Pack Menu");
+                SpaceShooter.logger.logDebug("Loading Texture Pack Menu");
                 //TODO : load texture map menu.
             }
         });
@@ -152,6 +163,7 @@ public class MainMenu extends Level {
             public void changed(ChangeEvent event, Actor actor) {
                 menuClick.play();
                 btnMods.setText("Loading Mods Menu");
+                SpaceShooter.logger.logDebug("Loading Mods Menu");
                 //TODO : load mods menu.
             }
         });
@@ -160,10 +172,12 @@ public class MainMenu extends Level {
             public void changed(ChangeEvent event, Actor actor) {
                 menuClick.play();
                 btnExit.setText("Exiting Game");
+                SpaceShooter.logger.logDebug("Exiting the Game");
                 Gdx.app.exit();
             }
         });
 
+        SpaceShooter.logger.logDebug("Set the Input Processor to the Main Menu Stage");
         Gdx.input.setInputProcessor(stage);
     }
 
@@ -172,7 +186,7 @@ public class MainMenu extends Level {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        batch.draw(assetManager.get("menus/background.png", Texture.class), 0, 0,
+        batch.draw(SpaceShooter.assetManager.get("menus/background.png", Texture.class), 0, 0,
                 Gdx.graphics.getWidth(),
                 Gdx.graphics.getHeight());
         batch.end();
@@ -196,6 +210,8 @@ public class MainMenu extends Level {
 
     @Override
     public void dispose() {
+        SpaceShooter.logger.logDebug("Destroying Main Menu");
+        SpaceShooter.logger.logDebug("Unloading Assets from Main Menu");
         SpaceShooter.assetManager.unload("menus/background.png");
         stage.dispose();
         skin.dispose();

@@ -40,18 +40,18 @@ public class Logger {
     private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     private String prefix, suffix, cleanupCode = ANSI_RESET;
 
-    private final String DEBUG = ANSI_YELLOW + "SpaceShooter Debug: " + ANSI_RESET;
+    private final String DEBUG = ANSI_YELLOW + "Space Shooter" + ANSI_BLUE + " DEBUG" + ANSI_YELLOW + ": " + ANSI_RESET;
     private final String ERROR = ANSI_RED + "SpaceShooter ERROR: " + ANSI_RESET;
     private final String ERROR_SUFFIX = "!!";
     private final String CLEAR_LOG = ANSI_CYAN + "Log has been cleared!" + ANSI_RESET;
 
     public Logger() {
-        this(new ArrayList<>(), ANSI_PURPLE + "[Space Shooter] " + ANSI_RESET, "");
+        this(new ArrayList<>(), ANSI_PURPLE + "[Space Shooter] " + ANSI_RESET, ".");
     }
 
     public Logger(ArrayList<String> pastLog) {
 
-        this(pastLog, ANSI_PURPLE + "[Space Shooter] " + ANSI_RESET, "");
+        this(pastLog, ANSI_PURPLE + "[Space Shooter] " + ANSI_RESET, ".");
     }
 
     public Logger(String prefix) {
@@ -63,7 +63,7 @@ public class Logger {
     }
 
     public Logger(ArrayList<String> pastLog, String prefix) {
-        this(pastLog, prefix, "");
+        this(pastLog, prefix, ".");
     }
 
     public Logger(ArrayList<String> pastLog, String prefix, String suffix) {

@@ -29,14 +29,10 @@ import org.southriverhi.space.Utils.MusicManager;
 
 public abstract class Level implements Screen {
 
-    protected AssetManager assetManager;
-    protected MusicManager musicManager;
     protected Game game;
 
     public Level(Game game) {
         this.game = game;
-        this.assetManager = SpaceShooter.assetManager;
-        this.musicManager = SpaceShooter.musicManager;
     }
 
     /** Called when this screen becomes the current screen for a {@link Game}. */
@@ -81,6 +77,7 @@ public abstract class Level implements Screen {
     }
 
     public BitmapFont loadFont(String fileLoc, int fontSize) {
+        SpaceShooter.logger.logDebug("Loading font " + fileLoc + " at the size " + fontSize + "px");
         BitmapFont font;
         FileHandle fontFile = Gdx.files.internal(fileLoc);
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);

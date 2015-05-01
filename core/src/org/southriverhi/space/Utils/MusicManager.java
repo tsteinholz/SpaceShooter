@@ -51,6 +51,7 @@ public class MusicManager {
     public void play() {
         this.paused = false;
         currentSong.play();
+        SpaceShooter.logger.logDebug("Music Manager: Now Playing -> " + mix[currentIndex]);
     }
 
     /**
@@ -60,6 +61,7 @@ public class MusicManager {
         if (playing()) stop();
         currentIndex = (int)(Math.random() * mix.length);
         currentSong = assetManager.get(mix[currentIndex], Music.class);
+        SpaceShooter.logger.logDebug("Music Manager Loaded -> " + mix[currentIndex]);
         currentSong.play();
     }
 
@@ -77,6 +79,7 @@ public class MusicManager {
     public void stop() {
         pause();
         if (playing()) currentSong.stop();
+        SpaceShooter.logger.logDebug("Music Manager: Stopped -> " + mix[currentIndex]);
     }
 
     /**
@@ -94,6 +97,7 @@ public class MusicManager {
     }
 
     public void dispose() {
+        SpaceShooter.logger.logDebug("Destroying Music Manager");
         for (String x : mix) {
             SpaceShooter.assetManager.unload(x);
         }
