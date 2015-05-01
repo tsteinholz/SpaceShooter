@@ -63,10 +63,11 @@ public class MainMenu extends Level {
 
     public MainMenu(Game game) {
         super(game);
-        SpaceShooter.logger.logDebug("Creating Main Menu Screen");
+        SpaceShooter.mode = SpaceShooter.GameMode.MENU_MAIN;
+        SpaceShooter.logger.logDebug("Main Menu: Creating Main Menu Screen");
         this.batch = new SpriteBatch();
         this.titleFont = super.loadFont("fonts/Gtek_Technology_free.ttf", (Gdx.graphics.getHeight() / 12));
-        SpaceShooter.logger.logDebug("Creating Button Tables & Fonts");
+        SpaceShooter.logger.logDebug("Main Menu: Creating Button Tables & Fonts");
         this.menuFont = new BitmapFont();
         this.pixmap = new Pixmap(
                 (Gdx.graphics.getWidth() / 2) - (Gdx.graphics.getWidth() / 10),
@@ -82,7 +83,7 @@ public class MainMenu extends Level {
         pixmap.fill();
         skin.add("background", new Texture(pixmap));
 
-        SpaceShooter.logger.logDebug("Building Button Style");
+        SpaceShooter.logger.logDebug("Main Menu: Building Button Style");
         textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
         textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
         textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
@@ -91,7 +92,7 @@ public class MainMenu extends Level {
 
         skin.add("default", textButtonStyle);
 
-        SpaceShooter.logger.logDebug("Building Buttons");
+        SpaceShooter.logger.logDebug("Main Menu: Building Buttons");
         this.title = new Label("space shooter", labelStyle);
         this.btnSinglePlayer = new TextButton("Single Player", skin);
         this.btnMultiplayer = new TextButton("Multiplayer", skin);
@@ -104,13 +105,13 @@ public class MainMenu extends Level {
     @Override
     public void show() {
         SpaceShooter.musicManager.play();
-        SpaceShooter.logger.logDebug("Loading Assets");
+        SpaceShooter.logger.logDebug("Main Menu: Loading Assets");
         SpaceShooter.assetManager.load("menus/MenuSelectionClick.wav", Sound.class);
         SpaceShooter.assetManager.load("menus/background.png", Texture.class);
         SpaceShooter.assetManager.finishLoading();
         this.menuClick = SpaceShooter.assetManager.get("menus/MenuSelectionClick.wav");
 
-        SpaceShooter.logger.logDebug("Building the Table of Buttons w/ the Title");
+        SpaceShooter.logger.logDebug("Main Menu: Building the Table of Buttons w/ the Title");
         table.add(title).pad(PADDING * 4).row();
         table.add(btnSinglePlayer).pad(PADDING).row();
         table.add(btnMultiplayer).pad(PADDING).row();
@@ -122,7 +123,7 @@ public class MainMenu extends Level {
 
         stage.addActor(table);
 
-        SpaceShooter.logger.logDebug("Set Button Listeners");
+        SpaceShooter.logger.logDebug("Main Menu: Setting Button Listeners");
         btnSinglePlayer.addListener(new ChangeListener() {
             public void changed(ChangeEvent event, Actor actor) {
                 menuClick.play();
@@ -210,8 +211,8 @@ public class MainMenu extends Level {
 
     @Override
     public void dispose() {
-        SpaceShooter.logger.logDebug("Destroying Main Menu");
-        SpaceShooter.logger.logDebug("Unloading Assets from Main Menu");
+        SpaceShooter.logger.logDebug("Main Menu: Destroying Main Menu");
+        SpaceShooter.logger.logDebug("Main Menu: Unloading Assets from Main Menu");
         SpaceShooter.assetManager.unload("menus/background.png");
         stage.dispose();
         skin.dispose();

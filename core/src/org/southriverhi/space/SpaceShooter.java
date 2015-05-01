@@ -22,6 +22,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Pixmap;
 import org.southriverhi.space.Addons.SpaceShooterAddon;
+import org.southriverhi.space.GameObjects.GameObject;
 import org.southriverhi.space.Levels.SplashScreen;
 import org.southriverhi.space.Utils.Logger;
 import org.southriverhi.space.Utils.MusicManager;
@@ -37,6 +38,16 @@ public class SpaceShooter extends Game {
     public static MusicManager musicManager;
     public static Logger logger;
     public static List<SpaceShooterAddon> addons;
+    public static GameMode mode;
+    public enum GameMode {
+        INITIALIZATION,
+        MENU_MAIN,
+        MENU_PAUSE,
+        RUNNING_SINGLEPLAYER,
+        RUNNING_MULTIPLAYER,
+        CLOSING,
+        HALTED,
+    }
     private String[] mix = {
             "music/TSLASH_Mixtape/rain.ogg",
             "music/TSLASH_Mixtape/dawn.ogg",
@@ -45,6 +56,7 @@ public class SpaceShooter extends Game {
 
     @Override
 	public void create() {
+        this.mode = GameMode.INITIALIZATION;
         logger = new Logger();
         SpaceShooter.logger.logDebug("DEBUGGING MODE ACTIVATED");
         SpaceShooter.logger.logDebug("Current Version = " + BUILD_VERSION);

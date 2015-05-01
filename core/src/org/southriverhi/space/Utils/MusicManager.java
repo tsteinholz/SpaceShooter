@@ -61,7 +61,7 @@ public class MusicManager {
         if (playing()) stop();
         currentIndex = (int)(Math.random() * mix.length);
         currentSong = assetManager.get(mix[currentIndex], Music.class);
-        SpaceShooter.logger.logDebug("Music Manager Loaded -> " + mix[currentIndex]);
+        SpaceShooter.logger.logDebug("Music Manager: Loaded -> " + mix[currentIndex]);
         currentSong.play();
     }
 
