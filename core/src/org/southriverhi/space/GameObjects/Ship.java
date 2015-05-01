@@ -6,6 +6,9 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Ship extends GameObject {
 
+    public static final int ID = 0;
+
+
     /**
      * Constructor for Empty or Quick GameObjects.
      */
@@ -68,11 +71,4 @@ public class Ship extends GameObject {
         return super.getVelocity();
     }
 
-    /**
-     * @return the integer Object ID
-     */
-    @Override
-    public int getObjectid() {
-        return 0;
-    }
 }

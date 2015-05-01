@@ -82,8 +82,4 @@ public abstract class GameObject {
         return velocity;
     }
 
-    /**
-     * @return the integer Object ID
-     */
-    public abstract int getObjectid();
 }
