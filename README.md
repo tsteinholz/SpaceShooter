@@ -34,3 +34,4 @@ Main Menu:
 * Thomas Steinholz (Programming)
 * Joshua Freedman (Programming)
 * Rehan Choudhery aka TSLASH ([Music](https://www.youtube.com/channel/UCbGxVTjS8-lGVjlSbjHLvvQ))
+* Ross Owens aka Kaos Studios ([Art](https://www.youtube.com/user/KaosMotionx))
