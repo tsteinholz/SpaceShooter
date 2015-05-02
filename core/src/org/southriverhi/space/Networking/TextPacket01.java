@@ -17,10 +17,21 @@
 
 package org.southriverhi.space.Networking;
 
+/**
+ * @author Joshua Freedman
+ * @see org.southriverhi.space.Networking.Packet
+ */
 public class TextPacket01 extends Packet {
 
+    /**
+     * Saved Text.
+     */
     private String uInput;
 
+    /**
+     * Paramter is the text to be serialized and sent to server.
+     * @param userInput
+     */
     public TextPacket01(String userInput) {
         uInput = userInput;
     }
@@ -30,6 +41,10 @@ public class TextPacket01 extends Packet {
         return 1;
     }
 
+    /**
+     * Returns the saved text.
+     * @return
+     */
     public String getUserInput(){
         return uInput;
     }
