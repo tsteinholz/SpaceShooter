@@ -15,37 +15,25 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.southriverhi.space.Networking;
+package org.southriverhi.space.Networking.Common;
+
+import java.io.Serializable;
 
 /**
  * @author Joshua Freedman
- * @see org.southriverhi.space.Networking.Packet
  */
-public class TextPacket01 extends Packet {
+public abstract class Packet implements Serializable {
 
     /**
-     * Saved Text.
+     * PacketData Object
+     * @see org.southriverhi.space.Networking.PacketDatac
      */
-    private String uInput;
+    PacketData pd = null;
 
     /**
-     * Paramter is the text to be serialized and sent to server.
-     * @param userInput
-     */
-    public TextPacket01(String userInput) {
-        uInput = userInput;
-    }
-
-    @Override
-    public short getPacketId() {
-        return 1;
-    }
-
-    /**
-     * Returns the saved text.
+     * Override...
+     * Returns the unique packet id.
      * @return
      */
-    public String getUserInput(){
-        return uInput;
-    }
+    public abstract Integer getPacketId();
 }

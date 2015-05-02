@@ -15,21 +15,24 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.southriverhi.space.Networking;
+package org.southriverhi.space.Networking.Server;
 
 import org.southriverhi.space.Levels.Level;
+import org.southriverhi.space.Networking.Common.Packet;
 import org.southriverhi.space.ServerProperties;
+import org.southriverhi.space.Utils.Logger;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.ArrayList;
 
-import static org.southriverhi.space.SpaceShooter.logger;
-
 /**
  * @author Joshua Freedman
  */
 public class Server {
+
+    public static Logger logger;
+
 
     /**
      * Server Name.
@@ -55,7 +58,7 @@ public class Server {
     /**
      * ArrayList of ClientConnections.
      *
-     * @see org.southriverhi.space.Networking.ClientConnection
+     * @see ClientConnection
      */
     private static ArrayList<ClientConnection> connections = new ArrayList<ClientConnection>();
 
@@ -76,6 +79,10 @@ public class Server {
         maxCon = sa.serverMaxConnections;
         password = sa.serverPassword;
         level = sa.serverLevel;
+
+        logger = new Logger();
+
+        RegisterServerPackets.register();
 
     }
 
@@ -109,10 +116,11 @@ public class Server {
      * Method used for broadcasting a packet to all clients connected to the server.
      *
      * @param packet
-     * @see org.southriverhi.space.Networking.Packet
+     * @see org.southriverhi.space.Networking.Common.Packet
      */
     public static void broadcastPacket(Packet packet) {
         for (ClientConnection clientConnection : connections) {
+            System.out.println("sending to: "+clientConnection.socket.getInetAddress().toString());
             clientConnection.sendPacket(packet);
         }
     }
@@ -121,7 +129,7 @@ public class Server {
      * Removes the passed in ClientConnection from the connections list.
      *
      * @param clientConnection
-     * @see org.southriverhi.space.Networking.ClientConnection
+     * @see ClientConnection
      */
     public static void removeConnection(ClientConnection clientConnection) {
         connections.remove(clientConnection);

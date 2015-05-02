@@ -1,3 +1,89 @@
+//////////////////////////////////////////
+/////ANNOTATIONS PLUGIN SYS///////////////
+//////////////////////////////////////////
+
+
+String packages="";
+
+ArrayList<String>losFioles=new ArrayList<String>();
+
+public void rcDir(String d){
+
+    for(File file:new File(d).listFiles()){
+        if(file.isDirectory()){
+            rcDir(file.getAbsolutePath());
+            continue;
+        }else{
+            losFioles.add(file.getAbsolutePath().replace(packages,"").replace(".class","").replace('\\','.'));
+        }
+    }
+
+
+}
+
+
+        try{
+        Class cls=Class.forName("anotttest.TestPlugin");
+//            System.out.println("WIN: " + Arrays.toString(cls.getDeclaredAnnotations()));
+        }catch(ClassNotFoundException e){
+        e.printStackTrace();
+        }
+
+
+        for(String classpathEntry:System.getProperty("java.class.path").split(System.getProperty("path.separator"))){
+//            System.out.println("ce: " + classpathEntry);
+        if(classpathEntry.startsWith("C:\\Users\\Freedman\\GameWorkspaces\\SpaceShooterD4")){
+        //System.err.println(classpathEntry);
+        System.err.println("CPE: "+classpathEntry);
+        packages=classpathEntry+"\\";
+        rcDir(classpathEntry);
+        }
+        if(classpathEntry.endsWith(".jsar")){
+        File jar=new File(classpathEntry);
+
+        JarInputStream is=null;
+        try{
+        is=new JarInputStream(new FileInputStream(jar));
+        }catch(IOException e){
+        e.printStackTrace();
+        }
+
+        JarEntry entry;
+        try{
+        while((entry=is.getNextJarEntry())!=null){
+        if(entry.getName().endsWith(".class")){
+        // Class.forName(entry.getName()) and check
+        //   for implementation of the interface
+        }
+        }
+        }catch(IOException e){
+        e.printStackTrace();
+        }
+        }
+        }
+
+
+        for(String s:losFioles){
+        System.out.println("FIOLE: "+s);
+        try{
+        Class cls=Class.forName(s);
+        System.out.println("WIN: "+Arrays.toString(cls.getDeclaredAnnotations()));
+//                System.out.println("pls" + ((PluginSys)cls.getDeclaredAnnotation(PluginSys.class)).name());
+        if(cls.getDeclaredAnnotation(PluginSys.class)!=null){
+        System.err.println("Instancing");
+        cls.newInstance();
+        }
+        }catch(ClassNotFoundException e){
+        System.out.println(e.getMessage());
+        }catch(InstantiationException e){
+        e.printStackTrace();
+        }catch(IllegalAccessException e){
+        e.printStackTrace();
+        }
+
+        }
+
+
 ///////////////////////////////////////////
 //////START CLIENT CONNECTION CODE/////////
 ///////////////////////////////////////////
