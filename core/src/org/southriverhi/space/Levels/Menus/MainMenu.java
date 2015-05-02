@@ -39,6 +39,7 @@ import org.southriverhi.space.SpaceShooter;
 public class MainMenu extends Level {
 
     private static final float PADDING = (Gdx.graphics.getWidth() / 120);
+    private MainMenu instance = this;
 
     private SpriteBatch batch;
 
@@ -131,6 +132,7 @@ public class MainMenu extends Level {
                 btnSinglePlayer.setText("Loading Single Player Menu");
                 SpaceShooter.logger.logDebug("Loading Single Player Menu");
                 //TODO : load level select.
+                game.setScreen(new SinglePlayerMenu(game, instance));
             }
         });
         btnMultiplayer.addListener(new ChangeListener() {
@@ -206,9 +208,7 @@ public class MainMenu extends Level {
     public void resume() {}
 
     @Override
-    public void hide() {
-        dispose();
-    }
+    public void hide() {}
 
     @Override
     public void dispose() {

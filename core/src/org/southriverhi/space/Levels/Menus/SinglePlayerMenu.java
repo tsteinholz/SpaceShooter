@@ -22,8 +22,11 @@ import org.southriverhi.space.Levels.Level;
 
 public class SinglePlayerMenu extends Level {
 
-    public SinglePlayerMenu(Game game) {
+    MainMenu menu;
+
+    public SinglePlayerMenu(Game game, MainMenu menu) {
         super(game);
+        this.menu = menu;
     }
 
     @Override
@@ -45,5 +48,7 @@ public class SinglePlayerMenu extends Level {
     public void hide() {}
 
     @Override
-    public void dispose() {}
+    public void dispose() {
+
+    }
 }

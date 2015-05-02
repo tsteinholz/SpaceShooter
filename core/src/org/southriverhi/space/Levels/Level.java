@@ -76,6 +76,12 @@ public abstract class Level implements Screen {
         return null;
     }
 
+    /**
+     * Loads a font into a Bitmap Font.
+     * @param fileLoc : Location of the font file
+     * @param fontSize : The font size of the
+     * @return
+     */
     public BitmapFont loadFont(String fileLoc, int fontSize) {
         SpaceShooter.logger.logDebug("Loading font " + fileLoc + " at the size " + fontSize + "px");
         BitmapFont font;
