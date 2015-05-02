@@ -21,7 +21,7 @@ import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import org.southriverhi.space.Levels.Level;
-import org.southriverhi.space.Networking.Server;
+import org.southriverhi.space.Networking.Server.Server;
 import org.southriverhi.space.SpaceShooter;
 import org.southriverhi.space.ServerProperties;
 
@@ -55,20 +55,23 @@ public class DesktopLauncher {
         }
 
         if (serverProperties.dedicatedServer) {
-            try { new Server(serverProperties).start(); }
-            catch (Exception e) { e.printStackTrace(); }
+            try {
+                new Server(serverProperties).start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             return;
         }
 
-        config.title                = "South River Space Shooter";
+        config.title = "South River Space Shooter";
         //TODO: Fix the auto Resolution Generator for Dual Monitor Support.
-        config.height               = debug ? 6 * 100 : Toolkit.getDefaultToolkit().getScreenSize().height;
-        config.width                = debug ? 11 * 100 : Toolkit.getDefaultToolkit().getScreenSize().width;
-        config.fullscreen           = !debug;
-        config.resizable            = debug;
-        config.vSyncEnabled         = true;
-        config.useHDPI              = true;
-        config.allowSoftwareMode    = true;
+        config.height = debug ? 6 * 100 : Toolkit.getDefaultToolkit().getScreenSize().height;
+        config.width = debug ? 11 * 100 : Toolkit.getDefaultToolkit().getScreenSize().width;
+        config.fullscreen = !debug;
+        config.resizable = debug;
+        config.vSyncEnabled = true;
+        config.useHDPI = true;
+        config.allowSoftwareMode = true;
 
         config.addIcon("splash/favicon-blue.png", Files.FileType.Internal);
 

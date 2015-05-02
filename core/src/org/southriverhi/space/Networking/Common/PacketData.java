@@ -15,7 +15,7 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.southriverhi.space.Networking;
+package org.southriverhi.space.Networking.Common;
 
 /**
  * @author Joshua Freedman

@@ -15,9 +15,16 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.southriverhi.space.Networking;
+package org.southriverhi.space.Networking.Server;
 
-import java.io.*;
+import org.southriverhi.space.Networking.Common.Packet;
+import org.southriverhi.space.Networking.Common.Packet01Text;
+import org.southriverhi.space.Networking.Common.Packet02ServerDisconnect;
+import org.southriverhi.space.Networking.Common.PacketRegistry;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 /**
@@ -59,16 +66,14 @@ public class ClientConnection extends Thread {
             Object inObj;
             while ((inObj = in.readObject()) != null) {
                 Packet packet = (Packet) inObj;
-                System.out.println("Pid: " + packet.getPacketId());
+
+                PacketRegistry.submitPacket(packet);
                 if (packet.getPacketId() == 1) {
-                    TextPacket01 textPacket01 = (TextPacket01) packet;
-                    System.out.println("Server: " + textPacket01.getUserInput());
-
-                    Packet sPacket1 = new TextPacket01(textPacket01.getUserInput());
-                    Server.broadcastPacket(sPacket1);
-                    if (textPacket01.getUserInput().equals("Bye."))
-                        break;
-
+                    Packet01Text textPacket01 = (Packet01Text) packet;
+                    if(textPacket01.getUserInput().equals("Bye."))
+                    {
+                        out.writeObject(new Packet02ServerDisconnect("You typed Bye..."));
+                    }
                 }
             }
             out.close();
@@ -85,7 +90,7 @@ public class ClientConnection extends Thread {
 
     /**
      * Syncronized method to send a packet to the client.
-     * @see org.southriverhi.space.Networking.Packet
+     * @see org.southriverhi.space.Networking.Common.Packet
      * @param packet
      */
     public synchronized void sendPacket(Packet packet) {
