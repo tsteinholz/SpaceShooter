@@ -34,6 +34,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import org.southriverhi.space.Levels.Level;
+import org.southriverhi.space.Levels.Test;
 import org.southriverhi.space.SpaceShooter;
 
 public class MainMenu extends Level {
@@ -132,7 +133,8 @@ public class MainMenu extends Level {
                 btnSinglePlayer.setText("Loading Single Player Menu");
                 SpaceShooter.logger.logDebug("Loading Single Player Menu");
                 //TODO : load level select.
-                game.setScreen(new SinglePlayerMenu(game, instance));
+                //game.setScreen(new SinglePlayerMenu(game, instance));
+                stage = new Test();
             }
         });
         btnMultiplayer.addListener(new ChangeListener() {

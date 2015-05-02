@@ -17,42 +17,13 @@
 
 package org.southriverhi.space.Levels;
 
-import com.badlogic.gdx.Screen;
+import com.uwsoft.editor.renderer.Overlap2DStage;
 
-public class Test implements Screen {
+public class Test extends Overlap2DStage {
 
-    @Override
-    public void show() {
-
-    }
-
-    @Override
-    public void render(float delta) {
-
-    }
-
-    @Override
-    public void resize(int width, int height) {
-
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void hide() {
-
-    }
-
-    @Override
-    public void dispose() {
-
+    public Test() {
+        initSceneLoader();
+        sceneLoader.loadScene("MainScene");
+        addActor(sceneLoader.getRoot());
     }
 }
