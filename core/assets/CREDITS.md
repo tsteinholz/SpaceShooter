@@ -8,23 +8,23 @@
 ##Music / Sounds
 | Song | Author / Source | Copyright |
 |:----:|:---------------:|:---------:|
-| Dawn | Rehan Choudhery | Space Shooter |
-| Rain | Rehan Choudhery | Space Shooter |
-| Wanted | Rehan Choudhery | Space Shooter |
-| MenuSelectionClick | NenadSimic | Creative Commons |
+| Dawn.ogg | Rehan Choudhery | Space Shooter |
+| Rain.ogg | Rehan Choudhery | Space Shooter |
+| Wanted.ogg | Rehan Choudhery | Space Shooter |
+| MenuSelectionClick.wav | NenadSimic | Creative Commons |
 
 ##Images
 | Image | Author / Source | Copyright |
 | :---: | :-------------: | :-------: |
 | background.png | Ben Miller | Public Domain Dedication |
 | logo.png | Ross Owens | Space Shooter |
-| off-switch | Ross Owens | Space Shooter |
-| on-switch | Ross Owens | Space Shooter |
-| slick_arrow-delta | qubodup | Public Domain Dedication |
-| transparent-button | Ross Owens | Space Shooter |
-| white-button | Ross Owens | Space Shooter |
-| badlogic | Bad Logic Games | Apache |
-| favicon-black | Ross Owens | Space Shooter |
-| favicon-blue | Ross Owens | Space Shooter |
-| favicon-white | Ross Owens | Space Shooter |
-| laststand | Ross Owens + Thomas Steinholz | Space Shooter |
+| off-switch.png | Ross Owens | Space Shooter |
+| on-switch.png | Ross Owens | Space Shooter |
+| slick_arrow-delta.png | qubodup | Public Domain Dedication |
+| transparent-button.png | Ross Owens | Space Shooter |
+| white-button.png | Ross Owens | Space Shooter |
+| badlogic.png | Bad Logic Games | Apache 2 License |
+| favicon-black.png | Ross Owens | Space Shooter |
+| favicon-blue.png | Ross Owens | Space Shooter |
+| favicon-white.png | Ross Owens | Space Shooter |
+| laststand.png | Ross Owens + Thomas Steinholz | Space Shooter |
