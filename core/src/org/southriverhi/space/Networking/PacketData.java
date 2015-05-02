@@ -17,6 +17,9 @@
 
 package org.southriverhi.space.Networking;
 
+/**
+ * @author Joshua Freedman
+ */
 public class PacketData {
 
 }

@@ -20,11 +20,30 @@ package org.southriverhi.space.Networking;
 import java.io.*;
 import java.net.Socket;
 
+/**
+ * @author Joshua Freedman
+ */
 public class ClientConnection extends Thread {
+
+    /**
+     * Socket Object that stores the Client's Socket Connection
+     */
     Socket socket = null;
+
+    /**
+     * A reference to the OutputStream of the socket.
+     */
     ObjectOutputStream out;
+
+    /**
+     * A reference to the InputStream of the socket.
+     */
     ObjectInputStream in;
 
+    /**
+     * Parameter is the socket object of the client.
+     * @param socket
+     */
     ClientConnection(Socket socket) {
         this.socket = socket;
         start();
@@ -64,6 +83,11 @@ public class ClientConnection extends Thread {
         }
     }
 
+    /**
+     * Syncronized method to send a packet to the client.
+     * @see org.southriverhi.space.Networking.Packet
+     * @param packet
+     */
     public synchronized void sendPacket(Packet packet) {
         try {
             out.writeObject(packet);

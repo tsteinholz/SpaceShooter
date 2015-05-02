@@ -19,9 +19,21 @@ package org.southriverhi.space.Networking;
 
 import java.io.Serializable;
 
+/**
+ * @author Joshua Freedman
+ */
 public abstract class Packet implements Serializable {
 
+    /**
+     * PacketData Object
+     * @see org.southriverhi.space.Networking.PacketDatac
+     */
     PacketData pd = null;
 
+    /**
+     * Override...
+     * Returns the unique packet id.
+     * @return
+     */
     public abstract short getPacketId();
 }
