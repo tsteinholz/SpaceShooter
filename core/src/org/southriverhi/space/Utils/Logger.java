@@ -1,5 +1,8 @@
-/*
- * This file is part of SpaceShooter.
+/******************************************************************************
+ * Space Shooter Software License
+ * Version 0.0.2-alpha
+ *
+ * Copyright (C) 2015 Last Stand Studio
  *
  *  SpaceShooter is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -13,7 +16,7 @@
  *
  *  You should have received a copy of the GNU General Public License
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
- */
+ *****************************************************************************/
 
 package org.southriverhi.space.Utils;
 
