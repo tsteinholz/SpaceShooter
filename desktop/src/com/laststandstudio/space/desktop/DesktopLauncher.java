@@ -20,43 +20,26 @@ package com.laststandstudio.space.desktop;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.laststandstudio.space.Levels.Level;
+import com.beust.jcommander.JCommander;
 import com.laststandstudio.space.Networking.Server.Server;
+import com.laststandstudio.space.StartupOptions;
 import com.laststandstudio.space.SpaceShooter;
-import com.laststandstudio.space.ServerProperties;
 
 import java.awt.*;
 
 public class DesktopLauncher {
 
-    public static void main(String[] arg) {
-
-        boolean debug = false;
+    public static void main(String[] args) {
 
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        ServerProperties serverProperties = new ServerProperties();
+        StartupOptions startupOptions = new StartupOptions();
 
-        for (String s : arg) {
-            if (s.equalsIgnoreCase("--dedicated")) {
-                serverProperties.dedicatedServer = true;
-            } else if (s.toLowerCase().startsWith("--port:")) {
-                serverProperties.serverPort = Short.parseShort(s.substring(7));
-            } else if (s.toLowerCase().startsWith("--maxconnections:")) {
-                serverProperties.serverMaxConnections = Integer.parseInt(s.substring(17));
-            } else if (s.toLowerCase().startsWith("--password:")) {
-                serverProperties.serverPassword = s.substring(11);
-            } else if (s.toLowerCase().startsWith("--level:")) {
-                serverProperties.serverLevel = Level.getLevelByName(s.substring(8));
-            } else if (s.toLowerCase().startsWith("--name:")) {
-                serverProperties.serverName = s.substring(7);
-            } else if (s.equalsIgnoreCase("--debug")) {
-                debug = true;
-            }
-        }
+        new JCommander(startupOptions, args);
 
-        if (serverProperties.dedicatedServer) {
+        if (startupOptions.dedicatedServer) {
             try {
-                new Server(serverProperties).start();
+                new SpaceShooter(startupOptions);
+                new Server(startupOptions).start();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -65,17 +48,16 @@ public class DesktopLauncher {
 
         config.title = "South River Space Shooter";
         //TODO: Fix the auto Resolution Generator for Dual Monitor Support.
-        config.height = debug ? 6 * 100 : Toolkit.getDefaultToolkit().getScreenSize().height;
-        config.width = debug ? 11 * 100 : Toolkit.getDefaultToolkit().getScreenSize().width;
-        config.fullscreen = !debug;
-        config.resizable = debug;
+        config.height = startupOptions.debug ? 6 * 100 : Toolkit.getDefaultToolkit().getScreenSize().height;
+        config.width = startupOptions.debug ? 11 * 100 : Toolkit.getDefaultToolkit().getScreenSize().width;
+        config.fullscreen = !startupOptions.debug;
+        config.resizable = startupOptions.debug;
         config.vSyncEnabled = true;
         config.useHDPI = true;
         config.allowSoftwareMode = true;
 
         config.addIcon("splash/favicon-blue.png", Files.FileType.Internal);
 
-        new LwjglApplication(new SpaceShooter(), config);
-        SpaceShooter.debug = debug;
+        new LwjglApplication(new SpaceShooter(startupOptions), config);
     }
 }
