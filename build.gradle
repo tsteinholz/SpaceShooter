@@ -46,6 +46,7 @@ project(":desktop") {
         compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
+        compile "com.beust:jcommander:1.48"
     }
 }
 
@@ -64,6 +65,7 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
         compile "com.underwaterapps.overlap2druntime:overlap2d-runtime-libgdx:0.0.8"
         compile "com.kotcrab.vis:vis-ui:0.6.1"
+        compile "com.beust:jcommander:1.48"
     }
 }
 
