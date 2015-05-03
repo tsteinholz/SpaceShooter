@@ -23,7 +23,7 @@ package com.laststandstudio.space.Networking.Server;
 import com.laststandstudio.space.Levels.Level;
 import com.laststandstudio.space.Networking.Common.Packet;
 import com.laststandstudio.space.Utils.Logger;
-import com.laststandstudio.space.ServerProperties;
+import com.laststandstudio.space.StartupOptions;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -74,9 +74,9 @@ public class Server {
      * Default constructor, takes a ServerProperties object that contains the settings.
      *
      * @param sa
-     * @see com.laststandstudio.space.ServerProperties
+     * @see com.laststandstudio.space.StartupOptions
      */
-    public Server(ServerProperties sa) {
+    public Server(StartupOptions sa) {
         name = sa.serverName;
         port = sa.serverPort;
         maxCon = sa.serverMaxConnections;
@@ -97,10 +97,10 @@ public class Server {
     public void start() throws Exception {
         try {
             serverSocket = new ServerSocket(port);
-            logger.log("Server Socket Created!");
+            logger.logDebug("Server Socket Created!");
 
             while (true) {
-                logger.log("Waiting for new connection!");
+                logger.logDebug("Waiting for new connection!");
                 connections.add(new ClientConnection(serverSocket.accept()));
             }
         } catch (IOException e) {
@@ -112,7 +112,6 @@ public class Server {
                 e.printStackTrace();
             }
         }
-
     }
 
     /**
@@ -123,7 +122,7 @@ public class Server {
      */
     public static void broadcastPacket(Packet packet) {
         for (ClientConnection clientConnection : connections) {
-            System.out.println("sending to: "+clientConnection.socket.getInetAddress().toString());
+            System.out.println("sending to: " + clientConnection.socket.getInetAddress().toString());
             clientConnection.sendPacket(packet);
         }
     }

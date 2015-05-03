@@ -33,7 +33,7 @@ import java.util.List;
 
 public class SpaceShooter extends Game {
 
-	public static final String BUILD_VERSION = "v0.0.2-alpha";
+    public static final String BUILD_VERSION = "v0.0.2-alpha";
 
     public static AssetManager assetManager;
     public static boolean debug;
@@ -41,6 +41,8 @@ public class SpaceShooter extends Game {
     public static Logger logger;
     public static List<SpaceShooterAddon> addons;
     public static GameMode mode;
+    public static StartupOptions startupOptions;
+
     public enum GameMode {
         INITIALIZATION,
         MENU_MAIN,
@@ -50,42 +52,50 @@ public class SpaceShooter extends Game {
         CLOSING,
         HALTED,
     }
+
     private String[] mix = {
             "music/TSLASH_Mixtape/rain.ogg",
             "music/TSLASH_Mixtape/dawn.ogg",
             "music/TSLASH_Mixtape/wanted.ogg",
     };
 
+
+    public SpaceShooter(StartupOptions startupOptions) {
+        this.startupOptions = startupOptions;
+        debug = startupOptions.debug;
+    }
+
+
     @Override
-	public void create() {
+    public void create() {
         this.mode = GameMode.INITIALIZATION;
         logger = new Logger();
         SpaceShooter.logger.logDebug("DEBUGGING MODE ACTIVATED");
         SpaceShooter.logger.logDebug("Current Version = " + BUILD_VERSION);
         logger.logDebug("Building Game Instance");
         assetManager = new AssetManager();
-		setCursor("menus/slick_arrow-delta.png");
+        setCursor("menus/slick_arrow-delta.png");
         musicManager = new MusicManager(mix);
         logger.logDebug("Setting Screen to 'Splash Screen'");
-		setScreen(new SplashScreen(this));
-	}
+        setScreen(new SplashScreen(this));
+    }
 
-	@Override
-	public void render() {
-		super.render();
+    @Override
+    public void render() {
+        super.render();
         musicManager.update();
-	}
+    }
 
-	@Override
-	public void dispose() {
-		logger.logDebug("Destroying Space Game Instance");
+    @Override
+    public void dispose() {
+        logger.logDebug("Destroying Space Game Instance");
         musicManager.dispose();
         super.dispose();
-	}
+    }
 
-	private void setCursor(String fileLoc) {
-		Pixmap cursor = new Pixmap(Gdx.files.internal(fileLoc));
-		Gdx.input.setCursorImage(cursor, 0, 0);
-		cursor.dispose();
-	}
+    private void setCursor(String fileLoc) {
+        Pixmap cursor = new Pixmap(Gdx.files.internal(fileLoc));
+        Gdx.input.setCursorImage(cursor, 0, 0);
+        cursor.dispose();
+    }
 }

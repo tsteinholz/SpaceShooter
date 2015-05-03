@@ -20,13 +20,30 @@
 
 package com.laststandstudio.space;
 
+import com.beust.jcommander.Parameter;
 import com.laststandstudio.space.Levels.Level;
 
-public class ServerProperties {
+public class StartupOptions {
+
+    @Parameter(names = "--dedicated", description = "Starts as a Dedicated Server")
     public boolean dedicatedServer = false;
+
+    @Parameter(names = "--port", description = "Port that the dedicated server runs on. ONLY FOR USE WITH --dedicated")
     public short serverPort = 7683;
+
+    @Parameter(names = "--maxCon", description = "Amount of clients that can join dedicated server. ONLY FOR USE WITH --dedicated")
     public int serverMaxConnections = 8;
+
+    @Parameter(names = "--password", description = "Password for dedicated server. ONLY FOR USE WITH --dedicated")
     public String serverPassword = "";
+
+    @Parameter(names = "--level", description = "Default server level. ONLY FOR USE WITH --dedicated")
     public Level serverLevel = Level.getLevelByName("default");
+
+    @Parameter(names = "--name", description = "Server name. ONLY FOR USE WITH --dedicated")
     public String serverName = "Space Shooter Server";
+
+    @Parameter(names = "--debug", description = "Enable Debugging Mode")
+    public boolean debug = false;
+
 }
