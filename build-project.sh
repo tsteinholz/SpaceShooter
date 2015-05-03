@@ -19,18 +19,19 @@
 #  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
 ###############################################################################
 
-echo "/u001B[36mSpace Shooter Community Jar Builder for LINUX"
-echo "/u001B[35mBuilding Project..."
+VERSION="v0.0.2-alpha"
+echo "Space Shooter Community Jar Builder for LINUX"
+echo "Building Project..."
 ./gradlew desktop:dist
-mkdir ./releases -p
-cp ./desktop/build/libs/*.jar ./releases/SpaceShooter.jar
-echo "/u001B[32mSpace Shooter has been built and saved Successfully"
-echo "/u001B[36mSpace Shooter is now being cleaned up!"
+mkdir ./Releases -p
+cp ./desktop/build/libs/*.jar ./Releases/SpaceShooter${VERSION}.jar
+echo "Space Shooter has been built and saved Successfully"
+echo "Space Shooter is now being cleaned up!"
 gradle clean
-echo "/u001B[35mDo you wish to debug Space Shooter??"
-select yn in "/u001B[32mYes" "/u001B[31mNo"; do
+echo "Do you wish to debug Space Shooter??"
+select yn in "Yes" "No"; do
     case $yn in
-        Yes ) cd ./releases;java -jar SpaceShooter.jar --debug;break;;
+        Yes ) cd ./releases;java -jar SpaceShooter${VERSION}.jar --debug;break;;
         No ) exit;;
     esac
 done
