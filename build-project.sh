@@ -1,4 +1,5 @@
 #!/bin/bash
+
 ###############################################################################
 # Space Shooter Software License
 # Version 0.0.2-alpha
@@ -19,19 +20,26 @@
 #  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
 ###############################################################################
 
-VERSION="v0.0.2-alpha"
+VERSION="-v0.0.2-alpha"
+RELEASE_FOLDER="Releases"
+
+clear
 echo "Space Shooter Community Jar Builder for LINUX"
 echo "Building Project..."
+
 ./gradlew desktop:dist
-mkdir ./Releases -p
-cp ./desktop/build/libs/*.jar ./Releases/SpaceShooter${VERSION}.jar
+
+mkdir ./${RELEASE_FOLDER} -p
+cp ./desktop/build/libs/*.jar ./${RELEASE_FOLDER}/SpaceShooter${VERSION}.jar
 echo "Space Shooter has been built and saved Successfully"
 echo "Space Shooter is now being cleaned up!"
 gradle clean
+
 echo "Do you wish to debug Space Shooter??"
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) cd ./releases;java -jar SpaceShooter${VERSION}.jar --debug;break;;
+        Yes ) cd ./${RELEASE_FOLDER};java -jar SpaceShooter${VERSION}.jar --debug;break;;
         No ) exit;;
     esac
 done
+ls
