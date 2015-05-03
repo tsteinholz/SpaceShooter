@@ -37,25 +37,15 @@ public class Server {
     public static Logger logger;
 
 
-    /**
-     * Server Name.
-     */
+    /** Server Name. */
     private final String name;
-    /**
-     * Server Port.
-     */
+    /** Server Port. */
     private final short port;
-    /**
-     * Max Connections Allowed.
-     */
+    /** Max Connections Allowed. */
     private final int maxCon;
-    /**
-     * Server Password.
-     */
+    /** Server Password. */
     private final String password;
-    /**
-     * Current Level.
-     */
+    /** Current Level. */
     private Level level;
 
     /**

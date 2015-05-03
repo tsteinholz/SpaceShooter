@@ -35,19 +35,13 @@ import java.net.Socket;
  */
 public class ClientConnection extends Thread {
 
-    /**
-     * Socket Object that stores the Client's Socket Connection
-     */
+    /** Socket Object that stores the Client's Socket Connection */
     Socket socket = null;
 
-    /**
-     * A reference to the OutputStream of the socket.
-     */
+    /** A reference to the OutputStream of the socket. */
     ObjectOutputStream out;
 
-    /**
-     * A reference to the InputStream of the socket.
-     */
+    /** A reference to the InputStream of the socket. */
     ObjectInputStream in;
 
     /**
