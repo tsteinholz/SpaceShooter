@@ -26,7 +26,7 @@ public class Test extends Overlap2DStage {
 
     public Test() {
         initSceneLoader();
-        sceneLoader.loadScene("MainScene");
+        sceneLoader.loadScene("MainMenu");
         addActor(sceneLoader.getRoot());
     }
 }
