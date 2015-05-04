@@ -20,18 +20,18 @@
 
 package com.laststandstudio.space.Networking.Common;
 
-public class Packet02ServerDisconnect extends Packet {
+public class Packet03ServerDisconnect extends Packet {
 
     private String disconnectReason = "";
 
 
-    public Packet02ServerDisconnect(String disconnectReason) {
+    public Packet03ServerDisconnect(String disconnectReason) {
         this.disconnectReason = disconnectReason;
     }
 
     @Override
     public Integer getPacketId() {
-        return 2;
+        return 3;
     }
 
     public String getDisconnectReason() {

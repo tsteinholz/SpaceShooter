@@ -20,29 +20,21 @@
 
 package com.laststandstudio.space.Networking.Common;
 
-import java.io.Serializable;
+public class Packet02ServerJoin extends Packet {
 
-/**
- * @author Joshua Freedman
- */
-public abstract class Packet implements Serializable {
+    private String joinReason = "";
 
-    /**
-     * PacketData Object
-     *
-     * @see org.southriverhi.space.Networking.PacketDatac
-     */
-    PacketData pd = null;
 
-    /**
-     * Override...
-     * Returns the unique packet id.
-     *
-     * @return
-     */
-    public abstract Integer getPacketId();
+    public Packet02ServerJoin(String joinReason) {
+        this.joinReason = joinReason;
+    }
 
-    public Packet prepare() {
-        return this;
+    @Override
+    public Integer getPacketId() {
+        return 3;
+    }
+
+    public String getJoinReason() {
+        return joinReason;
     }
 }

@@ -86,9 +86,11 @@ public class Client {
 
                 while ((userInput = stdIn.readLine()) != null) {
                     Packet packet = new Packet01Text(userInput);
-                    out.writeObject(packet);
+                    out.writeObject(packet.prepare());
                     Packet newPacket = (Packet) in.readObject();
                     PacketRegistry.submitPacket(newPacket);
+
+
                     /*
                                         if (newPacket.getPacketId() == 1) {
                         System.out.println("echo: " + ((TextPacket01) newPacket).getUserInput());
@@ -97,7 +99,7 @@ public class Client {
                     }
 
                     if (newPacket.getPacketId() == 2) {
-                        SpaceShooter.logger.log("Disconnecting from server.... REASON: " + ((ServerDisconnectPacket02) newPacket).getDisconnectReason());
+                        SpaceShooter.logger.log("Disconnecting from server.... REASON: " + ((ServerDisconnectPacket02) newPacket).getJoinReason());
                         break;
                     }
 
@@ -124,6 +126,7 @@ public class Client {
         }
 
         public void sendPacket(Packet packet) {
+            packet.prepare();
             try {
                 out.writeObject(packet);
             } catch (IOException e) {

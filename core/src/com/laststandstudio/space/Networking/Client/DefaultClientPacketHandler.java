@@ -22,7 +22,7 @@ package com.laststandstudio.space.Networking.Client;
 
 import com.laststandstudio.space.Networking.Common.Packet;
 import com.laststandstudio.space.Networking.Common.PacketHandler;
-import com.laststandstudio.space.Networking.Common.Packet02ServerDisconnect;
+import com.laststandstudio.space.Networking.Common.Packet03ServerDisconnect;
 import com.laststandstudio.space.Networking.Common.Packet01Text;
 import com.laststandstudio.space.SpaceShooter;
 
@@ -38,7 +38,7 @@ public class DefaultClientPacketHandler extends PacketHandler {
                 System.out.println("echo: " + ((Packet01Text) packet).getUserInput());
                 break;
             case 2:
-                SpaceShooter.logger.log("Disconnecting from server.... REASON: " + ((Packet02ServerDisconnect) packet).getDisconnectReason());
+                SpaceShooter.logger.log("Disconnecting from server.... REASON: " + ((Packet03ServerDisconnect) packet).getDisconnectReason());
                 Client.disconnectClient();
                 break;
             default:

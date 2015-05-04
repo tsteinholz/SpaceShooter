@@ -22,7 +22,7 @@ package com.laststandstudio.space.Networking.Server;
 
 import com.laststandstudio.space.Networking.Common.Packet;
 import com.laststandstudio.space.Networking.Common.Packet01Text;
-import com.laststandstudio.space.Networking.Common.Packet02ServerDisconnect;
+import com.laststandstudio.space.Networking.Common.Packet03ServerDisconnect;
 import com.laststandstudio.space.Networking.Common.PacketRegistry;
 
 import java.io.IOException;
@@ -69,7 +69,7 @@ public class ClientConnection extends Thread {
                     Packet01Text textPacket01 = (Packet01Text) packet;
                     if(textPacket01.getUserInput().equals("Bye."))
                     {
-                        out.writeObject(new Packet02ServerDisconnect("You typed Bye..."));
+                        out.writeObject(new Packet03ServerDisconnect("You typed Bye...").prepare());
                     }
                 }
             }
