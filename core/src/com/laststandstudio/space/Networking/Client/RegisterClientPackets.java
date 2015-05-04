@@ -20,16 +20,19 @@
 
 package com.laststandstudio.space.Networking.Client;
 
-import com.laststandstudio.space.Networking.Common.Packet01Text;
-import com.laststandstudio.space.Networking.Common.Packet02ServerDisconnect;
-import com.laststandstudio.space.Networking.Common.PacketRegistry;
+import com.laststandstudio.space.Networking.Common.*;
 
 public class RegisterClientPackets {
 
     public static void register() {
-        System.out.println("\n\nRegister....\n\n");
         DefaultClientPacketHandler defaultClientPacketHandler = new DefaultClientPacketHandler();
         PacketRegistry.registerPacket(1, Packet01Text.class, defaultClientPacketHandler);
-        PacketRegistry.registerPacket(2, Packet02ServerDisconnect.class, defaultClientPacketHandler);
+        PacketRegistry.registerPacket(2, Packet02ServerJoin.class, defaultClientPacketHandler);
+        PacketRegistry.registerPacket(2, Packet03ServerDisconnect.class, defaultClientPacketHandler);
+        PacketRegistry.registerPacket(4, Packet04Player.class, defaultClientPacketHandler);
+        PacketRegistry.registerPacket(5, Packet05ChatCommand.class, defaultClientPacketHandler);
+        PacketRegistry.registerPacket(6, Packet06ChatMessage.class, defaultClientPacketHandler);
+        PacketRegistry.registerPacket(7, Packet08AssetResource.class, defaultClientPacketHandler);
+        PacketRegistry.registerPacket(8, Packet07AddonResource.class, defaultClientPacketHandler);
     }
 }

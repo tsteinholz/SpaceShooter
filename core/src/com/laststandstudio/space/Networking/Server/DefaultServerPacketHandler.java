@@ -24,7 +24,7 @@ import com.laststandstudio.space.Networking.Common.Packet;
 import com.laststandstudio.space.Networking.Common.PacketHandler;
 import com.laststandstudio.space.Networking.Client.Client;
 import com.laststandstudio.space.Networking.Common.Packet01Text;
-import com.laststandstudio.space.Networking.Common.Packet02ServerDisconnect;
+import com.laststandstudio.space.Networking.Common.Packet03ServerDisconnect;
 import com.laststandstudio.space.SpaceShooter;
 
 public class DefaultServerPacketHandler extends PacketHandler {
@@ -42,7 +42,7 @@ public class DefaultServerPacketHandler extends PacketHandler {
                 Server.broadcastPacket(sPacket1);
                 break;
             case 2:
-                SpaceShooter.logger.log("Disconnecting from client.... REASON: " + ((Packet02ServerDisconnect) packet).getDisconnectReason());
+                SpaceShooter.logger.log("Disconnecting from client.... REASON: " + ((Packet03ServerDisconnect) packet).getDisconnectReason());
                 Client.disconnectClient();
                 break;
             default:

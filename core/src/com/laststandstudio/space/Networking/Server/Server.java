@@ -37,15 +37,25 @@ public class Server {
     public static Logger logger;
 
 
-    /** Server Name. */
+    /**
+     * Server Name.
+     */
     private final String name;
-    /** Server Port. */
+    /**
+     * Server Port.
+     */
     private final short port;
-    /** Max Connections Allowed. */
+    /**
+     * Max Connections Allowed.
+     */
     private final int maxCon;
-    /** Server Password. */
+    /**
+     * Server Password.
+     */
     private final String password;
-    /** Current Level. */
+    /**
+     * Current Level.
+     */
     private Level level;
 
     /**
@@ -111,6 +121,7 @@ public class Server {
      * @see com.laststandstudio.space.Networking.Common.Packet
      */
     public static void broadcastPacket(Packet packet) {
+        packet.prepare();
         for (ClientConnection clientConnection : connections) {
             System.out.println("sending to: " + clientConnection.socket.getInetAddress().toString());
             clientConnection.sendPacket(packet);
