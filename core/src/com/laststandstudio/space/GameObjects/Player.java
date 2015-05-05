@@ -22,6 +22,7 @@ package com.laststandstudio.space.GameObjects;
 
 import com.badlogic.gdx.math.Vector2;
 import com.laststandstudio.space.engine.GameObject;
+import com.laststandstudio.space.engine.Transform;
 
 public class Player extends GameObject {
 
@@ -33,8 +34,16 @@ public class Player extends GameObject {
         super();
     }
 
-    public Player(float x, float y, int length, int width, float velocity) {
-        super(x, y, length, width, velocity);
+    public Player(Transform transform) {
+        super(transform);
+    }
+
+    public Player(Transform transform, Vector2 size) {
+        super(transform, size);
+    }
+
+    public Player(Transform transform, Vector2 size, Vector2 velocity) {
+        super(transform, size, velocity);
     }
 
     @Override
@@ -43,22 +52,7 @@ public class Player extends GameObject {
     }
 
     @Override
-    public int getLength() {
-        return super.getLength();
-    }
+    public void dispose() {
 
-    @Override
-    public int getWidth() {
-        return super.getWidth();
-    }
-
-    @Override
-    public Vector2 getPosition() {
-        return super.getPosition();
-    }
-
-    @Override
-    public float getVelocity() {
-        return super.getVelocity();
     }
 }

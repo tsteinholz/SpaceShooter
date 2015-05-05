@@ -22,72 +22,33 @@ package com.laststandstudio.space.GameObjects;
 
 import com.badlogic.gdx.math.Vector2;
 import com.laststandstudio.space.engine.GameObject;
+import com.laststandstudio.space.engine.Transform;
 
 public class Ship extends GameObject {
 
-    public static final int ID = 0;
-
-
-    /**
-     * Constructor for Empty or Quick GameObjects.
-     */
     public Ship() {
         super();
     }
 
-    /**
-     * Constructor for the GameObject Class.
-     *
-     * @param x        : The X-Coordinate Value for the GameObject.
-     * @param y        : The Y-Coordinate Value for the GameObject
-     * @param length   : The Length of the GameObject.
-     * @param width    : The Width of the GameObject.
-     * @param velocity : The speed of the GameObject.
-     */
-    public Ship(float x, float y, int length, int width, float velocity) {
-        super(x, y, length, width, velocity);
+    public Ship(Transform transform) {
+        super(transform);
     }
 
-    /**
-     * @return length of the GameObject.
-     */
-    @Override
-    public int getLength() {
-        return super.getLength();
+    public Ship(Transform transform, Vector2 size) {
+        super(transform, size);
     }
 
-    /**
-     * Gets called every frame.
-     *
-     * @param delta : Time in between frames in milliseconds.
-     */
+    public Ship(Transform transform, Vector2 size, Vector2 velocity) {
+        super(transform, size, velocity);
+    }
+
     @Override
     public void update(float delta) {
 
     }
 
-    /**
-     * @return width of the GameObject.
-     */
     @Override
-    public int getWidth() {
-        return super.getWidth();
-    }
+    public void dispose() {
 
-    /**
-     * @return position of the GameObject.
-     */
-    @Override
-    public Vector2 getPosition() {
-        return super.getPosition();
     }
-
-    /**
-     * @return velocity of the GameObject.
-     */
-    @Override
-    public float getVelocity() {
-        return super.getVelocity();
-    }
-
 }
