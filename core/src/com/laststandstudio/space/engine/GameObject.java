@@ -85,22 +85,25 @@ public abstract class GameObject {
     /** @return The Size of the Game Object as a Vector2 (Length, Width). */
     public Vector2 getSize() { return size; }
 
-    /** */
+    /** @return The Velocity of the Game Object (Velocity X, Velocity Y). */
     public Vector2 getVelocity() { return velocity; }
 
     /**
+     * Set the transform of the Game Object.
      *
      * @param transform : Location in 2D space of the Game Object.
      */
     public void setTransform(Transform transform) { this.transform = transform; }
 
     /**
+     * Set the size of the Game Object.
      *
      * @param size : Length and width of the object in pixels (Length, Width).
      */
     public void setSize(Vector2 size) { this.size = size; }
 
     /**
+     * Set the velocity of the Game Object.
      *
      * @param velocity : The speed / velocity of the Game Object (speed x, speed y).
      */
