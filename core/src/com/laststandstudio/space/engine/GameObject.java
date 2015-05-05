@@ -22,31 +22,50 @@ package com.laststandstudio.space.engine;
 
 import com.badlogic.gdx.math.Vector2;
 
+/** @Author Thomas Steinholz */
 public abstract class GameObject {
-    protected int length, width;        //The length and width of the GameObject.
-    protected Vector2 position;         //A Vector2 of the position.
-    protected float velocity;           //A Float representing the GameObject Velocity.
 
-    /**
-     * Constructor for Empty or Quick GameObjects.
-     */
+    /** Vector2 representing (Length, Width) in pixels */
+    protected Vector2 size;
+    /** The Transform of the Game Object */
+    protected Transform transform;
+    /** The Velocity of the GameObject*/
+    protected Vector2 velocity;
+
+    /** Base Class for All Entities. */
     public GameObject() {
-        this(1, 1, 0, 0, 0);
+        this(new Transform(new Vector2(0,0)));
     }
 
     /**
-     * Constructor for the GameObject Class.
+     * Base Class for All Entities.
      *
-     * @param x        : The X-Coordinate Value for the GameObject.
-     * @param y        : The Y-Coordinate Value for the GameObject
-     * @param length   : The Length of the GameObject.
-     * @param width    : The Width of the GameObject.
-     * @param velocity : The speed of the GameObject.
+     * @param transform : Location in 2D space of the Game Object.
      */
-    public GameObject(float x, float y, int length, int width, float velocity) {
-        this.position = new Vector2(x, y);
-        this.length = length;
-        this.width = width;
+    public GameObject(Transform transform) {
+        this(transform, new Vector2(0,0));
+    }
+
+    /**
+     * Base Class for All Entities.
+     *
+     * @param transform : Location in 2D space of the Game Object.
+     * @param size : Length and width of the object in pixels (Length, Width).
+     */
+    public GameObject(Transform transform, Vector2 size) {
+        this(transform, size, new Vector2(0,0));
+    }
+
+    /**
+     * Base Class for All Entities.
+     *
+     * @param transform : Location in 2D space of the Game Object.
+     * @param size : Length and width of the object in pixels (Length, Width).
+     * @param velocity : The speed / velocity of the Game Object (speed x, speed y).
+     */
+    public GameObject(Transform transform, Vector2 size, Vector2 velocity) {
+        this.transform = transform;
+        this.size = size;
         this.velocity = velocity;
     }
 
@@ -57,32 +76,33 @@ public abstract class GameObject {
      */
     public abstract void update(float delta);
 
-    /**
-     * @return length of the GameObject.
-     */
-    public int getLength() {
-        return length;
-    }
+    /** Called when being Disposed */
+    public abstract void dispose();
+
+    /** @return The Transform of the Game Object. */
+    public Transform getTransform() { return transform; }
+
+    /** @return The Size of the Game Object as a Vector2 (Length, Width). */
+    public Vector2 getSize() { return size; }
+
+    /** */
+    public Vector2 getVelocity() { return velocity; }
 
     /**
-     * @return width of the GameObject.
+     *
+     * @param transform : Location in 2D space of the Game Object.
      */
-    public int getWidth() {
-        return width;
-    }
+    public void setTransform(Transform transform) { this.transform = transform; }
 
     /**
-     * @return position of the GameObject.
+     *
+     * @param size : Length and width of the object in pixels (Length, Width).
      */
-    public Vector2 getPosition() {
-        return position;
-    }
+    public void setSize(Vector2 size) { this.size = size; }
 
     /**
-     * @return velocity of the GameObject.
+     *
+     * @param velocity : The speed / velocity of the Game Object (speed x, speed y).
      */
-    public float getVelocity() {
-        return velocity;
-    }
-
+    public void setVelocity(Vector2 velocity) { this.velocity = velocity; }
 }
