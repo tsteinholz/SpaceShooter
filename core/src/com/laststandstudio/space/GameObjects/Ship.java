@@ -21,6 +21,7 @@
 package com.laststandstudio.space.GameObjects;
 
 import com.badlogic.gdx.math.Vector2;
+import com.laststandstudio.space.engine.GameObject;
 
 public class Ship extends GameObject {
 

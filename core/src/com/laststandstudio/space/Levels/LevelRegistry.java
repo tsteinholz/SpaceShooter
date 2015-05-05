@@ -20,6 +20,8 @@
 
 package com.laststandstudio.space.Levels;
 
+import com.laststandstudio.space.engine.Level;
+
 import java.util.HashMap;
 
 public class LevelRegistry {

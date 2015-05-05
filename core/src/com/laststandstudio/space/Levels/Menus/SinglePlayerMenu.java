@@ -21,7 +21,7 @@
 package com.laststandstudio.space.Levels.Menus;
 
 import com.badlogic.gdx.Game;
-import com.laststandstudio.space.Levels.Level;
+import com.laststandstudio.space.engine.Level;
 
 public class SinglePlayerMenu extends Level {
 

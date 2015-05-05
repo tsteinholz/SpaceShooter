@@ -18,7 +18,9 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.GameObjects;
+package com.laststandstudio.space.Utils;
+
+import com.laststandstudio.space.engine.GameObject;
 
 import java.util.HashMap;
 import java.util.Map;

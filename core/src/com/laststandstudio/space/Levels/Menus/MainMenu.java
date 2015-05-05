@@ -36,7 +36,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.laststandstudio.space.Levels.Level;
+import com.laststandstudio.space.engine.Level;
 import com.laststandstudio.space.SpaceShooter;
 import com.laststandstudio.space.Levels.Test;
 

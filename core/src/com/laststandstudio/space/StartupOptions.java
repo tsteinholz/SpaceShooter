@@ -21,7 +21,7 @@
 package com.laststandstudio.space;
 
 import com.beust.jcommander.Parameter;
-import com.laststandstudio.space.Levels.Level;
+import com.laststandstudio.space.engine.Level;
 
 /**
  * ***************************************************************************

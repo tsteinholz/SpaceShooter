@@ -18,7 +18,7 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.Levels;
+package com.laststandstudio.space.engine;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;

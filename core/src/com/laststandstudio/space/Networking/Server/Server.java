@@ -20,7 +20,7 @@
 
 package com.laststandstudio.space.Networking.Server;
 
-import com.laststandstudio.space.Levels.Level;
+import com.laststandstudio.space.engine.Level;
 import com.laststandstudio.space.Networking.Common.Packet;
 import com.laststandstudio.space.Utils.Logger;
 import com.laststandstudio.space.StartupOptions;
