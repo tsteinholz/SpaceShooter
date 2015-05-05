@@ -1,4 +1,5 @@
-#Credits for the Assets Used
+#Credits for the Assets Used.
+Please give credit to the respected authors for any assets used or redistributed.
 
 ##Fonts
 | Font | Author / Source | Copyright |
