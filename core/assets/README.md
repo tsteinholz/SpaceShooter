@@ -1,5 +1,5 @@
 #Credits for the Assets Used.
-Please give credit to the respected authors for any assets used or redistributed.
+Please give credit to the respected authors for any assets used or redistributed. If you see any incorrect Copyright information below please file an [issue report](https://github.com/tsteinholz/SpaceShooter/issues) and any problems will be resolved as quickly as possible.
 
 ##Fonts
 | Font | Author / Source | Copyright |
