@@ -24,6 +24,10 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Player extends GameObject {
 
+    public enum PlayerState {
+        PLAYING, PAUSED, SPECTATING
+    }
+
     public Player() {
         super();
     }
