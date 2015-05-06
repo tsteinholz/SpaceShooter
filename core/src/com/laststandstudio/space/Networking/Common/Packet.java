@@ -30,7 +30,7 @@ public abstract class Packet implements Serializable {
     /**
      * PacketData Object
      *
-     * @see org.southriverhi.space.Networking.PacketDatac
+     * @see com.laststandstudio.space.Networking.Common.PacketData
      */
     PacketData pd = null;
 
