@@ -22,7 +22,7 @@ package com.laststandstudio.space.engine.Networking.Server;
 
 import com.laststandstudio.space.engine.Level;
 import com.laststandstudio.space.engine.Networking.Common.Packet;
-import com.laststandstudio.space.Utils.Logger;
+import com.laststandstudio.space.engine.Utils.Logger;
 import com.laststandstudio.space.StartupOptions;
 
 import java.io.IOException;

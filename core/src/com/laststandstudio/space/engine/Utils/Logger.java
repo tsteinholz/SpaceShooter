@@ -18,7 +18,7 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.Utils;
+package com.laststandstudio.space.engine.Utils;
 
 import com.laststandstudio.space.SpaceShooter;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;

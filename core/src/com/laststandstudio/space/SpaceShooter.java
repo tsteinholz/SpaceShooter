@@ -24,8 +24,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.laststandstudio.space.Utils.Logger;
-import com.laststandstudio.space.Utils.MusicManager;
+import com.laststandstudio.space.engine.Utils.Logger;
+import com.laststandstudio.space.engine.Utils.MusicManager;
 import com.laststandstudio.space.Addons.SpaceShooterAddon;
 import com.laststandstudio.space.Levels.SplashScreen;
 
