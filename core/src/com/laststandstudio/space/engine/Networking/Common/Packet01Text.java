@@ -18,23 +18,37 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.Networking.Common;
+package com.laststandstudio.space.engine.Networking.Common;
 
-public class Packet03ServerDisconnect extends Packet {
+/**
+ * @author Joshua Freedman
+ * @see Packet
+ */
+public class Packet01Text extends Packet {
 
-    private String disconnectReason = "";
+    /**
+     * Saved Text.
+     */
+    private String uInput;
 
-
-    public Packet03ServerDisconnect(String disconnectReason) {
-        this.disconnectReason = disconnectReason;
+    /**
+     * Paramter is the text to be serialized and sent to server.
+     * @param userInput
+     */
+    public Packet01Text(String userInput) {
+        uInput = userInput;
     }
 
     @Override
     public Integer getPacketId() {
-        return 3;
+        return 1;
     }
 
-    public String getDisconnectReason() {
-        return disconnectReason;
+    /**
+     * Returns the saved text.
+     * @return
+     */
+    public String getUserInput(){
+        return uInput;
     }
 }

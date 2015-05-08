@@ -18,7 +18,7 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.Networking.Common;
+package com.laststandstudio.space.engine.Networking.Common;
 
 public class Packet02ServerJoin extends Packet {
 

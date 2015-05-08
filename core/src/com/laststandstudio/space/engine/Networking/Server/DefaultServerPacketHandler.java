@@ -18,13 +18,13 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.Networking.Server;
+package com.laststandstudio.space.engine.Networking.Server;
 
-import com.laststandstudio.space.Networking.Common.Packet;
-import com.laststandstudio.space.Networking.Common.PacketHandler;
-import com.laststandstudio.space.Networking.Client.Client;
-import com.laststandstudio.space.Networking.Common.Packet01Text;
-import com.laststandstudio.space.Networking.Common.Packet03ServerDisconnect;
+import com.laststandstudio.space.engine.Networking.Common.Packet;
+import com.laststandstudio.space.engine.Networking.Common.PacketHandler;
+import com.laststandstudio.space.engine.Networking.Client.Client;
+import com.laststandstudio.space.engine.Networking.Common.Packet01Text;
+import com.laststandstudio.space.engine.Networking.Common.Packet03ServerDisconnect;
 import com.laststandstudio.space.SpaceShooter;
 
 public class DefaultServerPacketHandler extends PacketHandler {

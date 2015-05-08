@@ -18,12 +18,12 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.Networking.Server;
+package com.laststandstudio.space.engine.Networking.Server;
 
-import com.laststandstudio.space.Networking.Common.Packet;
-import com.laststandstudio.space.Networking.Common.Packet01Text;
-import com.laststandstudio.space.Networking.Common.Packet03ServerDisconnect;
-import com.laststandstudio.space.Networking.Common.PacketRegistry;
+import com.laststandstudio.space.engine.Networking.Common.Packet;
+import com.laststandstudio.space.engine.Networking.Common.Packet01Text;
+import com.laststandstudio.space.engine.Networking.Common.Packet03ServerDisconnect;
+import com.laststandstudio.space.engine.Networking.Common.PacketRegistry;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -87,7 +87,7 @@ public class ClientConnection extends Thread {
 
     /**
      * Syncronized method to send a packet to the client.
-     * @see com.laststandstudio.space.Networking.Common.Packet
+     * @see Packet
      * @param packet
      */
     public synchronized void sendPacket(Packet packet) {

@@ -18,7 +18,7 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.Networking.Common;
+package com.laststandstudio.space.engine.Networking.Common;
 
 import java.io.Serializable;
 
@@ -30,7 +30,7 @@ public abstract class Packet implements Serializable {
     /**
      * PacketData Object
      *
-     * @see org.southriverhi.space.Networking.PacketDatac
+     * @/see org.southriverhi.space.engine.Networking.PacketDatac
      */
     PacketData pd = null;
 

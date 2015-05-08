@@ -1,4 +1,4 @@
-package com.laststandstudio.space.Networking.Common;
+package com.laststandstudio.space.engine.Networking.Common;
 
 import com.laststandstudio.space.GameObjects.Player;
 

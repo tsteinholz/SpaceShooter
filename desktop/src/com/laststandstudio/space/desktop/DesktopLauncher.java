@@ -21,7 +21,7 @@ import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.beust.jcommander.JCommander;
-import com.laststandstudio.space.Networking.Server.Server;
+import com.laststandstudio.space.engine.Networking.Server.Server;
 import com.laststandstudio.space.StartupOptions;
 import com.laststandstudio.space.SpaceShooter;
 

@@ -18,10 +18,10 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.Networking.Server;
+package com.laststandstudio.space.engine.Networking.Server;
 
 import com.laststandstudio.space.engine.Level;
-import com.laststandstudio.space.Networking.Common.Packet;
+import com.laststandstudio.space.engine.Networking.Common.Packet;
 import com.laststandstudio.space.Utils.Logger;
 import com.laststandstudio.space.StartupOptions;
 
@@ -97,10 +97,10 @@ public class Server {
     public void start() throws Exception {
         try {
             serverSocket = new ServerSocket(port);
-            logger.logDebug("Server Socket Created!");
+            logger.log("Server Socket Created!");
 
             while (true) {
-                logger.logDebug("Waiting for new connection!");
+                logger.log("Waiting for new connection!");
                 connections.add(new ClientConnection(serverSocket.accept()));
             }
         } catch (IOException e) {
@@ -118,7 +118,7 @@ public class Server {
      * Method used for broadcasting a packet to all clients connected to the server.
      *
      * @param packet
-     * @see com.laststandstudio.space.Networking.Common.Packet
+     * @see Packet
      */
     public static void broadcastPacket(Packet packet) {
         packet.prepare();

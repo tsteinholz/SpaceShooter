@@ -165,9 +165,9 @@ public class Logger {
      */
     public void log(String message) {
         if (message != null) {
-            String msg = "[" + getCurrentTime() + "] " + prefix + message + suffix + cleanupCode;
+            String msg = "[" + getCurrentTime() + "] " + prefix + ANSI_CYAN + message + ANSI_RESET + suffix + cleanupCode;
             log.add(msg);
-            System.out.println(msg);
+            System.out.println(ANSI_CYAN + msg);
         }
     }
 

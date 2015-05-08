@@ -18,10 +18,11 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.Networking.Common;
+package com.laststandstudio.space.engine.Networking.Common;
 
-public abstract class PacketHandler {
-
-    public abstract void handlePacket(Packet packet);
+/**
+ * @author Joshua Freedman
+ */
+public class PacketData {
 
 }

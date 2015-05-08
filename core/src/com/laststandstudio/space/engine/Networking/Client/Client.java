@@ -18,11 +18,11 @@
  *  along with SpaceShooter.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package com.laststandstudio.space.Networking.Client;
+package com.laststandstudio.space.engine.Networking.Client;
 
-import com.laststandstudio.space.Networking.Common.Packet;
-import com.laststandstudio.space.Networking.Common.Packet01Text;
-import com.laststandstudio.space.Networking.Common.PacketRegistry;
+import com.laststandstudio.space.engine.Networking.Common.Packet;
+import com.laststandstudio.space.engine.Networking.Common.Packet01Text;
+import com.laststandstudio.space.engine.Networking.Common.PacketRegistry;
 
 import java.io.*;
 import java.net.Socket;

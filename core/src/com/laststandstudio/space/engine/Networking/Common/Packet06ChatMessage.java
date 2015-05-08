@@ -1,4 +1,4 @@
-package com.laststandstudio.space.Networking.Common;
+package com.laststandstudio.space.engine.Networking.Common;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,39 +25,47 @@ import java.util.Collections;
  * ***************************************************************************
  */
 
-public class Packet05ChatCommand extends Packet {
+public class Packet06ChatMessage extends Packet {
 
     private String sender;
-    private Long commandHash;
-    private String command;
-    private ArrayList<String> commandArgs;
+    private Long messageHash;
+    private String message;
+    private ArrayList<String> recipients;
 
-    Packet05ChatCommand(String sender, String command, String... commandArgs) {
+    Packet06ChatMessage(String sender, String message, String... recipients) {
         this.sender = sender;
-        this.command = command;
-        if (commandArgs.length > 0) {
-            Collections.addAll(this.commandArgs, commandArgs);
+        this.message = message;
+        if (recipients.length > 0) {
+            Collections.addAll(this.recipients, recipients);
         } else {
-            this.commandArgs = new ArrayList<String>() {{
+            this.recipients = new ArrayList<String>() {{
                 add("@");
             }};
         }
     }
 
-    public void addCommandArgs(String... commandArgs) {
-        Collections.addAll(this.commandArgs, commandArgs);
+    public void addRecipients(String... recipients) {
+        Collections.addAll(this.recipients, recipients);
     }
 
-    public String[] listCommandArgs() {
-        return this.commandArgs.toArray(new String[]{});
+    public void removeRecipients(String... recipients) {
+        for (String s : recipients) {
+            if (this.recipients.contains(s)) {
+                this.recipients.remove(s);
+            }
+        }
     }
 
-    public void setCommand(String message) {
-        this.command = message;
+    public String[] listRecipients() {
+        return this.recipients.toArray(new String[]{});
     }
 
-    public String getCommand() {
-        return this.command;
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return this.message;
     }
 
     public void setSender(String sender) {
@@ -69,17 +77,17 @@ public class Packet05ChatCommand extends Packet {
     }
 
     public Long getMessageHash() {
-        return commandHash;
+        return messageHash;
     }
 
     @Override
     public Packet prepare() {
-        commandHash = Long.valueOf((sender + ":" + command + ":" + commandArgs.size()).hashCode());
+        messageHash = Long.valueOf((sender + ":" + message + ":" + recipients.size()).hashCode());
         return this;
     }
 
     @Override
     public Integer getPacketId() {
-        return 5;
+        return 6;
     }
 }
