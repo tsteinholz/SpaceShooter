@@ -1,5 +1,6 @@
 ![alt tag](https://raw.githubusercontent.com/tsteinholz/SpaceShooter/master/etc/space.png)
 
+
 | Branch        | Build Status  | Version |
 |:------------- |:-------------:| :-----: |
 | Stable        | [Released](https://github.com/tsteinholz/SpaceShooter/releases)  | [v0.0.1-alpha](https://github.com/tsteinholz/SpaceShooter/releases) |
@@ -23,7 +24,7 @@ Community video game, anyone can join in or help at any point. All code is open 
 | Page                   | Link          |
 | ---------------------- |:-------------:|
 | Technicalities / About | [wiki/Technicalities---About](https://github.com/tsteinholz/SpaceShooter/wiki/Technicalities---About) | 
-| Positions / Jobs       | [wiki/Positions-and-Jobs](https://github.com/tsteinholz/SpaceShooter/wiki/Positions-and-Jobs) |
+| Positions / Jobs      | [wiki/Positions-and-Jobs](https://github.com/tsteinholz/SpaceShooter/wiki/Positions-and-Jobs) |
 | Developer Set-Up       |  [wiki/Developer-Set-Up](https://github.com/tsteinholz/SpaceShooter/wiki/Developer-Set-Up) |
 
 ##Pre Alpha Snapshots!
