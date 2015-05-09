@@ -1,0 +1,10 @@
+.root {
+    -fx-background-color: #232323;
+    -fx-background-image: url("dark_stripes.png");
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: repeat;
+}
+
+#titleLabel {
+    -fx-text-fill: #2d2d2d;
+}

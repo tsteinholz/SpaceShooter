@@ -30,7 +30,7 @@ public abstract class Packet implements Serializable {
     /**
      * PacketData Object
      *
-     * @/see org.southriverhi.space.engine.Networking.PacketDatac
+     * @/see org.southriverhi.space.engine.Networking.PacketData
      */
     PacketData pd = null;
 
