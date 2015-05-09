@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author Thomas Steinholz
+ * @author Thomas Steinholz
  */
 public class GameObjectManager {
 

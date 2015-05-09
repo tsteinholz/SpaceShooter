@@ -22,7 +22,7 @@ package com.laststandstudio.space.engine;
 
 import com.badlogic.gdx.math.Vector2;
 
-/** @Author Thomas Steinholz */
+/** @author Thomas Steinholz */
 public abstract class GameObject {
 
     /** Vector2 representing (Length, Width) in pixels */
