@@ -23,12 +23,15 @@ package com.laststandstudio.space.engine.Utils;
 import com.laststandstudio.space.SpaceShooter;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Date;
 
 @SuppressWarnings("unused")
 public class Logger {
 
+
+    LogWindow logWindow;
     /**
      * The ANSI RESET key code value, using this with the console will change back to default color and formatting.
      */
@@ -98,6 +101,7 @@ public class Logger {
 
     /**
      * Constructor that tkae a previous log to append to.
+     *
      * @param pastLog
      */
     public Logger(ArrayList<String> pastLog) {
@@ -107,6 +111,7 @@ public class Logger {
 
     /**
      * Constructor with param for the default prefix.
+     *
      * @param prefix
      */
     public Logger(String prefix) {
@@ -115,6 +120,7 @@ public class Logger {
 
     /**
      * Constructor with params for the default prefix and suffix.
+     *
      * @param prefix
      * @param suffix
      */
@@ -124,6 +130,7 @@ public class Logger {
 
     /**
      * Constructor with params for a log to append to, and a default prefix.
+     *
      * @param pastLog
      * @param prefix
      */
@@ -133,6 +140,7 @@ public class Logger {
 
     /**
      * Constructor with params for a log to append to, and params for the default prefix and suffix.
+     *
      * @param pastLog
      * @param prefix
      * @param suffix
@@ -141,10 +149,12 @@ public class Logger {
         this.log = pastLog;
         this.prefix = prefix;
         this.suffix = suffix;
+        logWindow = new LogWindow();
     }
 
     /**
      * Returns the loggers prefix.
+     *
      * @return
      */
     public String getPrefix() {
@@ -153,6 +163,7 @@ public class Logger {
 
     /**
      * Returns the loggers suffix.
+     *
      * @return
      */
     public String getSuffix() {
@@ -161,6 +172,7 @@ public class Logger {
 
     /**
      * Logs a standard message to the output stream.
+     *
      * @param message
      */
     public void log(String message) {
@@ -168,11 +180,17 @@ public class Logger {
             String msg = "[" + getCurrentTime() + "] " + prefix + ANSI_CYAN + message + ANSI_RESET + suffix + cleanupCode;
             log.add(msg);
             System.out.println(ANSI_CYAN + msg);
+            logWindow.appendString("[" + getCurrentTime() + "] ", Color.CYAN);
+            logWindow.appendString("Space Shooter ", Color.YELLOW);
+            logWindow.appendString(message, Color.CYAN);
+            logWindow.appendString("\n", null);
+
         }
     }
 
     /**
      * Logs a "quiet" message to the outputstream. (No time, prefix, suffix, etc.)
+     *
      * @param message
      */
     public void logQuiet(String message) {
@@ -180,11 +198,14 @@ public class Logger {
             String msg = message + cleanupCode;
             log.add(msg);
             System.out.println(msg);
+            logWindow.appendString(message, null);
+            logWindow.appendString("\n", null);
         }
     }
 
     /**
      * Logs to the debug stream. These messages will only show if game is in debug mode.
+     *
      * @param message
      */
     public void logDebug(String message) {
@@ -192,11 +213,17 @@ public class Logger {
             String msg = "[" + getCurrentTime() + "] " + DEBUG + message + suffix + cleanupCode;
             log.add(msg);
             System.out.println(ANSI_BLUE + msg);
+            logWindow.appendString("[" + getCurrentTime() + "] ", Color.CYAN);
+            logWindow.appendString("Space Shooter ", Color.YELLOW);
+            logWindow.appendString("DEBUG ", new Color(50,50,255));
+            logWindow.appendString(message, Color.WHITE);
+            logWindow.appendString("\n", null);
         }
     }
 
     /**
      * Logs as an error to the output stream.
+     *
      * @param message
      */
     public void logError(String message) {
@@ -204,6 +231,12 @@ public class Logger {
             String msg = "[" + getCurrentTime() + "] " + ERROR + message + ERROR_SUFFIX + cleanupCode;
             log.add(msg);
             System.out.println(ANSI_RED + msg);
+            logWindow.appendString("[" + getCurrentTime() + "] ", Color.CYAN);
+            logWindow.appendString("Space Shooter ", Color.YELLOW);
+            logWindow.appendString("ERROR ", Color.RED);
+            logWindow.appendString(message, Color.ORANGE.darker().darker());
+            logWindow.appendString("\n", null);
+
         }
     }
 
@@ -216,6 +249,7 @@ public class Logger {
 
     /**
      * Clears the log by flooding with <i>x</i> amount of lines, where x is the paramater.
+     *
      * @param lines
      */
     public void logClear(int lines) {
@@ -227,9 +261,8 @@ public class Logger {
     }
 
     /**
-     *
-     * @implNote Not Implemented Yet
      * @return
+     * @implNote Not Implemented Yet
      */
     public boolean saveLog() {
         throw new NotImplementedException();
@@ -237,8 +270,9 @@ public class Logger {
 
     /**
      * Returns the log as a string?
-     * @implNote Might not work...
+     *
      * @return
+     * @implNote Might not work...
      */
     public String getLog() {
         return log.toString();
@@ -246,9 +280,10 @@ public class Logger {
 
     /**
      * Returns the current time in the format "HH:mm:ss"
+     *
      * @return
      */
-    public String getCurrentTime(){
+    public String getCurrentTime() {
         String uncleanDateTime = new Date(System.currentTimeMillis()).toString();
         String[] splitDateTime = uncleanDateTime.split(" ");
         return splitDateTime[3];

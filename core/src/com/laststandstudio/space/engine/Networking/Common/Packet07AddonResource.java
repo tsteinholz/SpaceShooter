@@ -1,5 +1,9 @@
 package com.laststandstudio.space.engine.Networking.Common;
 
+import com.laststandstudio.space.Addons.AddonResourceInfo;
+
+import java.util.ArrayList;
+
 /**
  * ***************************************************************************
  * Space Shooter Software License
@@ -23,6 +27,12 @@ package com.laststandstudio.space.engine.Networking.Common;
  */
 
 public class Packet07AddonResource extends Packet {
+
+    private ArrayList<AddonResourceInfo> addonResourceInfo;
+
+    public Packet07AddonResource() {
+        addonResourceInfo = new ArrayList<>();
+    }
 
     @Override
     public Integer getPacketId() {
