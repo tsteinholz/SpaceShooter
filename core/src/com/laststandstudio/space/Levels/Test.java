@@ -20,13 +20,18 @@
 
 package com.laststandstudio.space.Levels;
 
+import com.laststandstudio.space.SpaceShooter;
 import com.uwsoft.editor.renderer.Overlap2DStage;
 
 public class Test extends Overlap2DStage {
 
     public Test() {
-        initSceneLoader();
-        sceneLoader.loadScene("SplashScreen");
-        addActor(sceneLoader.getRoot());
+        try {
+            initSceneLoader();
+            sceneLoader.loadScene("SplashScreen");
+            addActor(sceneLoader.getRoot());
+        } catch (Exception e) {
+            SpaceShooter.logger.logError(e.getMessage());
+        }
     }
 }

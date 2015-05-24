@@ -61,14 +61,14 @@ public class SpaceShooter extends Game {
 
 
     public SpaceShooter(StartupOptions startupOptions) {
-        this.startupOptions = startupOptions;
+        SpaceShooter.startupOptions = startupOptions;
         debug = startupOptions.debug;
     }
 
 
     @Override
     public void create() {
-        this.mode = GameMode.INITIALIZATION;
+        mode = GameMode.INITIALIZATION;
         logger = new Logger();
         SpaceShooter.logger.logDebug("DEBUGGING MODE ACTIVATED");
         SpaceShooter.logger.logDebug("Current Version = " + BUILD_VERSION);

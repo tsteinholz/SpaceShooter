@@ -8,3 +8,20 @@
 #titleLabel {
     -fx-text-fill: #2d2d2d;
 }
+
+#newsBody {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-text-fill: #2d2d2d;
+}
+
+#newsBody .scroll-pane{
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+#newsBody .scroll-pane .viewport {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+#newsBody .scroll-pane .content{
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
