@@ -20,10 +20,12 @@
 
 package com.laststandstudio.space.launcher;
 
+import java.io.File;
+
 public class Util {
 
-    public static final String LINUX_INSTALL_DIR = "~/.local/share/SpaceShooter";
-    public static final String WINDOWS_INSTALL_DIR = "%APPDATA%\\Local\\SpaceShooter";
+    public static final String LINUX_INSTALL_DIR = "~" + File.separator +".local" + File.separator +"share" + File.separator + "SpaceShooter";
+    public static final String WINDOWS_INSTALL_DIR = "%APPDATA%" + File.separator + "Local" + File.separator + "SpaceShooter";
     public static final String OSX_INSTALL_DIR = "google later";
 
     public static String getInstallDir() {
@@ -34,5 +36,4 @@ public class Util {
         // add additional OS support here if necessary!
         else return "We Do not Know what we are Doing! <3";
     }
-
 }

@@ -15,6 +15,8 @@ import java.net.URLConnection;
 
 public class Launcher extends Application {
 
+    public Language language;
+
     public static final int WIDTH = 900, HEIGHT = 600;
     private Thread updateNewsThread;
     private TextField usernameField;
@@ -27,6 +29,8 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        //TODO : Load last language from conf
+
         Font cFont = Font.loadFont(new File("Alien_Resurrection.ttf").toURI().toURL().toExternalForm(), 36);
 
         usernameField = new TextField();
