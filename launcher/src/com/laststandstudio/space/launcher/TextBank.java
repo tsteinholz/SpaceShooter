@@ -23,12 +23,11 @@ package com.laststandstudio.space.launcher;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Properties;
 
 public class TextBank {
 
-    HashMap<String, String> dictionary;
+    Properties dictionary;
 
     public TextBank(Language language) {
         switch (language) {
@@ -73,12 +72,10 @@ public class TextBank {
         catch (IOException e) {
             e.printStackTrace();
         }
-        for (String key : properties.stringPropertyNames()) {
-            dictionary.put(key, properties.getProperty(key));
-        }
+        this.dictionary = properties;
     }
 
     public String getText(String key) {
-        return dictionary.get(key);
+        return dictionary.getProperty(key);
     }
 }

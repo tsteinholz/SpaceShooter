@@ -34,7 +34,7 @@ import java.net.URLConnection;
 
 public class Launcher extends Application {
 
-    public Language language;
+    public TextBank t;
 
     public static final int WIDTH = 900, HEIGHT = 600;
     private Thread updateNewsThread;
@@ -50,19 +50,21 @@ public class Launcher extends Application {
     public void start(Stage primaryStage) throws Exception {
         //TODO : Load last language from conf
 
+        t = new TextBank(Language.ENGLISH);
+
         Font cFont = Font.loadFont(new File("Alien_Resurrection.ttf").toURI().toURL().toExternalForm(), 36);
 
         usernameField = new TextField();
         usernameField.setLayoutX(WIDTH - 225);
         usernameField.setLayoutY(HEIGHT - 120);
         usernameField.setFont(Font.font("Times New Roman", 16));
-        usernameField.setPromptText("Username/Email");
+        usernameField.setPromptText(t.getText("username"));
 
         passwordField = new PasswordField();
         passwordField.setLayoutX(WIDTH - 225);
         passwordField.setLayoutY(HEIGHT - 80);
         passwordField.setFont(Font.font("Times New Roman", 16));
-        passwordField.setPromptText("Password");
+        passwordField.setPromptText(t.getText("password"));
 
         loginButton = new Button();
         loginButton.setText("Login");
@@ -77,7 +79,7 @@ public class Launcher extends Application {
             updateFilesAndStartThread.start();
         });
 
-        titleLabel = new Label("space   shooter");
+        titleLabel = new Label(t.getText("title"));
         titleLabel.setId("titleLabel");
         titleLabel.setFont(cFont);
         System.out.println((WIDTH / 2) - (titleLabel.getWidth() * 4));
@@ -136,7 +138,7 @@ public class Launcher extends Application {
         Scene scene1 = new Scene(anchorPane, WIDTH, HEIGHT);
         scene1.getStylesheets().add(new File("stylesheet.css").toURI().toURL().toExternalForm());
 
-        primaryStage.setTitle("SpaceShooter Launcher");
+        primaryStage.setTitle(t.getText("window_title"));
         primaryStage.setScene(scene1);
 
         primaryStage.show();
