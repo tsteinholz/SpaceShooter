@@ -28,9 +28,19 @@ import java.util.Properties;
 /** @author Thomas Steinholz */
 public class TextBank {
 
-    Properties dictionary;
+    private Properties dictionary;
+
+    public TextBank() {
+        this(Language.ENGLISH);
+    }
 
     public TextBank(Language language) {
+        setLanguage(language);
+    }
+
+    public void setLanguage(Language language) {
+        this.dictionary = null;
+
         switch (language) {
             case ENGLISH:
                 loadLanguage(new File("Languages" + File.separator + "en.properties"));
@@ -78,4 +88,5 @@ public class TextBank {
     public String getText(String key) {
         return dictionary.getProperty(key);
     }
+
 }

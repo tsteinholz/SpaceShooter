@@ -20,6 +20,7 @@
 
 package com.laststandstudio.space.launcher;
 
+/** @author Thomas Steinholz */
 public enum Language {
     /** English */
     ENGLISH,

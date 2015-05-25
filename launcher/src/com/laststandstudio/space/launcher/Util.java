@@ -24,15 +24,17 @@ import java.io.File;
 
 public class Util {
 
-    public static final String LINUX_INSTALL_DIR = System.getProperty("user.home") + File.separator + ".local" + File.separator + "share" + File.separator + "LastStandStudio" + File.separator + "SpaceShooter";
-    public static final String WINDOWS_INSTALL_DIR = System.getenv("LOCALAPPDATA")  + File.separator + "LastStandStudio" + File.separator + "SpaceShooter";
+    public static final String LINUX_INSTALL_DIR = System.getProperty("user.home")+"/.local/share";
+    public static final String WINDOWS_INSTALL_DIR = System.getenv("LOCALAPPDATA");
     public static final String OSX_INSTALL_DIR = "google later";
+
+    public static final String SPACE_INSTALL_DIR = File.separator + "LastStandStudio" + File.separator + "SpaceShooter";
 
     public static String getInstallDir() {
         String os = System.getProperty("os.name").toLowerCase();
-        if (os.contains("linux")) return LINUX_INSTALL_DIR;
-        else if (os.contains("windows")) return WINDOWS_INSTALL_DIR;
-        else if (os.contains("mac")) return OSX_INSTALL_DIR;
+        if (os.contains("linux")) return LINUX_INSTALL_DIR + SPACE_INSTALL_DIR;
+        else if (os.contains("windows")) return WINDOWS_INSTALL_DIR + SPACE_INSTALL_DIR;
+        else if (os.contains("mac")) return OSX_INSTALL_DIR + SPACE_INSTALL_DIR;
             // add additional OS support here if necessary!
         else return "We Do not Know what we are Doing! <3";
     }
