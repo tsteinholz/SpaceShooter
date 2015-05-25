@@ -30,14 +30,16 @@ public class ReqFile {
     private String path;
     private String fileName;
     private AssetType type;
+    private String url;
 
-    public ReqFile(String identifier, String name, String version, String type, String path, String fileName) {
+    public ReqFile(String identifier, String name, String version, String type, String path, String fileName, String url) {
         this.identifier = identifier;
         this.name = name;
         this.version = version;
-        this.type = AssetType.valueOf(type);
+        this.type = AssetType.valueOf(type.toUpperCase());
         this.path = path.endsWith(File.separator) ? path : path + File.separator;
         this.fileName = fileName;
+        this.url = url;
     }
 
     @Override
@@ -70,7 +72,11 @@ public class ReqFile {
         return fileName;
     }
 
+    public String getURL() {
+        return url;
+    }
+
     public enum AssetType {
-        MEDIA, FILE, TEMP, EXE, ARCHIVE, LINK
+        MEDIA, FILE, TEMP, EXE, ARCHIVE, LINK, FONT
     }
 }

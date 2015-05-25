@@ -44,9 +44,10 @@ public class UpdateAndStartThread extends Thread {
     @Override
     public void run() {
         try {
-            System.out.println(System.getenv("APPDATA"));
-            new File(System.getenv("APPDATA") + File.separator + "LastStandStudio" + File.separator + "SpaceShooter").mkdirs();
-            //downloadFile("http://direct.mrblockplacer.net/lsnews.txt", System.getenv("APPDATA") + File.separator + "LastStandStudio" + File.separator + "SpaceShooter" + File.separator + "vIndex.xml");
+            System.out.println(Util.getInstallDir());
+            System.out.println(new File(Util.getInstallDir() + File.separator + "LastStandStudio" + File.separator + "SpaceShooter").mkdirs());
+            System.out.println("DIRECT MAKE");
+            downloadFile("http://direct.mrblockplacer.net/ls/v0/vIndex.xml", Util.getInstallDir() + File.separator + "LastStandStudio" + File.separator + "SpaceShooter" + File.separator + "vIndex.xml");
 
             downloadReqFileds(parseIndexFile());
         } catch (Exception e) {
@@ -57,9 +58,9 @@ public class UpdateAndStartThread extends Thread {
 
     private void downloadReqFileds(List<ReqFile> reqFiles) {
         for (ReqFile reqFile : reqFiles) {
-            if (!new File(reqFile.getPath()).exists()) {
+            if (!new File(Util.getInstallDir() + File.separator + "LastStandStudio" + File.separator + "SpaceShooter" + File.separator + reqFile.getPath() + reqFile.getFileName()).exists()) {
                 try {
-                    downloadFile("http://direct.mrblockplacer.net/ls/v0/files/" + reqFile.getFileName(), reqFile.getPath() + reqFile.getFileName());
+                    downloadFile("http://direct.mrblockplacer.net/ls/v0/files/" + reqFile.getURL(), Util.getInstallDir() + File.separator + "LastStandStudio" + File.separator + "SpaceShooter" + File.separator + reqFile.getPath() + reqFile.getFileName());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -72,7 +73,7 @@ public class UpdateAndStartThread extends Thread {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 
-            Document document = documentBuilder.parse(new File(System.getenv("APPDATA") + File.separator + "LastStandStudio" + File.separator + "SpaceShooter" + File.separator + "vIndex.xml"));
+            Document document = documentBuilder.parse(new File(Util.getInstallDir() + File.separator + "LastStandStudio" + File.separator + "SpaceShooter" + File.separator + "vIndex.xml"));
 
             List<ReqFile> requiredFiles = new ArrayList<ReqFile>();
             NodeList nodeList = document.getDocumentElement().getChildNodes();
@@ -87,7 +88,8 @@ public class UpdateAndStartThread extends Thread {
                     String type = element.getElementsByTagName("Type").item(0).getChildNodes().item(0).getNodeValue();
                     String path = element.getElementsByTagName("Path").item(0).getChildNodes().item(0).getNodeValue().replace(":>", File.separator);
                     String fileName = element.getElementsByTagName("FileName").item(0).getChildNodes().item(0).getNodeValue();
-                    requiredFiles.add(new ReqFile(identifier, name, version, type, path, fileName));
+                    String url = element.getElementsByTagName("URL").item(0).getChildNodes().item(0).getNodeValue();
+                    requiredFiles.add(new ReqFile(identifier, name, version, type, path, fileName, url));
                 }
             }
 
@@ -105,34 +107,37 @@ public class UpdateAndStartThread extends Thread {
     }
 
     public void downloadFile(String urlString, String saveFileName) throws IOException {
+        new File(saveFileName).getParentFile().mkdirs();
+        System.out.println(saveFileName);
         URL url = new URL(urlString);
         HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
         int responseCode = httpURLConnection.getResponseCode();
 
         if (responseCode == HttpURLConnection.HTTP_OK) {
-            String fileName = "";
-            String disposition = httpURLConnection.getHeaderField("Content-Disposition");
-            String contentType = httpURLConnection.getContentType();
-            int contentLength = httpURLConnection.getContentLength();
+//            String fileName = "";
+//            String disposition = httpURLConnection.getHeaderField("Content-Disposition");
+//            String contentType = httpURLConnection.getContentType();
+//            int contentLength = httpURLConnection.getContentLength();
 
-            if (disposition != null) {
-                int index = disposition.indexOf("filename=");
-                if (index > 0) {
-                    fileName = disposition.substring(index + 10, disposition.length() - 1);
-                }
-            } else {
-                fileName = urlString.substring(urlString.lastIndexOf("/") + 1, urlString.length());
-            }
+//            if (disposition != null) {
+//                int index = disposition.indexOf("filename=");
+//                if (index > 0) {
+//                    fileName = disposition.substring(index + 10, disposition.length() - 1);
+//                }
+//            } else {
+//                fileName = urlString.substring(urlString.lastIndexOf("/") + 1, urlString.length());
+//            }
 
-            System.out.println("Content-Type = " + contentType);
-            System.out.println("Content-Disposition = " + disposition);
-            System.out.println("Content-Length = " + contentLength);
-            System.out.println("FileName = " + fileName);
+//            System.out.println("Content-Type = " + contentType);
+//            System.out.println("Content-Disposition = " + disposition);
+//            System.out.println("Content-Length = " + contentLength);
+//            System.out.println("FileName = " + fileName);
 
             InputStream inputStream = httpURLConnection.getInputStream();
 
             FileOutputStream fileOutputStream = new FileOutputStream(saveFileName);
 
+            @SuppressWarnings("all")
             int bytesRead = -1;
             byte[] buffer = new byte[4096];
             while ((bytesRead = inputStream.read(buffer)) != -1) {
