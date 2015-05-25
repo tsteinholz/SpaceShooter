@@ -6,12 +6,12 @@
 }
 
 #titleLabel {
-    -fx-text-fill: #2d2d2d;
+    -fx-text-fill: #969696;
 }
 
 #newsBody {
     -fx-background-color: rgba(0, 0, 0, 0);
-    -fx-text-fill: #2d2d2d;
+    -fx-text-fill: #969696;
 }
 
 #newsBody .scroll-pane{

@@ -54,7 +54,7 @@ public class Launcher extends Application {
             updateFilesAndStartThread.start();
         });
 
-        titleLabel = new Label("SpaceShooter");
+        titleLabel = new Label("space   shooter");
         titleLabel.setId("titleLabel");
         titleLabel.setFont(cFont);
         System.out.println((WIDTH / 2) - (titleLabel.getWidth() * 4));
