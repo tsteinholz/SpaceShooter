@@ -149,7 +149,7 @@ public class Logger {
         this.log = pastLog;
         this.prefix = prefix;
         this.suffix = suffix;
-        logWindow = new LogWindow();
+        logWindow = SpaceShooter.debug ? new LogWindow() : null;
     }
 
     /**
