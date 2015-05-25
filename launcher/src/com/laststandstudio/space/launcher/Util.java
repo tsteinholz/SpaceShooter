@@ -26,7 +26,7 @@ public class Util {
 
     public static final String LINUX_INSTALL_DIR = System.getProperty("user.home")+"/.local/share";
     public static final String WINDOWS_INSTALL_DIR = System.getenv("LOCALAPPDATA");
-    public static final String OSX_INSTALL_DIR = "google later";
+    public static final String OSX_INSTALL_DIR = System.getProperty("user.home") + File.separator + "Applications";
 
     public static final String SPACE_INSTALL_DIR = File.separator + "LastStandStudio" + File.separator + "SpaceShooter";
 
