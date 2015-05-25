@@ -33,31 +33,31 @@ public class TextBank {
                 loadLanguage(new File("Languages" + File.separator + "en.properties"));
                 break;
             case CHINESE:
-                loadLanguage(new File("Languages" + File.separator + ".properties"));
+                loadLanguage(new File("Languages" + File.separator + "zh.properties"));
                 break;
             case SPANISH:
-                loadLanguage(new File("Languages" + File.separator + ".properties"));
+                loadLanguage(new File("Languages" + File.separator + "es.properties"));
                 break;
             case ARABIC:
-                loadLanguage(new File("Languages" + File.separator + ".properties"));
+                loadLanguage(new File("Languages" + File.separator + "ar.properties"));
                 break;
             case PORTUGUESE:
-                loadLanguage(new File("Languages" + File.separator + ".properties"));
+                loadLanguage(new File("Languages" + File.separator + "po.properties"));
                 break;
             case JAPANESE:
-                loadLanguage(new File("Languages" + File.separator + ".properties"));
+                loadLanguage(new File("Languages" + File.separator + "ja.properties"));
                 break;
             case RUSSIAN:
-                loadLanguage(new File("Languages" + File.separator + ".properties"));
+                loadLanguage(new File("Languages" + File.separator + "ru.properties"));
                 break;
             case GERMAN:
-                loadLanguage(new File("Languages" + File.separator + ".properties"));
+                loadLanguage(new File("Languages" + File.separator + "de.properties"));
                 break;
             case FRENCH:
-                loadLanguage(new File("Languages" + File.separator + ".properties"));
+                loadLanguage(new File("Languages" + File.separator + "fr.properties"));
                 break;
             case MALAY:
-                loadLanguage(new File("Languages" + File.separator + ".properties"));
+                loadLanguage(new File("Languages" + File.separator + "ma.properties"));
                 break;
         }
     }
