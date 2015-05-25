@@ -20,12 +20,10 @@
 
 package com.laststandstudio.space.engine.Utils;
 
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.laststandstudio.space.SpaceShooter;
 
 public class MusicManager {
-    private AssetManager assetManager;
     private String[] mix;
     private Music currentSong;
     private int currentIndex;
@@ -37,64 +35,51 @@ public class MusicManager {
      * @param mix String array of the title's locations in the asset folder.
      */
     public MusicManager(String[] mix) {
-        this.assetManager = SpaceShooter.assetManager;
         this.mix = mix;
         this.paused = false;
         for (String x : mix) {
-            assetManager.load(x, Music.class);
-            assetManager.finishLoading();
+            SpaceShooter.assetManager.load(x, Music.class);
+            SpaceShooter.assetManager.finishLoading();
         }
         next();
         stop();
     }
 
-    /**
-     * Play the current song.
-     */
+    /** Play the current song. */
     public void play() {
         this.paused = false;
         currentSong.play();
         SpaceShooter.logger.logDebug("Music Manager: Now Playing -> " + mix[currentIndex]);
     }
 
-    /**
-     * Play the next song.
-     */
+    /** Play the next song. */
     public void next() {
         if (playing()) stop();
         currentIndex = (int)(Math.random() * mix.length);
-        currentSong = assetManager.get(mix[currentIndex], Music.class);
+        currentSong = SpaceShooter.assetManager.get(mix[currentIndex], Music.class);
         SpaceShooter.logger.logDebug("Music Manager: Loaded -> " + mix[currentIndex]);
         currentSong.play();
     }
 
-    /**
-     * Pauses the current song.
-     */
+    /** Pauses the current song. */
     public void pause() {
         if (playing()) currentSong.pause();
         this.paused = true;
     }
 
-    /**
-     * Stops the song
-     */
+    /** Stops the song */
     public void stop() {
         pause();
         if (playing()) currentSong.stop();
         SpaceShooter.logger.logDebug("Music Manager: Stopped -> " + mix[currentIndex]);
     }
 
-    /**
-     * @return if a song is playing.
-     */
+    /** @return if a song is playing. */
     public boolean playing() {
         return currentSong != null && currentSong.isPlaying();
     }
 
-    /**
-     * Called once per frame
-     */
+    /** Called once per frame */
     public void update() {
         if (!playing() && !paused) next();
     }
@@ -104,5 +89,10 @@ public class MusicManager {
         for (String x : mix) {
             SpaceShooter.assetManager.unload(x);
         }
+    }
+
+    /** @return List of loaded songs */
+    public String[] getMix() {
+        return mix;
     }
 }
