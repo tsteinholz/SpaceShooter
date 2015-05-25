@@ -24,7 +24,7 @@ import java.io.File;
 
 public class Util {
 
-    public static final String LINUX_INSTALL_DIR = "~" + File.separator + ".local" + File.separator + "share" + File.separator + "LastStandStudio" + File.separator + "SpaceShooter";
+    public static final String LINUX_INSTALL_DIR = System.getProperty("user.home") + File.separator + ".local" + File.separator + "share" + File.separator + "LastStandStudio" + File.separator + "SpaceShooter";
     public static final String WINDOWS_INSTALL_DIR = System.getenv("LOCALAPPDATA")  + File.separator + "LastStandStudio" + File.separator + "SpaceShooter";
     public static final String OSX_INSTALL_DIR = "google later";
 
