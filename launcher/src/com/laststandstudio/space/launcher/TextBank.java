@@ -25,6 +25,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/** @author Thomas Steinholz */
 public class TextBank {
 
     Properties dictionary;
