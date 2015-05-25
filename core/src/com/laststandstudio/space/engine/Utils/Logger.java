@@ -82,7 +82,7 @@ public class Logger {
     /**
      * Error Prefix
      */
-    private final String ERROR = ANSI_RED + "SpaceShooter ERROR: " + ANSI_RESET;
+    private final String ERROR = ANSI_RED + "Space Shooter ERROR: ";
     /**
      * Error Suffix
      */

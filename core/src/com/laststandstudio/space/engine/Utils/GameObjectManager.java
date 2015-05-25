@@ -42,7 +42,7 @@ public class GameObjectManager {
     /**
      * A complete constructor for building the GameObjectManager.
      *
-     * @param gameObjects : A Hashmap containing GameObjects with a pairing key.
+     * @param gameObjects A Hashmap containing GameObjects with a pairing key.
      */
     public GameObjectManager(HashMap<String, GameObject> gameObjects) {
         this.gameObjects = gameObjects;
@@ -51,8 +51,8 @@ public class GameObjectManager {
     /**
      * Adds a GameObject to the Manager.
      *
-     * @param key : The key used to access the Game Object.
-     * @param gameObject : The GameObject being stored.
+     * @param key The key used to access the Game Object.
+     * @param gameObject The GameObject being stored.
      */
     public void load(String key, GameObject gameObject) {
         this.gameObjects.put(key, gameObject);
@@ -65,7 +65,7 @@ public class GameObjectManager {
     /**
      * Removes a selected key from the Manager.
      *
-     * @param key : The String used to access the GameObject.
+     * @param key The String used to access the GameObject.
      * @return the GameObject being removed.
      */
     public GameObject remove (String key) {
@@ -75,7 +75,7 @@ public class GameObjectManager {
     /**
      * Called once per frame.
      *
-     * @param delta : time inbetween frames.
+     * @param delta time inbetween frames.
      */
     public void update(float delta) {
         for(Map.Entry<String, GameObject> x : gameObjects.entrySet()) {
