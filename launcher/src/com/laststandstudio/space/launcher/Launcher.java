@@ -50,7 +50,7 @@ public class Launcher extends Application {
     public void start(Stage primaryStage) throws Exception {
         //TODO : Load last language from conf
 
-        t = new TextBank(Language.ENGLISH);
+        t = new TextBank(Language.SPANISH);
 
         Font cFont = Font.loadFont(new File("Alien_Resurrection.ttf").toURI().toURL().toExternalForm(), 36);
 
@@ -67,7 +67,7 @@ public class Launcher extends Application {
         passwordField.setPromptText(t.getText("password"));
 
         loginButton = new Button();
-        loginButton.setText("Login");
+        loginButton.setText(t.getText("login"));
         loginButton.setPrefWidth(80);
         loginButton.setLayoutX(WIDTH - 105);
         loginButton.setLayoutY(HEIGHT - 40);
