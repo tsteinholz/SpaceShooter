@@ -26,6 +26,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -44,9 +45,10 @@ public class UpdateAndStartThread extends Thread {
     @Override
     public void run() {
         try {
-            System.out.println(System.getenv("APPDATA"));
-            new File(System.getenv("APPDATA") + File.separator + "LastStandStudio" + File.separator + "SpaceShooter").mkdirs();
-            //downloadFile("http://direct.mrblockplacer.net/lsnews.txt", System.getenv("APPDATA") + File.separator + "LastStandStudio" + File.separator + "SpaceShooter" + File.separator + "vIndex.xml");
+            System.out.println(Util.getInstallDir());
+            System.out.println(new File(Util.getInstallDir()).mkdirs());
+            System.out.println("DIRECT MAKE");
+            downloadFile("http://direct.mrblockplacer.net/ls/v0/vIndex.xml", Util.getInstallDir() + File.separator + "vIndex.xml");
 
             downloadReqFileds(parseIndexFile());
         } catch (Exception e) {
@@ -57,11 +59,21 @@ public class UpdateAndStartThread extends Thread {
 
     private void downloadReqFileds(List<ReqFile> reqFiles) {
         for (ReqFile reqFile : reqFiles) {
-            if (!new File(reqFile.getPath()).exists()) {
+            if (!new File(Util.getInstallDir() + File.separator + reqFile.getPath() + reqFile.getFileName()).exists()) {
                 try {
-                    downloadFile("http://direct.mrblockplacer.net/ls/v0/files/" + reqFile.getFileName(), reqFile.getPath() + reqFile.getFileName());
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    downloadFile("http://direct.mrblockplacer.net/ls/v0/files/" + reqFile.getURL(), Util.getInstallDir() + File.separator + reqFile.getPath() + reqFile.getFileName());
+                } catch (Exception e) {
+                    try {
+                        downloadFile("http://direct.mrblockplacer.net/ls/v0/files/" + reqFile.getURL(), Util.getInstallDir() + File.separator + reqFile.getPath() + reqFile.getFileName());
+                    } catch (Exception e1) {
+                        try {
+                            downloadFile("http://direct.mrblockplacer.net/ls/v0/files/" + reqFile.getURL(), Util.getInstallDir() + File.separator + reqFile.getPath() + reqFile.getFileName());
+                        } catch (Exception e2) {
+                            JOptionPane.showMessageDialog(null, "Servers appear to be down, please try again later!");
+                            System.exit(1);
+                        }
+
+                    }
                 }
             }
         }
@@ -72,9 +84,9 @@ public class UpdateAndStartThread extends Thread {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 
-            Document document = documentBuilder.parse(new File(System.getenv("APPDATA") + File.separator + "LastStandStudio" + File.separator + "SpaceShooter" + File.separator + "vIndex.xml"));
+            Document document = documentBuilder.parse(new File(Util.getInstallDir() + File.separator + "vIndex.xml"));
 
-            List<ReqFile> requiredFiles = new ArrayList<ReqFile>();
+            List<ReqFile> requiredFiles = new ArrayList<>();
             NodeList nodeList = document.getDocumentElement().getChildNodes();
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
@@ -87,7 +99,8 @@ public class UpdateAndStartThread extends Thread {
                     String type = element.getElementsByTagName("Type").item(0).getChildNodes().item(0).getNodeValue();
                     String path = element.getElementsByTagName("Path").item(0).getChildNodes().item(0).getNodeValue().replace(":>", File.separator);
                     String fileName = element.getElementsByTagName("FileName").item(0).getChildNodes().item(0).getNodeValue();
-                    requiredFiles.add(new ReqFile(identifier, name, version, type, path, fileName));
+                    String url = element.getElementsByTagName("URL").item(0).getChildNodes().item(0).getNodeValue();
+                    requiredFiles.add(new ReqFile(identifier, name, version, type, path, fileName, url));
                 }
             }
 
@@ -104,35 +117,18 @@ public class UpdateAndStartThread extends Thread {
         return Collections.emptyList();
     }
 
-    public void downloadFile(String urlString, String saveFileName) throws IOException {
+    public void downloadFile(String urlString, String saveFileName) throws Exception {
+        new File(saveFileName).getParentFile().mkdirs();
         URL url = new URL(urlString);
         HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
         int responseCode = httpURLConnection.getResponseCode();
 
         if (responseCode == HttpURLConnection.HTTP_OK) {
-            String fileName = "";
-            String disposition = httpURLConnection.getHeaderField("Content-Disposition");
-            String contentType = httpURLConnection.getContentType();
-            int contentLength = httpURLConnection.getContentLength();
-
-            if (disposition != null) {
-                int index = disposition.indexOf("filename=");
-                if (index > 0) {
-                    fileName = disposition.substring(index + 10, disposition.length() - 1);
-                }
-            } else {
-                fileName = urlString.substring(urlString.lastIndexOf("/") + 1, urlString.length());
-            }
-
-            System.out.println("Content-Type = " + contentType);
-            System.out.println("Content-Disposition = " + disposition);
-            System.out.println("Content-Length = " + contentLength);
-            System.out.println("FileName = " + fileName);
-
             InputStream inputStream = httpURLConnection.getInputStream();
 
             FileOutputStream fileOutputStream = new FileOutputStream(saveFileName);
 
+            @SuppressWarnings("all")
             int bytesRead = -1;
             byte[] buffer = new byte[4096];
             while ((bytesRead = inputStream.read(buffer)) != -1) {

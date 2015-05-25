@@ -24,8 +24,8 @@ import java.io.File;
 
 public class Util {
 
-    public static final String LINUX_INSTALL_DIR = "~" + File.separator +".local" + File.separator +"share" + File.separator + "SpaceShooter";
-    public static final String WINDOWS_INSTALL_DIR = "%APPDATA%" + File.separator + "Local" + File.separator + "SpaceShooter";
+    public static final String LINUX_INSTALL_DIR = System.getenv("user.home") + File.separator + ".local" + File.separator + "share" + File.separator + "LastStandStudio" + File.separator + "SpaceShooter";
+    public static final String WINDOWS_INSTALL_DIR = System.getenv("LOCALAPPDATA")  + File.separator + "LastStandStudio" + File.separator + "SpaceShooter";
     public static final String OSX_INSTALL_DIR = "google later";
 
     public static String getInstallDir() {
@@ -33,7 +33,7 @@ public class Util {
         if (os.contains("linux")) return LINUX_INSTALL_DIR;
         else if (os.contains("windows")) return WINDOWS_INSTALL_DIR;
         else if (os.contains("mac")) return OSX_INSTALL_DIR;
-        // add additional OS support here if necessary!
+            // add additional OS support here if necessary!
         else return "We Do not Know what we are Doing! <3";
     }
 }
