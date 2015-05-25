@@ -21,7 +21,10 @@
 package com.laststandstudio.space.launcher;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Properties;
 
 public class TextBank {
 
@@ -63,6 +66,19 @@ public class TextBank {
     }
 
     private void loadLanguage(File file) {
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream(file));
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (String key : properties.stringPropertyNames()) {
+            dictionary.put(key, properties.getProperty(key));
+        }
+    }
 
+    public String getText(String key) {
+        return dictionary.get(key);
     }
 }
