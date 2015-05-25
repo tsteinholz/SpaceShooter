@@ -68,8 +68,7 @@ public class TextBank {
         Properties properties = new Properties();
         try {
             properties.load(new FileInputStream(file));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         this.dictionary = properties;
