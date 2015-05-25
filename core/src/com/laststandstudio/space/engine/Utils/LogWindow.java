@@ -20,6 +20,8 @@
 
 package com.laststandstudio.space.engine.Utils;
 
+import com.laststandstudio.space.SpaceShooter;
+
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.SimpleAttributeSet;
@@ -51,7 +53,7 @@ public class LogWindow extends JFrame {
 
 
         setSize(1040, 310);
-        setVisible(true);
+        if (SpaceShooter.debug) setVisible(true);
 
         this.addComponentListener(new ComponentListener() {
             @Override

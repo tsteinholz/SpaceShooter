@@ -149,7 +149,7 @@ public class Logger {
         this.log = pastLog;
         this.prefix = prefix;
         this.suffix = suffix;
-        logWindow = SpaceShooter.debug ? new LogWindow() : null;
+        logWindow = new LogWindow();
     }
 
     /**
@@ -215,7 +215,7 @@ public class Logger {
             System.out.println(ANSI_BLUE + msg);
             logWindow.appendString("[" + getCurrentTime() + "] ", Color.CYAN);
             logWindow.appendString("Space Shooter ", Color.YELLOW);
-            logWindow.appendString("DEBUG ", new Color(50,50,255));
+            logWindow.appendString("DEBUG ", new Color(50, 50, 255));
             logWindow.appendString(message, Color.WHITE);
             logWindow.appendString("\n", null);
         }
